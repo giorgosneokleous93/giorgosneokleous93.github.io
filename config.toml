@@ -1,11 +1,11 @@
-baseURL = "https://giorgosneokleous93.github.io"
+baseURL = "https://www.giorgosneokleous.com"
 languageCode = "en-us"
 title = "Giorgos Neokleous"
 theme = "anubis"
 paginate = 5
 
-disqusShortname = "" #TODO
-googleAnalytics = "" #TODO
+disqusShortname = "www-giorgosneokleous-com"
+googleAnalytics = "UA-84803609-1"
 
 publishDir = "production"
 
