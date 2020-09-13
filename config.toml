@@ -1,0 +1,40 @@
+baseURL = "https://example.com"
+languageCode = "en-us"
+title = "Giorgos Neokleous"
+theme = "anubis"
+paginate = 5
+
+disqusShortname = "" #TODO
+googleAnalytics = "" #TODO
+
+[author]
+  name = "Giorgos Neokleous"
+
+[params]
+   author = "Giorgos Neokleous"
+   description = "Giorgos Neokleous's stories about Android Development and Programming!"
+   dateFormat = "2006-01-02"
+   paginationSinglePost = true
+   style = "dark"
+   readMore = false
+
+[menu]
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Blog"
+    identifier = "Blog"
+    url = "/posts/"
+    weight = 2
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+
+[markup.goldmark.renderer]
+unsafe = true
