@@ -7,7 +7,7 @@ paginate = 5
 disqusShortname = "www-giorgosneokleous-com"
 googleAnalytics = "UA-84803609-1"
 
-publishDir = "production"
+publishDir = "docs"
 
 [author]
   name = "Giorgos Neokleous"

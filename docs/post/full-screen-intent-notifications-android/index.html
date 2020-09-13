@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-theme="">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>Full-Screen Intent Notifications – Android - Giorgos Neokleous</title>
+<meta name="description" content="Giorgos Neokleous&#39;s stories about Android Development and Programming!">
+
+<link rel="icon" type="image/x-icon" href="https://www.giorgosneokleous.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://www.giorgosneokleous.com/favicon.png">
+
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1600022167" />
+<style>
+
+    [data-theme="dark"] {   
+        --font-color: #eee;
+--bg-color: #212121;
+
+--link-color:#599ada;
+--link-state-color:#ff5858;
+--link-state-border-color: rgba(238, 54, 54, 0.5);
+
+--thead-bg-color: #343a40;
+--table-border-color: lightgrey;
+
+--pre-color: #333;
+--pre-bg-color: #f1f1f1;
+
+--bq-color: #ccc;
+--hr-color: #333;
+
+--pagination-bg-color: #373737;
+--pagination-link-color: #b6b6b6;
+
+--post-info-color: grey;
+
+--switcher-color: #333;
+--switcher-bg-color: #fff;
+
+
+
+    }
+
+</style>
+
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1600022167" />
+
+
+
+
+
+<meta property="og:title" content="Full-Screen Intent Notifications – Android" />
+<meta property="og:description" content="Learn how to document your XML attributes for your Custom Views." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.giorgosneokleous.com/post/full-screen-intent-notifications-android/" />
+<meta property="article:published_time" content="2020-03-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-15T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Full-Screen Intent Notifications – Android"/>
+<meta name="twitter:description" content="Learn how to document your XML attributes for your Custom Views."/>
+
+
+
+
+
+
+
+
+    
+</head>
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header class="common-header"> 
+            
+                <h1 class="site-title">
+    <a href="/">Giorgos Neokleous</a>
+</h1>
+
+    <nav>
+        
+        
+        <a class="" href="https://www.giorgosneokleous.com/about/" title="">About</a>
+        
+        <a class="" href="https://www.giorgosneokleous.com/posts/" title="">Blog</a>
+        
+    </nav>
+
+
+            
+        </header>
+        <main id="main" tabindex="-1"> 
+            
+    
+    
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">Full-Screen Intent Notifications – Android</h1>
+        </header>
+        <div class="content">
+            <h3 id="what-are-full-screen-intents">What are Full-Screen Intents?</h3>
+<p>Full-Screen <a href="https://developer.android.com/reference/android/content/Intent">Intents</a> are Intents that can launch in full-screen and can be used for showing a full-screen notification.</p>
+<p>Well, I guess that needs a bit more explanation so keep on reading.</p>
+<p>From the official <a href="https://developer.android.com/training/notify-user/build-notification#urgent-message">docs</a>:</p>
+<blockquote>
+<p>Your app might need to display an urgent, time-sensitive message, such as an incoming phone call or a ringing alarm. In these situations, you can associate a full-screen intent with your notification.</p>
+</blockquote>
+<h3 id="why-should-full-screen-intents-be-used">Why should Full-Screen Intents be used?</h3>
+<p>A restriction was added with Android Q where an app couldn’t start an activity if <a href="https://developer.android.com/guide/components/activities/background-starts#exceptions">not meeting criteria</a>. Although this breaks a lot of things, it doesn’t affect full-screen intents. (see <a href="https://developer.android.com/guide/components/activities/background-starts#display-notification">Restrictions on starting activities from the background</a>)</p>
+<p>From <a href="https://stackoverflow.com/users/1676363/ianhanniballake">Ian Lake</a> from the Android Toolkit team at <a href="https://stackoverflow.com/questions/57964961/how-to-set-an-alarm-on-android-q">Stackoverflow</a>:</p>
+<blockquote>
+<p>Full screen intent has been the recommended best practice for alarms since it was introduced in API 9 and was even more important with the introduction of heads up notifications (where your alarm shows as a heads up notification if the user is actively using their device)</p>
+</blockquote>
+<h3 id="when-should-full-screen-intents-be-used">When should Full-Screen Intents be used?</h3>
+<p>Full-screen intents were added to the framework since forever and it is the recommended way of launching an activity while the system is locked or busy.</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>Incoming call</strong>: When there is an incoming call, the system launches a full-screen activity if the phone is locked or shows a normal notification with high priority.</li>
+<li><strong>Alarm Clock</strong>: An alarm clock can use full-screen intent to either show an activity or a notification with high priority.</li>
+</ul>
+<p>Notifications with a Full-Screen Intent are less intrusive to the user and there is less chance to break in the future with any API changes.</p>
+<hr>
+<h3 id="show-me-the-code">Show me the code</h3>
+<p><strong>Note</strong>: On Android 10 and above to use a full-screen intent, a special <a href="https://developer.android.com/about/versions/10/behavior-changes-10#full-screen-intents">permission</a> needs to be declared in the Manifest.</p>
+<p>We are going to explore three different scenarios:</p>
+<ol>
+<li>Notify while the app is on the foreground</li>
+<li>Schedule Full-Screen Intent Notification</li>
+<li>Full-Screen Intent on Lock Screen with a Keyguard</li>
+</ol>
+<p><em>Disclaimer</em>: Some logic will be emitted for demonstration purposes</p>
+<h3 id="1-notify-while-the-app-on-the-foreground">1. Notify while the app on the foreground.</h3>
+<p><img src="/posts/full_screen_intent-notify-while-foreground.gif" alt="Notify while the app on the foreground demo"></p>
+<p>In order to show a full-screen intent, we need to first build the notification and <strong>set the full-screen intent to the notification</strong>.</p>
+<p>To build the intent we need a pending intent, which can be achieved using <a href="https://developer.android.com/reference/android/app/PendingIntent">PendingIntent</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"> <span style="color:#66d9ef">val</span> builder = NotificationCompat.Builder(<span style="color:#66d9ef">this</span>, channelId)
+        .setSmallIcon(android.R.drawable.arrow_up_float)
+        .setContentTitle(title)
+        .setContentText(description)
+        .setPriority(NotificationCompat.PRIORITY_HIGH)
+<span style="color:#75715e">// request code and flags not added for demo purposes
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> pendingIntent = PendingIntent.getActivity(<span style="color:#66d9ef">this</span>, <span style="color:#ae81ff">0</span>, intent, <span style="color:#ae81ff">0</span>)
+builder.setFullScreenIntent(pendingIntent) <span style="color:#75715e">// THIS HERE is the full-screen intent
+</span></code></pre></div><h3 id="2-schedule-full-screen-intent-notification">2. Schedule Full-Screen Intent Notification</h3>
+<p>Building the notification is identical to the previous example. The main difference is that the notification is not built by an Activity but by a <a href="https://developer.android.com/reference/android/content/BroadcastReceiver">BroadcastReceiver</a> to enable scheduling in the future using <a href="https://developer.android.com/reference/android/app/AlarmManager">AlarmManager</a>.</p>
+<p><img src="/posts/full_screen_intent-schedule.gif" alt="Schedule Full-Screen Intent Notification demo"></p>
+<p><strong>Scheduling</strong>
+AlarmManager needs a PendingIntent with a BroadcastReceiver.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">Context</span>.scheduleNotification(isLockScreen: Boolean) {
+    <span style="color:#66d9ef">val</span> alarmManager = getSystemService(Context.ALARM_SERVICE) <span style="color:#66d9ef">as</span> AlarmManager
+    <span style="color:#66d9ef">val</span> timeInMillis = System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(SCHEDULE_TIME)
+    with(alarmManager) {
+        setExact(AlarmManager.RTC_WAKEUP, timeInMillis, getReceiver(isLockScreen))
+    }
+}
+<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">Context</span>.getReceiver(isLockScreen: Boolean): PendingIntent {
+    <span style="color:#75715e">// for demo purposes no request code and no flags
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> PendingIntent.getBroadcast(
+        <span style="color:#66d9ef">this</span>,
+        <span style="color:#ae81ff">0</span>,
+        NotificationReceiver.build(<span style="color:#66d9ef">this</span>, isLockScreen),
+        <span style="color:#ae81ff">0</span>
+    )
+}
+
+</code></pre></div><p><strong>Receiver</strong>
+The Receiver below is called in two cases:</p>
+<ul>
+<li>When the system is locked</li>
+<li>When the system is not locked</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NotificationReceiver</span> : BroadcastReceiver() {
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onReceive</span>(context: Context, intent: Intent) {
+        <span style="color:#66d9ef">if</span>(intent.getBooleanExtra(LOCK_SCREEN_KEY, <span style="color:#66d9ef">true</span>)) {
+            context.showNotificationWithFullScreenIntent(<span style="color:#66d9ef">true</span>)
+        } <span style="color:#66d9ef">else</span> {
+            context.showNotificationWithFullScreenIntent()
+        }
+    }
+    <span style="color:#66d9ef">companion</span> <span style="color:#66d9ef">object</span> {
+        <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">build</span>(context: Context, isLockScreen: Boolean): Intent {
+            <span style="color:#66d9ef">return</span> Intent(context, NotificationReceiver<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>.java).also {
+                it.putExtra(LOCK_SCREEN_KEY, isLockScreen)
+            }
+        }
+    }
+}
+<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">val</span> LOCK_SCREEN_KEY = <span style="color:#e6db74">&#34;lockScreenKey&#34;</span>
+</code></pre></div><h3 id="3-full-screen-intent-on-lock-screen-with-a-keyguard">3. Full-Screen Intent on Lock Screen with a Keyguard</h3>
+<p><a href="https://developer.android.com/reference/android/app/KeyguardManager">Keyguard</a> could prevent the notification from being displayed.</p>
+<p>Let’s see an example to visualize it.</p>
+<p><img src="/posts/full_screen_intent-keyguard-blocker.gif" alt="Full-Screen Intent on Lock Screen with a Keyguard demo blocker"></p>
+<p>The framework provides some flags to dismiss keyguard.</p>
+<p>Activity#<a href="https://developer.android.com/reference/android/app/Activity#setShowWhenLocked(boolean)">setShowWhenLocked</a>(true) method
+Note: To be able to turn on the screen we need to also request it using the:</p>
+<p>– Activity#<a href="https://developer.android.com/reference/android/app/Activity#setTurnScreenOn(boolean)">setTurnScreenOn</a>(true) method</p>
+<p>Time for an extension function that sets both flags with backward compatibility 🚀</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">Activity</span>.turnScreenOnAndKeyguardOff() {
+    <span style="color:#66d9ef">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O_MR1) {
+        setShowWhenLocked(<span style="color:#66d9ef">true</span>)
+        setTurnScreenOn(<span style="color:#66d9ef">true</span>)
+    } <span style="color:#66d9ef">else</span> {
+        window.addFlags(
+            WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+                    or WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON
+        )
+    }
+    with(getSystemService(Context.KEYGUARD_SERVICE) <span style="color:#66d9ef">as</span> KeyguardManager) {
+        <span style="color:#66d9ef">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) {
+            requestDismissKeyguard(<span style="color:#66d9ef">this</span>@turnScreenOnAndKeyguardOff, <span style="color:#66d9ef">null</span>)
+        }
+    }
+}
+</code></pre></div><p>Demo 🎬
+<img src="/posts/full_screen_intent-keyguard-fixed.gif" alt="Full-Screen Intent on Lock Screen with a Keyguard"></p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Using Full-Screen Intents is easy and it’s the recommended way of launching an activity, especially for alarms.</p>
+<p>The API should be used with care, and developers shouldn’t abuse it as it’s quite intrusive especially when the screen wakes up.</p>
+<p>You can find a sample project <a href="https://github.com/giorgosneokleous93/fullscreenintentexample/">here</a>.</p>
+<p>Feel free to ping me on <a href="https://twitter.com/neokleoys2005">twitter</a>.</p>
+<p>Till next time! 👋</p>
+<h4 id="recommended-reading">Recommended Reading</h4>
+<ul>
+<li><a href="https://developer.android.com/guide/components/activities/background-starts#display-notification">https://developer.android.com/guide/components/activities/background-starts#display-notification</a></li>
+<li><a href="https://developer.android.com/training/notify-user/time-sensitive">https://developer.android.com/training/notify-user/time-sensitive</a></li>
+<li><a href="https://developer.android.com/about/versions/10/behavior-changes-10#full-screen-intents">https://developer.android.com/about/versions/10/behavior-changes-10#full-screen-intents</a></li>
+</ul>
+
+        </div>
+        
+
+    
+
+
+<div class="post-info">
+    
+        <div class="post-date">2020-03-15</div>
+    
+    <div class="post-taxonomies">
+        
+            
+    </div>
+</div>
+
+    </article>
+
+    
+        
+    <div class="pagination post-pagination">
+        <div class="left pagination-item ">
+            
+                <a href="/post/lets-talk-ttsspans-in-android-accessibility/">Let’s talk (Tts)Spans in Android Accessibility </a>
+            
+        </div>
+        <div class="right pagination-item ">
+            
+                <a href="/post/documenting-your-xml-attributes-custom-view/">Documenting your XML attributes – Custom View</a>
+            
+        </div>
+    </div>
+
+    
+
+    
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "www-giorgosneokleous-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+
+        </main>
+        
+            <footer class="common-footer">
+    
+    
+
+    <div class="common-footer-bottom">
+        
+        <div class="copyright">
+            <p>© Giorgos Neokleous, 2020<br>
+            Powered by <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
+            </p>  
+        </div> 
+
+        
+
+    
+
+
+
+    <button class="theme-switcher">
+        Dark theme
+    </button>
+
+    <script>
+    const STORAGE_KEY = 'user-color-scheme'
+    const defaultTheme = "dark"
+
+    let currentTheme
+    let switchButton
+    let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+    const autoChangeScheme = e => {
+        currentTheme = e.matches ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', currentTheme)
+        changeButtonText()
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        switchButton = document.querySelector('.theme-switcher')
+        currentTheme = detectCurrentScheme()
+        if (currentTheme == 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark')
+        }
+        if (currentTheme == 'auto') {
+            autoChangeScheme(autoDefinedScheme);
+            autoDefinedScheme.addListener(autoChangeScheme);
+        }
+        changeButtonText()
+        switchButton.addEventListener('click', switchTheme, false)
+    })
+
+    function detectCurrentScheme() {
+        if (localStorage.getItem(STORAGE_KEY)) {
+            return localStorage.getItem(STORAGE_KEY)
+        } 
+        if (defaultTheme) {
+            return defaultTheme
+        } 
+        if (!window.matchMedia) {
+            return 'light'
+        } 
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark'
+        }
+        return 'light'
+    }
+
+    function changeButtonText()
+    {   
+        switchButton.textContent = currentTheme == 'dark' ?  "Light theme" : "Dark theme"
+    }
+
+    function switchTheme(e) {
+        if (currentTheme == 'dark') {
+            localStorage.setItem(STORAGE_KEY, 'light')
+            document.documentElement.setAttribute('data-theme', 'light')
+            currentTheme = 'light'
+        } else {
+            localStorage.setItem(STORAGE_KEY, 'dark')
+            document.documentElement.setAttribute('data-theme', 'dark')
+            currentTheme = 'dark'
+        }
+        changeButtonText()
+    }
+    </script>
+   
+    </div>
+</footer>
+
+        
+    </div>
+</body>
+</html>

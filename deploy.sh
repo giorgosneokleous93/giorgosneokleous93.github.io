@@ -22,4 +22,4 @@ fi
 git commit --amend -m "$msg"
 
 # Push source and build repos.
-git push origin master --force
+git push origin main 
