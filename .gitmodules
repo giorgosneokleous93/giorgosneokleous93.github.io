@@ -1,8 +1,0 @@
-[submodule "docs"]
-	path = docs
-	url = https://github.com/giorgosneokleous93/giorgosneokleous93.github.io.git
-	branch = master
-[submodule "production"]
-	path = production
-	url = https://github.com/giorgosneokleous93/giorgosneokleous93.github.io.git
-	branch = master
