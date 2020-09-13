@@ -1,4 +1,4 @@
-baseURL = "https://example.com"
+baseURL = "https://giorgosneokleous93.github.io"
 languageCode = "en-us"
 title = "Giorgos Neokleous"
 theme = "anubis"
@@ -6,6 +6,8 @@ paginate = 5
 
 disqusShortname = "" #TODO
 googleAnalytics = "" #TODO
+
+publishDir = "production"
 
 [author]
   name = "Giorgos Neokleous"
