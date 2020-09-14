@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Giorgos Neokleous</title>
-    <link>https://giorgosneokleous93.github.io/</link>
+    <link>https://www.giorgosneokleous.com/</link>
     <description>Giorgos Neokleous</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 29 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-    <atom:link href="https://giorgosneokleous93.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.giorgosneokleous.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Giorgos Neokleous</title>
-      <link>https://giorgosneokleous93.github.io/about/</link>
+      <link>https://www.giorgosneokleous.com/about/</link>
       <pubDate>Sat, 12 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://giorgosneokleous93.github.io/about/</guid>
+      <guid>https://www.giorgosneokleous.com/about/</guid>
       <description>&lt;p&gt;Android Engineer @ &lt;a href=&#34;https://www.peak.net/&#34;&gt;Peak Brain Training&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;mailto:giorgos.neokleous93@gmail.com&#34;&gt;giorgos.neokleous93@gmail.com&lt;/a&gt; | &lt;a href=&#34;http://www.giorgosneokleous.com&#34;&gt;www.giorgosneokleous.com&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;experience&#34;&gt;Experience&lt;/h1&gt;
@@ -121,10 +121,10 @@ shops.&lt;/li&gt;
     
     <item>
       <title>Let’s talk (Tts)Spans in Android Accessibility </title>
-      <link>https://giorgosneokleous93.github.io/post/lets-talk-ttsspans-in-android-accessibility/</link>
+      <link>https://www.giorgosneokleous.com/post/lets-talk-ttsspans-in-android-accessibility/</link>
       <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://giorgosneokleous93.github.io/post/lets-talk-ttsspans-in-android-accessibility/</guid>
+      <guid>https://www.giorgosneokleous.com/post/lets-talk-ttsspans-in-android-accessibility/</guid>
       <description>&lt;p&gt;A great talk from the Google IO 2019 called “&lt;a href=&#34;https://www.youtube.com/watch?v=bTodlNvQGfY&#34;&gt;Demystifying Android Accessibility Development&lt;/a&gt;” mentions that when designing apps, we often miss to account for the users with accessibility needs. Users with accessibility needs won’t interact with the app directly, but instead they will use tools such as the &lt;a href=&#34;https://play.google.com/store/apps/details?id=com.google.android.marvin.talkback&amp;amp;hl=en_GB&#34;&gt;Android Accessibility Suite&lt;/a&gt; (includes Talkback and Switch Access). The user will interact with the Accessibility service and then the service will interact with the app.&lt;/p&gt;
 &lt;p&gt;Accessibility services need information on what the screen has or shows to be able to provide the correct contextual information to the user or to be able to navigate through the app. An example of that information can be provided using &lt;a href=&#34;https://developer.android.com/guide/topics/ui/accessibility/apps#describe-ui-element&#34;&gt;Content Descriptions&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In this blog post we’ll talk about &lt;a href=&#34;https://developer.android.com/guide/topics/text/spans&#34;&gt;Spans&lt;/a&gt; in Android and how to enrich &lt;a href=&#34;https://developer.android.com/reference/android/text/Spannable&#34;&gt;Spannables&lt;/a&gt; to provide a better UX to users with accessibility needs.&lt;/p&gt;
@@ -161,7 +161,7 @@ shops.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;brief-introduction-to-demo&#34;&gt;Brief introduction to demo&lt;/h3&gt;
 &lt;p&gt;The demo application has a list of items. Each item is duplicated, one without TtsSpan and one with TtsSpan to highlight the differences.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://giorgosneokleous93.github.io/posts/lets-talk-spans-texttospeechexample-1.png&#34; alt=&#34;Demo App Screenshot&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/lets-talk-spans-texttospeechexample-1.png&#34; alt=&#34;Demo App Screenshot&#34;&gt;&lt;/p&gt;
 &lt;p&gt;When an item is clicked, we pass the Spannable (with or without TtsSpan) to the TextToSpeech service to output the metadata.&lt;/p&gt;
 &lt;h3 id=&#34;verification&#34;&gt;Verification&lt;/h3&gt;
 &lt;p&gt;To verify that the metadata are supplied to the TextToSpeech engines correctly, we could do the following:&lt;/p&gt;
@@ -180,7 +180,7 @@ shops.&lt;/li&gt;
   &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; id: Int = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
   &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;toSpannable&lt;/span&gt;(): SpannableString? { ... }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://giorgosneokleous93.github.io/posts/lets-talk-spans-ttsitem.png&#34; alt=&#34;TtsItem demo&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/lets-talk-spans-ttsitem.png&#34; alt=&#34;TtsItem demo&#34;&gt;&lt;/p&gt;
 &lt;p&gt;To produce the different TtsItem, we have a data factory called DummyDataFactory .&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;object&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;DummyDataFactory&lt;/span&gt; {
     &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;getListOfTtsItem&lt;/span&gt;(): List&amp;lt;TtsItem&amp;gt; = listOf(
@@ -213,7 +213,7 @@ TtsSpan.DateBuilder()
    .setYear(calendar.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;(Calendar.YEAR))
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above code block will take a String date, parse it into a Date object which is then supplied to a Calendar. Then the Calendar object is used to extract different information that would be useful to &lt;a href=&#34;https://developer.android.com/reference/android/text/style/TtsSpan.DateBuilder?hl=en&#34;&gt;TtsSpan.DateBuilder()&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;video controls src=&#34;https://giorgosneokleous93.github.io/posts/lets-talk-spans-date-demo.mp4&#34;&gt;&lt;/video&gt;&lt;/p&gt;
+&lt;p&gt;&lt;video controls src=&#34;https://www.giorgosneokleous.com/posts/lets-talk-spans-date-demo.mp4&#34;&gt;&lt;/video&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Caption without TtsSpan:&lt;/strong&gt; “18 slash 04 slash 2020“&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Caption with TtsSpan:&lt;/strong&gt; “Sunday the 18th of April 2020“&lt;/li&gt;
@@ -225,7 +225,7 @@ TtsSpan.DateBuilder()
    .setNumber(number)
    .setUnit(unit)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above code block will extract the digits from the string which will be treated as the number and then extract the text from the string which will be treated as the Measurement unit. All the extracted data are supplied to the &lt;a href=&#34;https://developer.android.com/reference/android/text/style/TtsSpan.MeasureBuilder?hl=en&#34;&gt;TtsSpan.MeasureBuilder&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;video controls src=&#34;https://giorgosneokleous93.github.io/posts/lets-talk-spans-measure-demo.mp4&#34;&gt;&lt;/video&gt;&lt;/p&gt;
+&lt;p&gt;&lt;video controls src=&#34;https://www.giorgosneokleous.com/posts/lets-talk-spans-measure-demo.mp4&#34;&gt;&lt;/video&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Caption without TtsSpan:&lt;/strong&gt; “5 metre“&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Caption with TtsSpan:&lt;/strong&gt; “5 metres“&lt;/li&gt;
@@ -238,7 +238,7 @@ TtsSpan.TimeBuilder()
    .setHours(hours.toInt())
    .setMinutes(minutes.toInt())
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above code block builds metadata needed for time. It simply extracts hours and minutes from string and supplies them to the &lt;a href=&#34;https://developer.android.com/reference/android/text/style/TtsSpan.TimeBuilder?hl=en&#34;&gt;TtsSpan.TimeBuilder()&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;video controls src=&#34;https://giorgosneokleous93.github.io/posts/lets-talk-spans-time-demo.mp4&#34;&gt;&lt;/video&gt;&lt;/p&gt;
+&lt;p&gt;&lt;video controls src=&#34;https://www.giorgosneokleous.com/posts/lets-talk-spans-time-demo.mp4&#34;&gt;&lt;/video&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Caption without TtsSpan:&lt;/strong&gt; “14 colon zero zero“&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Caption with TtsSpan:&lt;/strong&gt; “14 hundred“&lt;/li&gt;
@@ -251,7 +251,7 @@ TtsSpan.ElectronicBuilder()
    .setPassword(password)
    .setUsername(username)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above code block uses the &lt;a href=&#34;https://developer.android.com/reference/android/text/style/TtsSpan.ElectronicBuilder?hl=en&#34;&gt;TtsSpan.ElectronicBuilder&lt;/a&gt; to build the metadata. The first part of the string is treated as the username and the second part as the password.&lt;/p&gt;
-&lt;p&gt;&lt;video controls src=&#34;https://giorgosneokleous93.github.io/posts/lets-talk-spans-electronic-demo.mp4&#34;&gt;&lt;/video&gt;&lt;/p&gt;
+&lt;p&gt;&lt;video controls src=&#34;https://www.giorgosneokleous.com/posts/lets-talk-spans-electronic-demo.mp4&#34;&gt;&lt;/video&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Caption without TtsSpan:&lt;/strong&gt; “admin 123 million 456 thousands 7 hundred and 89“&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Caption with TtsSpan:&lt;/strong&gt; “admin passoword 1 2 3 4 5 6 7 8 9“
@@ -276,10 +276,10 @@ The above example is my favourite as it demonstrates how powerful the Text-to-Sp
     
     <item>
       <title>Full-Screen Intent Notifications – Android</title>
-      <link>https://giorgosneokleous93.github.io/post/full-screen-intent-notifications-android/</link>
+      <link>https://www.giorgosneokleous.com/post/full-screen-intent-notifications-android/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://giorgosneokleous93.github.io/post/full-screen-intent-notifications-android/</guid>
+      <guid>https://www.giorgosneokleous.com/post/full-screen-intent-notifications-android/</guid>
       <description>&lt;h3 id=&#34;what-are-full-screen-intents&#34;&gt;What are Full-Screen Intents?&lt;/h3&gt;
 &lt;p&gt;Full-Screen &lt;a href=&#34;https://developer.android.com/reference/android/content/Intent&#34;&gt;Intents&lt;/a&gt; are Intents that can launch in full-screen and can be used for showing a full-screen notification.&lt;/p&gt;
 &lt;p&gt;Well, I guess that needs a bit more explanation so keep on reading.&lt;/p&gt;
@@ -312,7 +312,7 @@ The above example is my favourite as it demonstrates how powerful the Text-to-Sp
 &lt;/ol&gt;
 &lt;p&gt;&lt;em&gt;Disclaimer&lt;/em&gt;: Some logic will be emitted for demonstration purposes&lt;/p&gt;
 &lt;h3 id=&#34;1-notify-while-the-app-on-the-foreground&#34;&gt;1. Notify while the app on the foreground.&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://giorgosneokleous93.github.io/posts/full_screen_intent-notify-while-foreground.gif&#34; alt=&#34;Notify while the app on the foreground demo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/full_screen_intent-notify-while-foreground.gif&#34; alt=&#34;Notify while the app on the foreground demo&#34;&gt;&lt;/p&gt;
 &lt;p&gt;In order to show a full-screen intent, we need to first build the notification and &lt;strong&gt;set the full-screen intent to the notification&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;To build the intent we need a pending intent, which can be achieved using &lt;a href=&#34;https://developer.android.com/reference/android/app/PendingIntent&#34;&gt;PendingIntent&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; builder = NotificationCompat.Builder(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;, channelId)
@@ -325,7 +325,7 @@ The above example is my favourite as it demonstrates how powerful the Text-to-Sp
 builder.setFullScreenIntent(pendingIntent) &lt;span style=&#34;color:#75715e&#34;&gt;// THIS HERE is the full-screen intent
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-schedule-full-screen-intent-notification&#34;&gt;2. Schedule Full-Screen Intent Notification&lt;/h3&gt;
 &lt;p&gt;Building the notification is identical to the previous example. The main difference is that the notification is not built by an Activity but by a &lt;a href=&#34;https://developer.android.com/reference/android/content/BroadcastReceiver&#34;&gt;BroadcastReceiver&lt;/a&gt; to enable scheduling in the future using &lt;a href=&#34;https://developer.android.com/reference/android/app/AlarmManager&#34;&gt;AlarmManager&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://giorgosneokleous93.github.io/posts/full_screen_intent-schedule.gif&#34; alt=&#34;Schedule Full-Screen Intent Notification demo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/full_screen_intent-schedule.gif&#34; alt=&#34;Schedule Full-Screen Intent Notification demo&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Scheduling&lt;/strong&gt;
 AlarmManager needs a PendingIntent with a BroadcastReceiver.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Context&lt;/span&gt;.scheduleNotification(isLockScreen: Boolean) {
@@ -371,7 +371,7 @@ The Receiver below is called in two cases:&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;3-full-screen-intent-on-lock-screen-with-a-keyguard&#34;&gt;3. Full-Screen Intent on Lock Screen with a Keyguard&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://developer.android.com/reference/android/app/KeyguardManager&#34;&gt;Keyguard&lt;/a&gt; could prevent the notification from being displayed.&lt;/p&gt;
 &lt;p&gt;Let’s see an example to visualize it.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://giorgosneokleous93.github.io/posts/full_screen_intent-keyguard-blocker.gif&#34; alt=&#34;Full-Screen Intent on Lock Screen with a Keyguard demo blocker&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/full_screen_intent-keyguard-blocker.gif&#34; alt=&#34;Full-Screen Intent on Lock Screen with a Keyguard demo blocker&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The framework provides some flags to dismiss keyguard.&lt;/p&gt;
 &lt;p&gt;Activity#&lt;a href=&#34;https://developer.android.com/reference/android/app/Activity#setShowWhenLocked(boolean)&#34;&gt;setShowWhenLocked&lt;/a&gt;(true) method
 Note: To be able to turn on the screen we need to also request it using the:&lt;/p&gt;
@@ -394,7 +394,7 @@ Note: To be able to turn on the screen we need to also request it using the:&lt;
     }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Demo 🎬
-&lt;img src=&#34;https://giorgosneokleous93.github.io/posts/full_screen_intent-keyguard-fixed.gif&#34; alt=&#34;Full-Screen Intent on Lock Screen with a Keyguard&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://www.giorgosneokleous.com/posts/full_screen_intent-keyguard-fixed.gif&#34; alt=&#34;Full-Screen Intent on Lock Screen with a Keyguard&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;Using Full-Screen Intents is easy and it’s the recommended way of launching an activity, especially for alarms.&lt;/p&gt;
 &lt;p&gt;The API should be used with care, and developers shouldn’t abuse it as it’s quite intrusive especially when the screen wakes up.&lt;/p&gt;
@@ -412,17 +412,17 @@ Note: To be able to turn on the screen we need to also request it using the:&lt;
     
     <item>
       <title>Documenting your XML attributes – Custom View</title>
-      <link>https://giorgosneokleous93.github.io/post/documenting-your-xml-attributes-custom-view/</link>
+      <link>https://www.giorgosneokleous.com/post/documenting-your-xml-attributes-custom-view/</link>
       <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://giorgosneokleous93.github.io/post/documenting-your-xml-attributes-custom-view/</guid>
+      <guid>https://www.giorgosneokleous.com/post/documenting-your-xml-attributes-custom-view/</guid>
       <description>&lt;p&gt;Today, I will walk you through on how to create a very basic Custom View, and we will do something that many libraries and developers often forget to do:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Documenting XML Attributes, which offer customizations on custom views.&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;why&#34;&gt;Why&lt;/h3&gt;
 &lt;p&gt;Documentation sometimes is redundant if the method, class or property is self-describing. However, imagine any Android API without it. Android development will instantly turn into living hell. To figure out what’s going on we will have to step into source code and trial-and-error different options.&lt;/p&gt;
 &lt;h3 id=&#34;custom-view&#34;&gt;Custom View&lt;/h3&gt;
 &lt;p&gt;I will be using the following custom view, which draws a Circle. The customizations available will be: fill color and radius.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://giorgosneokleous93.github.io/posts/documenting-your-xml-attributes-circle-custom-view.png&#34; alt=&#34;Custom View Demonstration&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/documenting-your-xml-attributes-circle-custom-view.png&#34; alt=&#34;Custom View Demonstration&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;implementation&#34;&gt;Implementation&lt;/h3&gt;
 &lt;h4 id=&#34;create-custom-attributes&#34;&gt;Create custom attributes&lt;/h4&gt;
 &lt;p&gt;Creating custom attributes allows specifying properties on the XML directly instead of programmatically. These attributes will be fetched at the construction of the View.&lt;/p&gt;
@@ -505,7 +505,7 @@ Note: To be able to turn on the screen we need to also request it using the:&lt;
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;document-xml-attributes&#34;&gt;Document XML Attributes&lt;/h3&gt;
 &lt;p&gt;Without documentation, if I try to check for it over the &lt;em&gt;fillColor&lt;/em&gt;, I am getting the following.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://giorgosneokleous93.github.io/posts/documenting-your-xml-attributes-circle-fillColor-doc-popup.png&#34; alt=&#34;Fill Color IDE Popup&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/documenting-your-xml-attributes-circle-fillColor-doc-popup.png&#34; alt=&#34;Fill Color IDE Popup&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Using normal XML comments above the attributes will result in attaching the comments as documentation for them.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt;&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;resources&amp;gt;&lt;/span&gt;
@@ -517,8 +517,8 @@ Note: To be able to turn on the screen we need to also request it using the:&lt;
     &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/declare-styleable&amp;gt;&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/resources&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now if I ask for documentation on the attribute, I am getting proper documentation as seen below:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://giorgosneokleous93.github.io/posts/documenting-your-xml-attributes-circle-fillColor-doc-popup-with-docs-1.png&#34; alt=&#34;Demonstration of Docs Popup 1&#34;&gt;
-&lt;img src=&#34;https://giorgosneokleous93.github.io/posts/documenting-your-xml-attributes-circle-fillColor-doc-popup-with-docs-2.png&#34; alt=&#34;Demonstration of Docs Popup 2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/documenting-your-xml-attributes-circle-fillColor-doc-popup-with-docs-1.png&#34; alt=&#34;Demonstration of Docs Popup 1&#34;&gt;
+&lt;img src=&#34;https://www.giorgosneokleous.com/posts/documenting-your-xml-attributes-circle-fillColor-doc-popup-with-docs-2.png&#34; alt=&#34;Demonstration of Docs Popup 2&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;Documenting XML attributes for your custom views is as simple as attaching an XML comment using the &lt;code&gt;&amp;lt;!-- comment --&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;In my opinion, documentation is not always needed. If something is self-describing then you can afford to skip it. On the other hand, if something will be used by many others or does something that is not specified or described from the class, property or method name then it needs documentation.&lt;/p&gt;
@@ -534,10 +534,10 @@ Codelab &lt;a href=&#34;https://codelabs.developers.google.com/codelabs/advanced
     
     <item>
       <title>Name your .apk &amp; .aab files</title>
-      <link>https://giorgosneokleous93.github.io/post/name-your-apk-aab-files/</link>
+      <link>https://www.giorgosneokleous.com/post/name-your-apk-aab-files/</link>
       <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://giorgosneokleous93.github.io/post/name-your-apk-aab-files/</guid>
+      <guid>https://www.giorgosneokleous.com/post/name-your-apk-aab-files/</guid>
       <description>&lt;p&gt;This post will explore how to rename your artifacts, to convey meaning.&lt;/p&gt;
 &lt;h3 id=&#34;why&#34;&gt;Why?&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Use cases:&lt;/strong&gt;&lt;/p&gt;
@@ -639,7 +639,7 @@ Codelab &lt;a href=&#34;https://codelabs.developers.google.com/codelabs/advanced
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;br&gt;
-&lt;p&gt;&lt;img src=&#34;https://giorgosneokleous93.github.io/posts/name-your-apk-aab-files-Property-vs-Variant-Manipulation.png&#34; alt=&#34;Comparison of the two options&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/name-your-apk-aab-files-Property-vs-Variant-Manipulation.png&#34; alt=&#34;Comparison of the two options&#34;&gt;
 As you can see from the graphs and metrics above, the two options have identical performance, with no clear winner. To be honest, I was expecting &lt;strong&gt;Option 2&lt;/strong&gt; to be faster 🤷.&lt;/p&gt;
 &lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;Personally I prefer Option 2, it’s simple and it did not break when App Bundles were introduced.&lt;/p&gt;
@@ -652,10 +652,10 @@ As you can see from the graphs and metrics above, the two options have identical
     
     <item>
       <title>Mock Responses with OkHttp &amp; Retrofit</title>
-      <link>https://giorgosneokleous93.github.io/post/mock-responses-with-okhttp-retrofit/</link>
+      <link>https://www.giorgosneokleous.com/post/mock-responses-with-okhttp-retrofit/</link>
       <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://giorgosneokleous93.github.io/post/mock-responses-with-okhttp-retrofit/</guid>
+      <guid>https://www.giorgosneokleous.com/post/mock-responses-with-okhttp-retrofit/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;This blog post does not explore Retrofit nor OkHttp and all their glory. Instead, we are looking into OkHttp&amp;rsquo;s testing API and how to use that to provide confidence into our codebase.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -786,10 +786,10 @@ response.setBody(FileUtils.readTestResourceFile(&lt;span style=&#34;color:#e6db7
     
     <item>
       <title>Sweet Truth, the Truth fairy 🦷</title>
-      <link>https://giorgosneokleous93.github.io/post/sweet-truth-the-truth-fairy/</link>
+      <link>https://www.giorgosneokleous.com/post/sweet-truth-the-truth-fairy/</link>
       <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://giorgosneokleous93.github.io/post/sweet-truth-the-truth-fairy/</guid>
+      <guid>https://www.giorgosneokleous.com/post/sweet-truth-the-truth-fairy/</guid>
       <description>&lt;p&gt;Writing tests is an important part of software development and dare to say not an easy task. There are many practices, libraries, books, podcasts, web courses dedicated to testing. Without testing we can ship a software with “1 to N” number of bugs.&lt;/p&gt;
 &lt;p&gt;Personally, I am a fan of the following technique which helps developers write tests and provides a template guide on how-to form your tests.&lt;/p&gt;
 &lt;h3 id=&#34;arrange-act-assert-aaa&#34;&gt;Arrange Act Assert (AAA)&lt;/h3&gt;
