@@ -9,7 +9,7 @@ printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
 
 # Go To Public folder
-cd production
+cd docs
 
 # Add changes to git.
 git add .
@@ -22,4 +22,4 @@ fi
 git commit --amend -m "$msg"
 
 # Push source and build repos.
-git push origin main 
+git push origin main -f
