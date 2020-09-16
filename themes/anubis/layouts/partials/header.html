@@ -5,7 +5,7 @@
     <nav>
         {{ $currentPage := . }}
         {{ range .Site.Menus.main }}
-        <a class="{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL | absLangURL }}" title="{{ .Title }}">{{ .Name }}</a>
+        <a class="{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL | absLangURL }}" title="{{ .Title }}">{{ .Pre }} <span>{{ .Name }}</span></a>
         {{ end }}
     </nav>
 {{ else }}

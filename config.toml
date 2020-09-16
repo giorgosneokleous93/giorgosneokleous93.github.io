@@ -26,15 +26,39 @@ publishDir = "docs"
 
   [[menu.main]]
     identifier = "about"
-    name = "About"
+    name = "about"
     url = "/about/"
     weight = 1
 
   [[menu.main]]
-    name = "Blog"
-    identifier = "Blog"
+    identifier = "blog"
+    name = "blog"
     url = "/posts/"
     weight = 2
+
+  [[menu.main]]
+    identifier = "twitter"
+    pre = "<i class='fa fa-twitter'></i>"
+    url = "https://twitter.com/neokleoys2005"
+    weight = 3
+  
+  [[menu.main]]
+    identifier = "linkedin"
+    pre = "<i class='fa fa-linkedin'></i>"
+    url = "https://www.linkedin.com/in/giorgos-neokleous/"
+    weight = 4  
+
+  [[menu.main]]
+    identifier = "github"
+    pre = "<i class='fa fa-github-square'></i>"
+    url = "https://github.com/giorgosneokleous93/"
+    weight = 5
+
+  [[menu.main]]
+    identifier = "stackoverflow"
+    pre = "<i class='fa fa-stack-overflow'></i>"
+    url = "https://stackoverflow.com/users/3330058/giorgos-neokleous"
+    weight = 6
 
 [taxonomies]
 category = "categories"

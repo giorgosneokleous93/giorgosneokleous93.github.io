@@ -5,6 +5,7 @@ date: "2020-09-12"
 aliases:
   - "about"
 author: "Giorgos Neokleous"
+disableComments: true
 ---
 
 Android Engineer @ [Peak Brain Training](https://www.peak.net/)
