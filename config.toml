@@ -1,4 +1,4 @@
-baseURL = "https://giorgosneokleous93.github.io"
+baseURL = "https://www.giorgosneokleous.com"
 languageCode = "en-us"
 title = "Giorgos Neokleous"
 theme = "anubis"
@@ -6,6 +6,7 @@ paginate = 5
 
 disqusShortname = "www-giorgosneokleous-com"
 googleAnalytics = "UA-84803609-1"
+enableRobotsTXT = true
 
 publishDir = "docs"
 
@@ -19,6 +20,7 @@ publishDir = "docs"
    paginationSinglePost = true
    style = "dark"
    readMore = false
+   env = "production"
 
 [menu]
 
