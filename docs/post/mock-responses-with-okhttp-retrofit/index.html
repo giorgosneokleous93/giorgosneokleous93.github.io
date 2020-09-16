@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-theme="">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>Mock Responses with OkHttp &amp; Retrofit - Giorgos Neokleous</title>
+<meta name="description" content="Giorgos Neokleous&#39;s stories about Android Development and Programming!">
+
+<link rel="icon" type="image/x-icon" href="https://www.giorgosneokleous.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://www.giorgosneokleous.com/favicon.png">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1600289964" />
+<style>
+
+    [data-theme="dark"] {   
+        --font-color: #eee;
+--bg-color: #212121;
+
+--link-color:#599ada;
+--link-state-color:#ff5858;
+--link-state-border-color: rgba(238, 54, 54, 0.5);
+
+--thead-bg-color: #343a40;
+--table-border-color: lightgrey;
+
+--pre-color: #333;
+--pre-bg-color: #f1f1f1;
+
+--bq-color: #ccc;
+--hr-color: #333;
+
+--pagination-bg-color: #373737;
+--pagination-link-color: #b6b6b6;
+
+--post-info-color: grey;
+
+--switcher-color: #333;
+--switcher-bg-color: #fff;
+
+
+
+    }
+
+</style>
+
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1600289964" />
+
+
+
+
+
+<meta property="og:title" content="Mock Responses with OkHttp &amp; Retrofit" />
+<meta property="og:description" content="Mock Testing with Okhttp and Retrofit" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.giorgosneokleous.com/post/mock-responses-with-okhttp-retrofit/" />
+<meta property="article:published_time" content="2019-11-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-25T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mock Responses with OkHttp &amp; Retrofit"/>
+<meta name="twitter:description" content="Mock Testing with Okhttp and Retrofit"/>
+
+
+
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-84803609-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+    
+</head>
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header class="common-header"> 
+            
+                <h1 class="site-title">
+    <a href="/">Giorgos Neokleous</a>
+</h1>
+
+    <nav>
+        
+        
+        <a class="" href="https://www.giorgosneokleous.com/about/" title=""> <span>about</span></a>
+        
+        <a class="" href="https://www.giorgosneokleous.com/posts/" title=""> <span>blog</span></a>
+        
+        <a class="" href="https://twitter.com/neokleoys2005" title=""><i class='fa fa-twitter'></i> <span></span></a>
+        
+        <a class="" href="https://www.linkedin.com/in/giorgos-neokleous/" title=""><i class='fa fa-linkedin'></i> <span></span></a>
+        
+        <a class="" href="https://github.com/giorgosneokleous93/" title=""><i class='fa fa-github-square'></i> <span></span></a>
+        
+        <a class="" href="https://stackoverflow.com/users/3330058/giorgos-neokleous" title=""><i class='fa fa-stack-overflow'></i> <span></span></a>
+        
+    </nav>
+
+
+            
+        </header>
+        <main id="main" tabindex="-1"> 
+            
+    
+    
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">Mock Responses with OkHttp &amp; Retrofit</h1>
+        </header>
+        <div class="content">
+            <blockquote>
+<p>This blog post does not explore Retrofit nor OkHttp and all their glory. Instead, we are looking into OkHttp&rsquo;s testing API and how to use that to provide confidence into our codebase.</p>
+</blockquote>
+<p>Testing is often daunting but crucial for software development. I am going to keep this post short and sweet. We will explore together the <a href="https://square.github.io/okhttp/">OkHttp‘s</a> “MockWebServer” and how to integrate with Retrofit.</p>
+<p><strong>Target Audience:</strong> Retrofit Users</p>
+<h3 id="the-why">The Why?</h3>
+<p>We need our tests non-flaky, and reliable! What that means is:</p>
+<ol>
+<li>Our tests should run in isolation</li>
+<li>Our tests should not be affected by external factors</li>
+<li>Our tests conditions are controllable</li>
+</ol>
+<p>A nice explanation of a flaky test from the &ldquo;<a href="https://hackernoon.com/flaky-tests-a-war-that-never-ends-9aa32fdef359">Flaky Tests - A War that Never Ends</a>&rdquo;</p>
+<blockquote>
+<p>A flaky test is a test which could fail or pass for the same configuration</p>
+</blockquote>
+<p>All the above points are needed so that we can control and test different scenarios. For example, if the tests are making a real network call, then they could fail when the network connectivity is lost.</p>
+<h3 id="setup-">Setup 🔨</h3>
+<p>You need to add the following dependency in <code>build.gradle</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">testImplementation<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.squareup.okhttp3:mockwebserver:see.latest.version&#34;</span><span style="color:#f92672">)</span>
+</code></pre></div><p>Explore more about MockWebServer dependency at the <a href="https://github.com/square/okhttp/tree/master/mockwebserver">Github Repository</a>.</p>
+<h3 id="explore-">Explore 🛫</h3>
+<p>The <em>MockWebServer</em> is really powerful and provides us with some incredible APIs to ease the pain when testing such features.</p>
+<p><strong>Some of the highlights are:</strong></p>
+<ul>
+<li>Mocking Responses</li>
+<li>Throttling for bodies</li>
+<li>Throttling for headers</li>
+<li>Many many more</li>
+</ul>
+<p>From the Readme of <a href="https://github.com/square/okhttp/tree/master/mockwebserver">MockWebServer</a>:</p>
+<blockquote>
+<p>This library makes it easy to test that your app Does The Right Thing when it makes HTTP and HTTPS calls. It lets you specify which responses to return and then verify that requests were made as expected.</p>
+</blockquote>
+<h4 id="create-the-mock-web-server-">Create the mock web server 🏗</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> mockWebServer = MockWebServer()
+</code></pre></div><p>When you are ready to start your tests, make sure you “Start” the mock server like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">mockWebServer.start()
+</code></pre></div><h4 id="mocking-a-response">Mocking a response</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">MockResponse()
+   .setResponseCode(HttpURLConnection.HTTP_OK)
+   .setBody(<span style="color:#e6db74">&#34;&#34;</span>{<span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">&#34;status\&#34;:\&#34;error\&#34;,\&#34;code\&#34;:\&#34;responseCode\&#34;}&#34;</span>
+<span style="color:#e6db74">&#34;)     
+</span></code></pre></div><p>To instruct the server to return the mocked response, you need to <a href="https://square.github.io/okhttp/4.x/mockwebserver/okhttp3.mockwebserver/-mock-web-server/enqueue/">enqueue</a> the mock response such as:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">mockWebServer.enqueue(mockResponse)
+</code></pre></div><p>For further studying, head to MockWebServer’s Javadoc <a href="https://square.github.io/okhttp/4.x/mockwebserver/okhttp3.mockwebserver/-mock-web-server/">here</a>.</p>
+<h3 id="basic-setup-for-unit-tests">Basic Setup for unit tests</h3>
+<p>The following setup will make sure that you start your mock server and shut it down between tests.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">YourTest</span> {
+ <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> mockWebServer: MockWebServer
+
+    @Before
+    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">setUp</span>() {
+        mockWebServer = MockWebServer()
+        mockWebServer.start()
+    }
+
+    @After
+    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">tearDown</span>() {
+        mockWebServer.shutdown()
+    }
+}
+</code></pre></div><h3 id="mockwebserver-with-retrofit">MockWebServer with Retrofit</h3>
+<p>Now, let’s explore, how to use Retrofit with all the above.</p>
+<p>Basic setup for Retrofit looks like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">Retrofit retrofit = new Retrofit.Builder()
+    .baseUrl(<span style="color:#e6db74">&#34;https://ourapi.com/&#34;</span>)
+    .build()
+</code></pre></div><p>We are used to passing a String to the method <code>.baseUrl(string)</code>. However, there is an overload which takes an <a href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-http-url/">HttpUrl</a> object. The HttpUrl object is what the mock web server exposes and we could use to integrate it into tests.</p>
+<p>If we actually check the <a href="https://github.com/square/retrofit/blob/master/retrofit/src/main/java/retrofit2/Retrofit.java#L490">source code</a> the <code>.baseUrl(string)</code> internally looks like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> Builder <span style="color:#a6e22e">baseUrl</span><span style="color:#f92672">(</span>String baseUrl<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    checkNotNull<span style="color:#f92672">(</span>baseUrl<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;baseUrl == null&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">return</span> baseUrl<span style="color:#f92672">(</span>HttpUrl<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>baseUrl<span style="color:#f92672">));</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>What we then pass for the base URL:</p>
+<ul>
+<li><strong>Production</strong>: <code>HttpUrl.get(&quot;https://ourapi.com/&quot;)</code></li>
+<li><strong>Tests</strong>: <code>mockWebServer.url(&quot;/&quot;)</code></li>
+</ul>
+<h4 id="the-transformation">The Transformation</h4>
+<p>First, pass the above to your Retrofit builder and then start receiving the mock responses and leveraging the test environment for your benefit.</p>
+<p>As you can see from the examples below, we should now inject the HttpUrl to allow the MockWebServer to do its magic.</p>
+<p><strong>Before</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OurApi</span>(
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> baseUrl: String = <span style="color:#e6db74">&#34;https://ourapi.com/&#34;</span>
+) {
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> retrofit = Retrofit.Builder()
+        .baseUrl(baseUrl)
+        .addConverterFactory(MoshiConverterFactory.create())
+        .build()
+}
+</code></pre></div><p><strong>After</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OurApi</span>(
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> baseUrl: HttpUrl = HttpUrl.<span style="color:#66d9ef">get</span>(<span style="color:#e6db74">&#34;https://ourapi.com/&#34;</span>)
+) {
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> retrofit = Retrofit.Builder()
+        .baseUrl(baseUrl)
+        .addConverterFactory(MoshiConverterFactory.create())
+        .build()
+}
+</code></pre></div><p>That’s it really, thanks for reading the post!</p>
+<p>Happy coding and testing!</p>
+<p>Feel free to ping me on <a href="https://twitter.com/neokleoys2005">twitter</a>.</p>
+<p>Till next time! 👋</p>
+<p>(👇 check out the bonus section below 👇)</p>
+<h3 id="bonus">Bonus</h3>
+<p>You can place different responses in your Test Resources which you can instruct the MockWebServer instance to return.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Create a folder under the following path:<code>~/${MODULE}/src/test/resources</code></li>
+<li>Place there the responses as JSON files such as: <code>error.json</code></li>
+<li>From your unit test read the file as a String and pass to the mock web server instance</li>
+</ol>
+<p><strong>Read json files as Strings</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">FileUtils</span> {
+    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">readTestResourceFile</span>(fileName: String): String {
+        <span style="color:#66d9ef">val</span> fileInputStream = javaClass.classLoader<span style="color:#f92672">?.</span>getResourceAsStream(fileName)
+        <span style="color:#66d9ef">return</span> fileInputStream<span style="color:#f92672">?.</span>bufferedReader()<span style="color:#f92672">?.</span>readText() <span style="color:#f92672">?:</span> <span style="color:#e6db74">&#34;&#34;</span>
+    }
+}
+
+<span style="color:#75715e">// pass to mock web server
+</span><span style="color:#75715e"></span> <span style="color:#66d9ef">val</span> response = MockResponse()
+response.setResponseCode(HttpURLConnection.HTTP_OK)
+response.setBody(FileUtils.readTestResourceFile(<span style="color:#e6db74">&#34;error.json&#34;</span>))
+</code></pre></div>
+        </div>
+        
+
+    
+
+
+<div class="post-info">
+    
+        <div class="post-date">2019-11-25</div>
+    
+    <div class="post-taxonomies">
+        
+            
+    </div>
+</div>
+
+    </article>
+
+    
+        
+    <div class="pagination post-pagination">
+        <div class="left pagination-item ">
+            
+                <a href="/post/name-your-apk-aab-files/">Name your .apk &amp; .aab files</a>
+            
+        </div>
+        <div class="right pagination-item ">
+            
+                <a href="/post/sweet-truth-the-truth-fairy/">Sweet Truth, the Truth fairy 🦷</a>
+            
+        </div>
+    </div>
+
+    
+
+    
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "www-giorgosneokleous-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+
+        </main>
+        
+            <footer class="common-footer">
+    
+    
+
+    <div class="common-footer-bottom">
+        
+        <div class="copyright">
+            <p>© Giorgos Neokleous, 2020<br>
+            Powered by <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
+            </p>  
+        </div> 
+
+        
+
+    
+
+
+
+    <button class="theme-switcher">
+        Dark theme
+    </button>
+
+    <script>
+    const STORAGE_KEY = 'user-color-scheme'
+    const defaultTheme = "dark"
+
+    let currentTheme
+    let switchButton
+    let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+    const autoChangeScheme = e => {
+        currentTheme = e.matches ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', currentTheme)
+        changeButtonText()
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        switchButton = document.querySelector('.theme-switcher')
+        currentTheme = detectCurrentScheme()
+        if (currentTheme == 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark')
+        }
+        if (currentTheme == 'auto') {
+            autoChangeScheme(autoDefinedScheme);
+            autoDefinedScheme.addListener(autoChangeScheme);
+        }
+        changeButtonText()
+        switchButton.addEventListener('click', switchTheme, false)
+    })
+
+    function detectCurrentScheme() {
+        if (localStorage.getItem(STORAGE_KEY)) {
+            return localStorage.getItem(STORAGE_KEY)
+        } 
+        if (defaultTheme) {
+            return defaultTheme
+        } 
+        if (!window.matchMedia) {
+            return 'light'
+        } 
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark'
+        }
+        return 'light'
+    }
+
+    function changeButtonText()
+    {   
+        switchButton.textContent = currentTheme == 'dark' ?  "Light theme" : "Dark theme"
+    }
+
+    function switchTheme(e) {
+        if (currentTheme == 'dark') {
+            localStorage.setItem(STORAGE_KEY, 'light')
+            document.documentElement.setAttribute('data-theme', 'light')
+            currentTheme = 'light'
+        } else {
+            localStorage.setItem(STORAGE_KEY, 'dark')
+            document.documentElement.setAttribute('data-theme', 'dark')
+            currentTheme = 'dark'
+        }
+        changeButtonText()
+    }
+    </script>
+   
+    </div>
+</footer>
+
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-theme="">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>Documenting your XML attributes – Custom View - Giorgos Neokleous</title>
+<meta name="description" content="Giorgos Neokleous&#39;s stories about Android Development and Programming!">
+
+<link rel="icon" type="image/x-icon" href="https://www.giorgosneokleous.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://www.giorgosneokleous.com/favicon.png">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1600289963" />
+<style>
+
+    [data-theme="dark"] {   
+        --font-color: #eee;
+--bg-color: #212121;
+
+--link-color:#599ada;
+--link-state-color:#ff5858;
+--link-state-border-color: rgba(238, 54, 54, 0.5);
+
+--thead-bg-color: #343a40;
+--table-border-color: lightgrey;
+
+--pre-color: #333;
+--pre-bg-color: #f1f1f1;
+
+--bq-color: #ccc;
+--hr-color: #333;
+
+--pagination-bg-color: #373737;
+--pagination-link-color: #b6b6b6;
+
+--post-info-color: grey;
+
+--switcher-color: #333;
+--switcher-bg-color: #fff;
+
+
+
+    }
+
+</style>
+
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1600289963" />
+
+
+
+
+
+<meta property="og:title" content="Documenting your XML attributes – Custom View" />
+<meta property="og:description" content="Learn how to document your XML attributes for your Custom Views." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.giorgosneokleous.com/post/documenting-your-xml-attributes-custom-view/" />
+<meta property="article:published_time" content="2020-01-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-19T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Documenting your XML attributes – Custom View"/>
+<meta name="twitter:description" content="Learn how to document your XML attributes for your Custom Views."/>
+
+
+
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-84803609-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+    
+</head>
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header class="common-header"> 
+            
+                <h1 class="site-title">
+    <a href="/">Giorgos Neokleous</a>
+</h1>
+
+    <nav>
+        
+        
+        <a class="" href="https://www.giorgosneokleous.com/about/" title=""> <span>about</span></a>
+        
+        <a class="" href="https://www.giorgosneokleous.com/posts/" title=""> <span>blog</span></a>
+        
+        <a class="" href="https://twitter.com/neokleoys2005" title=""><i class='fa fa-twitter'></i> <span></span></a>
+        
+        <a class="" href="https://www.linkedin.com/in/giorgos-neokleous/" title=""><i class='fa fa-linkedin'></i> <span></span></a>
+        
+        <a class="" href="https://github.com/giorgosneokleous93/" title=""><i class='fa fa-github-square'></i> <span></span></a>
+        
+        <a class="" href="https://stackoverflow.com/users/3330058/giorgos-neokleous" title=""><i class='fa fa-stack-overflow'></i> <span></span></a>
+        
+    </nav>
+
+
+            
+        </header>
+        <main id="main" tabindex="-1"> 
+            
+    
+    
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">Documenting your XML attributes – Custom View</h1>
+        </header>
+        <div class="content">
+            <p>Today, I will walk you through on how to create a very basic Custom View, and we will do something that many libraries and developers often forget to do:</p>
+<p><strong>Documenting XML Attributes, which offer customizations on custom views.</strong></p>
+<h3 id="why">Why</h3>
+<p>Documentation sometimes is redundant if the method, class or property is self-describing. However, imagine any Android API without it. Android development will instantly turn into living hell. To figure out what’s going on we will have to step into source code and trial-and-error different options.</p>
+<h3 id="custom-view">Custom View</h3>
+<p>I will be using the following custom view, which draws a Circle. The customizations available will be: fill color and radius.</p>
+<p><img src="/posts/documenting-your-xml-attributes-circle-custom-view.png" alt="Custom View Demonstration"></p>
+<h3 id="implementation">Implementation</h3>
+<h4 id="create-custom-attributes">Create custom attributes</h4>
+<p>Creating custom attributes allows specifying properties on the XML directly instead of programmatically. These attributes will be fetched at the construction of the View.</p>
+<p>To declare the attributes:</p>
+<ul>
+<li>Create a Values resource file – usually called attrs.xml</li>
+<li>Open a declare-styleable tag</li>
+<li>Include the attributes within the view</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;resources&gt;</span>
+    <span style="color:#f92672">&lt;declare-styleable</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;CircleCustomView&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;attr</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;fillColor&#34;</span> <span style="color:#a6e22e">format=</span><span style="color:#e6db74">&#34;color&#34;</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;attr</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;radius&#34;</span> <span style="color:#a6e22e">format=</span><span style="color:#e6db74">&#34;dimension&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/declare-styleable&gt;</span>
+<span style="color:#f92672">&lt;/resources&gt;</span>
+</code></pre></div><p>The <em>“name”</em> should be your custom view’s class name to bind the enclosed attributes to it. In our case that would be <em>“CircleCustomView“</em>.</p>
+<p>Now the enclosed attributes would be:</p>
+<ol>
+<li>Fill Color of the format “color” resource</li>
+<li>The radius of the format dimension</li>
+</ol>
+<h4 id="fetch-custom-attributes">Fetch custom attributes</h4>
+<p>In the initialization of our custom view, we need to fetch and store those attributes in order to use them when drawing on the <a href="https://developer.android.com/reference/android/graphics/Canvas">Canvas</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">init {
+    context.theme.obtainStyledAttributes(
+        attrs,
+        R.styleable.CircleCustomView,
+        <span style="color:#ae81ff">0</span>,
+        <span style="color:#ae81ff">0</span>
+    ).apply {
+        circleFillColor = getColor(
+            R.styleable.CircleCustomView_fillColor,
+            context.getColor(R.color.colorAccent)
+        )
+        circleRadius = getDimension(R.styleable.CircleCustomView_radius, <span style="color:#ae81ff">100f</span>)
+    }
+}
+</code></pre></div><h4 id="draw-the-circle">Draw the circle</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onDraw</span>(canvas: Canvas?) {
+    <span style="color:#66d9ef">super</span>.onDraw(canvas)
+    paint.color = circleFillColor
+    canvas<span style="color:#f92672">?.</span>drawCircle(canvas.width / <span style="color:#ae81ff">2f</span>, canvas.height / <span style="color:#ae81ff">2F</span>, circleRadius, paint)
+}
+</code></pre></div><h4 id="full-class">Full Class</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CircleCustomView</span> @JvmOverloads <span style="color:#66d9ef">constructor</span>(
+    context: Context,
+    attrs: AttributeSet? = <span style="color:#66d9ef">null</span>,
+    defStyleAttr: Int = <span style="color:#ae81ff">0</span>
+) : View(context, attrs, defStyleAttr) {
+    @ColorInt
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> circleFillColor: Int
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> circleRadius: Float
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> paint = Paint()
+    init {
+        context.theme.obtainStyledAttributes(
+            attrs,
+            R.styleable.CircleCustomView,
+            <span style="color:#ae81ff">0</span>,
+            <span style="color:#ae81ff">0</span>
+        ).apply {
+            circleFillColor = getColor(
+                R.styleable.CircleCustomView_fillColor,
+                context.getColor(R.color.colorAccent)
+            )
+            circleRadius = getDimension(R.styleable.CircleCustomView_radius, <span style="color:#ae81ff">100f</span>)
+        }
+    }
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onDraw</span>(canvas: Canvas?) {
+        <span style="color:#66d9ef">super</span>.onDraw(canvas)
+        paint.color = circleFillColor
+        canvas<span style="color:#f92672">?.</span>drawCircle(canvas.width / <span style="color:#ae81ff">2f</span>, canvas.height / <span style="color:#ae81ff">2F</span>, circleRadius, paint)
+    }
+    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">setFillColor</span>(@ColorRes colorRes: Int) {
+        <span style="color:#66d9ef">this</span>.circleFillColor = context.getColor(colorRes)
+    }
+    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">setRadius</span>(@DimenRes radius: Int) {
+        <span style="color:#66d9ef">this</span>.circleRadius = context.resources.getDimension(radius)
+    }
+}
+</code></pre></div><h3 id="document-xml-attributes">Document XML Attributes</h3>
+<p>Without documentation, if I try to check for it over the <em>fillColor</em>, I am getting the following.</p>
+<p><img src="/posts/documenting-your-xml-attributes-circle-fillColor-doc-popup.png" alt="Fill Color IDE Popup"></p>
+<p>Using normal XML comments above the attributes will result in attaching the comments as documentation for them.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;resources&gt;</span>
+    <span style="color:#f92672">&lt;declare-styleable</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;CircleCustomView&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#75715e">&lt;!-- Sets the fill color of the circle --&gt;</span>
+        <span style="color:#f92672">&lt;attr</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;fillColor&#34;</span> <span style="color:#a6e22e">format=</span><span style="color:#e6db74">&#34;color&#34;</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#75715e">&lt;!-- Sets the radius of the circle --&gt;</span>
+        <span style="color:#f92672">&lt;attr</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;radius&#34;</span> <span style="color:#a6e22e">format=</span><span style="color:#e6db74">&#34;dimension&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/declare-styleable&gt;</span>
+<span style="color:#f92672">&lt;/resources&gt;</span>
+</code></pre></div><p>Now if I ask for documentation on the attribute, I am getting proper documentation as seen below:</p>
+<p><img src="/posts/documenting-your-xml-attributes-circle-fillColor-doc-popup-with-docs-1.png" alt="Demonstration of Docs Popup 1">
+<img src="/posts/documenting-your-xml-attributes-circle-fillColor-doc-popup-with-docs-2.png" alt="Demonstration of Docs Popup 2"></p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Documenting XML attributes for your custom views is as simple as attaching an XML comment using the <code>&lt;!-- comment --&gt;</code>.</p>
+<p>In my opinion, documentation is not always needed. If something is self-describing then you can afford to skip it. On the other hand, if something will be used by many others or does something that is not specified or described from the class, property or method name then it needs documentation.</p>
+<p>Feel free to ping me on <a href="https://twitter.com/neokleoys2005">twitter</a>.</p>
+<p>Till next time! 👋</p>
+<p>Get started with custom views with the following links:</p>
+<p><a href="https://developer.android.com/training/custom-views/create-view">https://developer.android.com/training/custom-views/create-view</a>
+<a href="https://developer.android.com/training/custom-views/custom-drawing">https://developer.android.com/training/custom-views/custom-drawing</a>
+<a href="https://developer.android.com/guide/topics/ui/custom-components">https://developer.android.com/guide/topics/ui/custom-components</a>
+Codelab <a href="https://codelabs.developers.google.com/codelabs/advanced-android-training-customize-view/index.html?index=..%2F..advanced-android-training#0">Part A</a> &amp; <a href="https://codelabs.developers.google.com/codelabs/advanced-android-training-custom-view-from-scratch/index.html?index=..%2F..advanced-android-training#0">Part B</a></p>
+
+        </div>
+        
+
+    
+
+
+<div class="post-info">
+    
+        <div class="post-date">2020-01-19</div>
+    
+    <div class="post-taxonomies">
+        
+            
+    </div>
+</div>
+
+    </article>
+
+    
+        
+    <div class="pagination post-pagination">
+        <div class="left pagination-item ">
+            
+                <a href="/post/full-screen-intent-notifications-android/">Full-Screen Intent Notifications – Android</a>
+            
+        </div>
+        <div class="right pagination-item ">
+            
+                <a href="/post/name-your-apk-aab-files/">Name your .apk &amp; .aab files</a>
+            
+        </div>
+    </div>
+
+    
+
+    
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "www-giorgosneokleous-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+
+        </main>
+        
+            <footer class="common-footer">
+    
+    
+
+    <div class="common-footer-bottom">
+        
+        <div class="copyright">
+            <p>© Giorgos Neokleous, 2020<br>
+            Powered by <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
+            </p>  
+        </div> 
+
+        
+
+    
+
+
+
+    <button class="theme-switcher">
+        Dark theme
+    </button>
+
+    <script>
+    const STORAGE_KEY = 'user-color-scheme'
+    const defaultTheme = "dark"
+
+    let currentTheme
+    let switchButton
+    let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+    const autoChangeScheme = e => {
+        currentTheme = e.matches ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', currentTheme)
+        changeButtonText()
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        switchButton = document.querySelector('.theme-switcher')
+        currentTheme = detectCurrentScheme()
+        if (currentTheme == 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark')
+        }
+        if (currentTheme == 'auto') {
+            autoChangeScheme(autoDefinedScheme);
+            autoDefinedScheme.addListener(autoChangeScheme);
+        }
+        changeButtonText()
+        switchButton.addEventListener('click', switchTheme, false)
+    })
+
+    function detectCurrentScheme() {
+        if (localStorage.getItem(STORAGE_KEY)) {
+            return localStorage.getItem(STORAGE_KEY)
+        } 
+        if (defaultTheme) {
+            return defaultTheme
+        } 
+        if (!window.matchMedia) {
+            return 'light'
+        } 
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark'
+        }
+        return 'light'
+    }
+
+    function changeButtonText()
+    {   
+        switchButton.textContent = currentTheme == 'dark' ?  "Light theme" : "Dark theme"
+    }
+
+    function switchTheme(e) {
+        if (currentTheme == 'dark') {
+            localStorage.setItem(STORAGE_KEY, 'light')
+            document.documentElement.setAttribute('data-theme', 'light')
+            currentTheme = 'light'
+        } else {
+            localStorage.setItem(STORAGE_KEY, 'dark')
+            document.documentElement.setAttribute('data-theme', 'dark')
+            currentTheme = 'dark'
+        }
+        changeButtonText()
+    }
+    </script>
+   
+    </div>
+</footer>
+
+        
+    </div>
+</body>
+</html>
