@@ -21,7 +21,7 @@
         {{ partial "paginationPost.html" . }}
     {{ end }}
 
-    {{ if .Site.DisqusShortname }}
+    {{ if and (.Site.DisqusShortname) (not .Params.disableComments) }}
         {{ template "_internal/disqus.html" . }}
     {{ end }}
 
