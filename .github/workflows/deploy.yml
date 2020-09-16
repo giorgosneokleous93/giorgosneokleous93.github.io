@@ -19,4 +19,7 @@ jobs:
         uses: peaceiris/actions-hugo@v2.4.12
       
       - name: Deploy Website
-        run: ./deploy.sh "Deploying Website to Production" 
+        run: |
+          git config --global user.email ''
+          git config --global user.name 'Automated Builds from CI'
+          ./deploy.sh 'Deploying Website to Production'
