@@ -9,8 +9,9 @@ images:
 
 ### Introduction
 
-Do you love [Kotlin's Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)? So do I! Kotlin's Coroutines offer many benefits such as: 
+Do you love [Kotlin's Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)? So do I! 
 
+Kotlin's Coroutines offer many benefits such as: 
 - Readability: the following code can be read line by line and understand the order of execution without going into callbacks (at least on what the developers write).
 ```kotlin
 suspend fun runTwoExpensiveOperations() {
