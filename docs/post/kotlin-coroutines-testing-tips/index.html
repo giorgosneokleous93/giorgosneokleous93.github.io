@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-theme="">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>Kotlin&#39;s Coroutines Testing Tips - Giorgos Neokleous</title>
+<meta name="description" content="Giorgos Neokleous&#39;s stories about Android Development and Programming!">
+
+<link rel="icon" type="image/x-icon" href="https://www.giorgosneokleous.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://www.giorgosneokleous.com/favicon.png">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1600805790" />
+<style>
+
+    [data-theme="dark"] {   
+        --font-color: #eee;
+--bg-color: #212121;
+
+--link-color:#599ada;
+--link-state-color:#ff5858;
+--link-state-border-color: rgba(238, 54, 54, 0.5);
+
+--thead-bg-color: #343a40;
+--table-border-color: lightgrey;
+
+--pre-color: #333;
+--pre-bg-color: #f1f1f1;
+
+--bq-color: #ccc;
+--hr-color: #333;
+
+--pagination-bg-color: #373737;
+--pagination-link-color: #b6b6b6;
+
+--post-info-color: grey;
+
+--switcher-color: #333;
+--switcher-bg-color: #fff;
+
+
+
+    }
+
+</style>
+
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1600805790" />
+
+
+
+
+
+<meta property="og:title" content="Kotlin&#39;s Coroutines Testing Tips" />
+<meta property="og:description" content="Learn how to use Coroutines Testing features including runBlockingTest, TestCoroutineScope and TestCoroutineExceptionHandler" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.giorgosneokleous.com/post/kotlin-coroutines-testing-tips/" />
+<meta property="og:image" content="https://www.giorgosneokleous.com/posts/kotlins-coroutines-testing-tips.png" />
+<meta property="article:published_time" content="2020-09-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-22T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.giorgosneokleous.com/posts/kotlins-coroutines-testing-tips.png"/>
+
+<meta name="twitter:title" content="Kotlin&#39;s Coroutines Testing Tips"/>
+<meta name="twitter:description" content="Learn how to use Coroutines Testing features including runBlockingTest, TestCoroutineScope and TestCoroutineExceptionHandler"/>
+
+
+
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-84803609-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+    
+</head>
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header class="common-header"> 
+            
+                <h1 class="site-title">
+    <a href="/">Giorgos Neokleous</a>
+</h1>
+
+    <nav>
+        
+        
+        <a class="" href="https://www.giorgosneokleous.com/about/" title=""> <span>about</span></a>
+        
+        <a class="" href="https://www.giorgosneokleous.com/posts/" title=""> <span>blog</span></a>
+        
+        <a class="" href="https://twitter.com/neokleoys2005" title=""><i class='fa fa-twitter'></i> <span></span></a>
+        
+        <a class="" href="https://www.linkedin.com/in/giorgos-neokleous/" title=""><i class='fa fa-linkedin'></i> <span></span></a>
+        
+        <a class="" href="https://github.com/giorgosneokleous93/" title=""><i class='fa fa-github-square'></i> <span></span></a>
+        
+        <a class="" href="https://stackoverflow.com/users/3330058/giorgos-neokleous" title=""><i class='fa fa-stack-overflow'></i> <span></span></a>
+        
+    </nav>
+
+
+            
+        </header>
+        <main id="main" tabindex="-1"> 
+            
+    
+    
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">Kotlin&#39;s Coroutines Testing Tips</h1>
+        </header>
+        <div class="content">
+            <h3 id="introduction">Introduction</h3>
+<p>Do you love <a href="https://kotlinlang.org/docs/reference/coroutines-overview.html">Kotlin&rsquo;s Coroutines</a>? So do I! Kotlin&rsquo;s Coroutines offer many benefits such as:</p>
+<ul>
+<li>Readability: the following code can be read line by line and understand the order of execution without going into callbacks (at least on what the developers write).</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">suspend</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">runTwoExpensiveOperations</span>() {
+      <span style="color:#75715e">// Running First Operation 
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">val</span> resultOfFirstExpensiveOperation = withContext(Dispatchers.IO) {        
+            runFirstExpensiveOperation()
+      }
+
+      <span style="color:#75715e">// Running Second Operation
+</span><span style="color:#75715e"></span>     <span style="color:#66d9ef">val</span> resultOfSecondExpensiveOperation = withContext(Dispatchers.IO) {
+            runSecondExpensiveOperation(resultOfFirstExpensiveOperation)
+      }
+
+      <span style="color:#66d9ef">return</span> resultOfSecondExpensiveOperation
+}
+</code></pre></div><ul>
+<li>Reactive capabilities: Flows, Channels, StateFlow come with a lot of operators which provide an API for hot and cold streams.</li>
+<li>Supported as a language feature</li>
+</ul>
+<p>I found unit testing with Kotlin&rsquo;s Coroutines easy, especially when testing things like <code>withContext</code> or <code>suspend</code> functions.</p>
+<h3 id="time-master---runblockingtest">Time-master - runBlockingTest</h3>
+<p><code>runBlockingTest</code> (<a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/run-blocking-test.html">link</a>) provides a scope which can be used to control time, such as advancing time, pausing and resuming dispatchers.</p>
+<p>Within the body of the <code>runBlockingTest</code> you can run suspending operations and manipulate time. You can forward time using the <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-test-coroutine-scope/index.html">TestCoroutineScope</a> which can be accessed directly from within the <code>runBlockingTest</code>.</p>
+<p>Let&rsquo;s see an example and then break it down.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">@Test
+<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`Advancing Time with TestCoroutineScope`</span>() = runBlockingTest {
+    <span style="color:#66d9ef">val</span> delay = <span style="color:#ae81ff">100.</span>milliseconds
+    <span style="color:#66d9ef">val</span> flow = operationForTimeController(delay = delay, rounds = <span style="color:#ae81ff">5</span>)
+
+    <span style="color:#75715e">// observing flow and storing emissions
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">val</span> results = mutableListOf&lt;Int&gt;()
+    launch { flow.collect { results.add(it) } }
+
+    <span style="color:#75715e">// assert that results is empty
+</span><span style="color:#75715e"></span>    Assert.assertThat(results.isEmpty(), CoreMatchers.equalTo(<span style="color:#66d9ef">true</span>))
+
+    <span style="color:#75715e">// forward one emission with `delay
+</span><span style="color:#75715e"></span>    advanceTimeBy(delay.toLongMilliseconds())
+
+    <span style="color:#75715e">// assert first item is correct
+</span><span style="color:#75715e"></span>    Assert.assertThat(results.first(), CoreMatchers.equalTo(<span style="color:#ae81ff">0</span>))
+
+    <span style="color:#75715e">// advanced at the end of the flow
+</span><span style="color:#75715e"></span>    advanceUntilIdle()
+
+    <span style="color:#75715e">// assert emissions
+</span><span style="color:#75715e"></span>    Assert.assertThat(results, CoreMatchers.equalTo(mutableListOf(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>)))
+}
+</code></pre></div><p>The unit test above observes a flow of integers. In order to assert the behaviour on flow, we are launching a coroutine which adds into <code>results</code> the emissions for inspection at a later stage.</p>
+<p>Then we do the following to test emissions:</p>
+<ol>
+<li>Assert that the list of results is empty</li>
+<li>Forward time by <code>delay</code> (100ms) for one emission using <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-delay-controller/advance-time-by.html">advancedTimeBy</a></li>
+<li>Assert that the list&rsquo;s first item is <code>0</code></li>
+<li>Forward until idle (i.e. until there are no running jobs) using <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-delay-controller/advance-until-idle.html">advanceUntilIdle</a></li>
+<li>Assert list contains all items <code>0, 1, 2, 3, 4</code></li>
+</ol>
+<p>All of the above are achieved without waiting 500ms for the delays to run!</p>
+<p><code>runBlockingTest</code> under the hood calls <code>cleanupTestCoroutines</code> to make sure that coroutines are properly cleaned up.</p>
+<p>Let&rsquo;s see the implemenation of the function, emited logic for simplification (<a href="https://github.com/Kotlin/kotlinx.coroutines/blob/master/kotlinx-coroutines-test/src/TestBuilders.kt#L45">source code</a>):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"> <span style="color:#66d9ef">val</span> <span style="color:#960050;background-color:#1e0010">(</span>safeContext, dispatcher) = context.checkArguments()
+    ..
+    <span style="color:#66d9ef">val</span> deferred = scope.async {
+        scope.testBody()
+    }
+    ..
+    scope.cleanupTestCoroutines()
+    ..
+</code></pre></div><p>The <code>cleanupTestCoroutines</code> will call the same method from the <code>UncaughtExceptionCaptor</code> and <code>DelayController</code>. What does that mean for us?</p>
+<ul>
+<li>The <code>UncaughtExceptionCaptor</code> throws the first uncaught exception + prints all exceptions' stacktraces.</li>
+<li>The <code>DelayController</code> tries to complete all pending tasks.</li>
+</ul>
+<h3 id="exception-master---testcoroutineexceptionhandler">Exception Master - TestCoroutineExceptionHandler</h3>
+<p><code>TestCoroutineExceptionHandler</code> (<a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-test-coroutine-exception-handler/">link</a>)is a special version of the <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-exception-handler/index.html">CoroutineExceptionHandler</a>. You can use a CoroutineExceptionHandler to be able to handle exception from within coroutines.</p>
+<p>Personal favourite articles about Coroutine&rsquo;s exception handling:</p>
+<ul>
+<li><a href="https://medium.com/androiddevelopers/exceptions-in-coroutines-ce8da1ec060c">&ldquo;Exceptions in coroutines&rdquo; by Manuel Vivo</a></li>
+<li><a href="https://medium.com/the-kotlin-chronicle/coroutine-exceptions-3378f51a7d33">&ldquo;Exceptional Exceptions for Coroutines made easy…?&rdquo; by Anton Spaans</a></li>
+<li><a href="https://www.lukaslechner.com/why-exception-handling-with-kotlin-coroutines-is-so-hard-and-how-to-successfully-master-it/">&ldquo;Why exception handling with Kotlin Coroutines is so hard and how to successfully master it!&rdquo; by Lukas Lechner</a></li>
+</ul>
+<p>Let&rsquo;s see how to leverage <code>TestCoroutineExceptionHandler</code> to test exceptions.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">@Test
+<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`Assert Exception with Coroutines`</span>() = runBlockingTest {
+    <span style="color:#75715e">// handler will catch Exceptions
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">val</span> exceptionHandler = TestCoroutineExceptionHandler()
+
+    launch(exceptionHandler) { operation().collect() }
+
+    <span style="color:#75715e">// asserting that first uncaught exception is CustomException
+</span><span style="color:#75715e"></span>    Assert.assertThat(
+        exceptionHandler.uncaughtExceptions.first(),
+        CoreMatchers.instanceOf(CustomException<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>.java)
+    )
+}
+</code></pre></div><p>The unit test above observes a Flow and asserts the first exception. The <code>operation</code> flow throws a <code>CustomException::class.java</code> immediately.</p>
+<p>As you can see I am passing to <code>launch</code> an <code>exceptionHandler</code> as extra context which will catch exceptions. The exceptions can be observed using the <code>.uncaughtExceptions</code> which returns all exceptions thrown from within the enclosed job.</p>
+<h3 id="today-we-explored-how-to">Today we explored how to:</h3>
+<ol>
+<li>Collect Flow&rsquo;s emissions, by storing the emissions into a collection.</li>
+<li>Forward time by a fixed time using <code>advancedTimeBy</code> (<a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-delay-controller/advance-time-by.html">link</a>)</li>
+<li>Forward time until idle using <code>advanceUntilIdle</code> (<a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-delay-controller/advance-until-idle.html">link</a>) to execute all pending tasks.</li>
+<li>Catch and inspect uncaught exceptions by using the <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-test-coroutine-exception-handler/">TestCoroutineExceptionHandler</a></li>
+</ol>
+<p>You can find the <a href="https://github.com/giorgosneokleous93/SampleCoroutinesTestBlogPost">repository</a> with the examples at my personal github account.</p>
+<p>Feel free to ping me on <a href="https://twitter.com/neokleoys2005">Twitter</a>.</p>
+<p>Till next time! 👋</p>
+
+        </div>
+        
+
+    
+
+
+<div class="post-info">
+    
+        <div class="post-date">2020-09-22</div>
+    
+    <div class="post-taxonomies">
+        
+            
+    </div>
+</div>
+
+    </article>
+
+    
+        
+    <div class="pagination post-pagination">
+        <div class="left pagination-item disabled">
+            
+        </div>
+        <div class="right pagination-item ">
+            
+                <a href="/post/lets-talk-ttsspans-in-android-accessibility/">Let’s talk (Tts)Spans in Android Accessibility </a>
+            
+        </div>
+    </div>
+
+    
+
+    
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "www-giorgosneokleous-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+
+        </main>
+        
+            <footer class="common-footer">
+    
+    
+
+    <div class="common-footer-bottom">
+        
+        <div class="copyright">
+            <p>© Giorgos Neokleous, 2020<br>
+            Powered by <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
+            </p>  
+        </div> 
+
+        
+
+    
+
+
+
+    <button class="theme-switcher">
+        Dark theme
+    </button>
+
+    <script>
+    const STORAGE_KEY = 'user-color-scheme'
+    const defaultTheme = "dark"
+
+    let currentTheme
+    let switchButton
+    let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+    const autoChangeScheme = e => {
+        currentTheme = e.matches ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', currentTheme)
+        changeButtonText()
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        switchButton = document.querySelector('.theme-switcher')
+        currentTheme = detectCurrentScheme()
+        if (currentTheme == 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark')
+        }
+        if (currentTheme == 'auto') {
+            autoChangeScheme(autoDefinedScheme);
+            autoDefinedScheme.addListener(autoChangeScheme);
+        }
+        changeButtonText()
+        switchButton.addEventListener('click', switchTheme, false)
+    })
+
+    function detectCurrentScheme() {
+        if (localStorage.getItem(STORAGE_KEY)) {
+            return localStorage.getItem(STORAGE_KEY)
+        } 
+        if (defaultTheme) {
+            return defaultTheme
+        } 
+        if (!window.matchMedia) {
+            return 'light'
+        } 
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark'
+        }
+        return 'light'
+    }
+
+    function changeButtonText()
+    {   
+        switchButton.textContent = currentTheme == 'dark' ?  "Light theme" : "Dark theme"
+    }
+
+    function switchTheme(e) {
+        if (currentTheme == 'dark') {
+            localStorage.setItem(STORAGE_KEY, 'light')
+            document.documentElement.setAttribute('data-theme', 'light')
+            currentTheme = 'light'
+        } else {
+            localStorage.setItem(STORAGE_KEY, 'dark')
+            document.documentElement.setAttribute('data-theme', 'dark')
+            currentTheme = 'dark'
+        }
+        changeButtonText()
+    }
+    </script>
+   
+    </div>
+</footer>
+
+        
+    </div>
+</body>
+</html>
