@@ -1,7 +1,7 @@
 ---
 title: "Kotlin's Coroutines Testing Tips"
 description: "Learn how to use Coroutines Testing features including runBlockingTest, TestCoroutineScope and TestCoroutineExceptionHandler"
-date: "2020-09-23"
+date: "2020-09-22"
 author: "Giorgos Neokleous"
 images: 
     - /posts/kotlins-coroutines-testing-tips.png
