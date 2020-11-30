@@ -60,6 +60,20 @@ publishDir = "docs"
     url = "https://stackoverflow.com/users/3330058/giorgos-neokleous"
     weight = 6
 
+  [[menu.footer]]
+    name = "Privacy Policy"
+    identifier = "privacy-policy"
+    pre = "<i class='fa fa-cookie-bite'></i>"
+    url = "/privacy-policy/"
+    weight = 1
+
+  [[menu.footer]]
+    name = "Terms and Conditions"
+    identifier = "terms-and-conditions"
+    pre = "<i class='fa fa-book-open'></i>"
+    url = "/terms-and-conditions/"
+    weight = 1
+
 [taxonomies]
 category = "categories"
 tag = "tags"
