@@ -18,7 +18,8 @@
       
       <guid>https://www.giorgosneokleous.com/post/kotlin-coroutines-testing-tips/</guid>
       <description>&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-&lt;p&gt;Do you love &lt;a href=&#34;https://kotlinlang.org/docs/reference/coroutines-overview.html&#34;&gt;Kotlin&amp;rsquo;s Coroutines&lt;/a&gt;? So do I! Kotlin&amp;rsquo;s Coroutines offer many benefits such as:&lt;/p&gt;
+&lt;p&gt;Do you love &lt;a href=&#34;https://kotlinlang.org/docs/reference/coroutines-overview.html&#34;&gt;Kotlin&amp;rsquo;s Coroutines&lt;/a&gt;? So do I!&lt;/p&gt;
+&lt;p&gt;Kotlin&amp;rsquo;s Coroutines offer many benefits such as:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Readability: the following code can be read line by line and understand the order of execution without going into callbacks (at least on what the developers write).&lt;/li&gt;
 &lt;/ul&gt;
