@@ -19,7 +19,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1600805954" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1606773380" />
 <style>
 
     [data-theme="dark"] {   
@@ -53,9 +53,11 @@
 
 </style>
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1600805954" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1606773380" />
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/cookie-notice.css" />
 
 
 
@@ -212,7 +214,7 @@ The Receiver below is called in two cases:</p>
     <span style="color:#66d9ef">companion</span> <span style="color:#66d9ef">object</span> {
         <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">build</span>(context: Context, isLockScreen: Boolean): Intent {
             <span style="color:#66d9ef">return</span> Intent(context, NotificationReceiver<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>.java).also {
-                it.putExtra(LOCK_SCREEN_KEY, isLockScreen)
+                <span style="color:#66d9ef">it</span>.putExtra(LOCK_SCREEN_KEY, isLockScreen)
             }
         }
     }
@@ -228,7 +230,7 @@ Note: To be able to turn on the screen we need to also request it using the:</p>
 <p>– Activity#<a href="https://developer.android.com/reference/android/app/Activity#setTurnScreenOn(boolean)">setTurnScreenOn</a>(true) method</p>
 <p>Time for an extension function that sets both flags with backward compatibility 🚀</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">Activity</span>.turnScreenOnAndKeyguardOff() {
-    <span style="color:#66d9ef">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O_MR1) {
+    <span style="color:#66d9ef">if</span> (Build.VERSION.SDK_INT <span style="color:#f92672">&gt;=</span> Build.VERSION_CODES.O_MR1) {
         setShowWhenLocked(<span style="color:#66d9ef">true</span>)
         setTurnScreenOn(<span style="color:#66d9ef">true</span>)
     } <span style="color:#66d9ef">else</span> {
@@ -238,8 +240,8 @@ Note: To be able to turn on the screen we need to also request it using the:</p>
         )
     }
     with(getSystemService(Context.KEYGUARD_SERVICE) <span style="color:#66d9ef">as</span> KeyguardManager) {
-        <span style="color:#66d9ef">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) {
-            requestDismissKeyguard(<span style="color:#66d9ef">this</span>@turnScreenOnAndKeyguardOff, <span style="color:#66d9ef">null</span>)
+        <span style="color:#66d9ef">if</span> (Build.VERSION.SDK_INT <span style="color:#f92672">&gt;=</span> Build.VERSION_CODES.O) {
+            requestDismissKeyguard(<span style="color:#66d9ef">this</span><span style="color:#a6e22e">@turnScreenOnAndKeyguardOff</span>, <span style="color:#66d9ef">null</span>)
         }
     }
 }
@@ -324,6 +326,15 @@ Note: To be able to turn on the screen we need to also request it using the:</p>
     
 
     <div class="common-footer-bottom">
+        
+            
+            <ul class="footer-menu">
+            
+            <li><a class="" href="https://www.giorgosneokleous.com/privacy-policy/" title=""><i class='fa fa-cookie-bite'></i> <span>Privacy Policy</a></li>
+            
+            <li><a class="" href="https://www.giorgosneokleous.com/terms-and-conditions/" title=""><i class='fa fa-book-open'></i> <span>Terms and Conditions</a></li>
+            
+            </ul>
         
         <div class="copyright">
             <p>© Giorgos Neokleous, 2020<br>

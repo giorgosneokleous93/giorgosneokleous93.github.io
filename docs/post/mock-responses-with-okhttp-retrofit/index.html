@@ -19,7 +19,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1600805954" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1606773380" />
 <style>
 
     [data-theme="dark"] {   
@@ -53,9 +53,11 @@
 
 </style>
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1600805954" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1606773380" />
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/cookie-notice.css" />
 
 
 
@@ -171,9 +173,9 @@ if (!doNotTrack) {
 </code></pre></div><h4 id="mocking-a-response">Mocking a response</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">MockResponse()
    .setResponseCode(HttpURLConnection.HTTP_OK)
-   .setBody(<span style="color:#e6db74">&#34;&#34;</span>{<span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">&#34;status\&#34;:\&#34;error\&#34;,\&#34;code\&#34;:\&#34;responseCode\&#34;}&#34;</span>
-<span style="color:#e6db74">&#34;)     
-</span></code></pre></div><p>To instruct the server to return the mocked response, you need to <a href="https://square.github.io/okhttp/4.x/mockwebserver/okhttp3.mockwebserver/-mock-web-server/enqueue/">enqueue</a> the mock response such as:</p>
+   .setBody(<span style="color:#e6db74">&#34;&#34;</span>{<span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">&#34;status</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">:</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">error</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">,</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">code</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">:</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">responseCode</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">}&#34;</span>
+<span style="color:#e6db74">&#34;)     </span>
+</code></pre></div><p>To instruct the server to return the mocked response, you need to <a href="https://square.github.io/okhttp/4.x/mockwebserver/okhttp3.mockwebserver/-mock-web-server/enqueue/">enqueue</a> the mock response such as:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">mockWebServer.enqueue(mockResponse)
 </code></pre></div><p>For further studying, head to MockWebServer’s Javadoc <a href="https://square.github.io/okhttp/4.x/mockwebserver/okhttp3.mockwebserver/-mock-web-server/">here</a>.</p>
 <h3 id="basic-setup-for-unit-tests">Basic Setup for unit tests</h3>
@@ -181,13 +183,13 @@ if (!doNotTrack) {
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">YourTest</span> {
  <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> mockWebServer: MockWebServer
 
-    @Before
+    <span style="color:#a6e22e">@Before</span>
     <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">setUp</span>() {
         mockWebServer = MockWebServer()
         mockWebServer.start()
     }
 
-    @After
+    <span style="color:#a6e22e">@After</span>
     <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">tearDown</span>() {
         mockWebServer.shutdown()
     }
@@ -322,6 +324,15 @@ response.setBody(FileUtils.readTestResourceFile(<span style="color:#e6db74">&#34
     
 
     <div class="common-footer-bottom">
+        
+            
+            <ul class="footer-menu">
+            
+            <li><a class="" href="https://www.giorgosneokleous.com/privacy-policy/" title=""><i class='fa fa-cookie-bite'></i> <span>Privacy Policy</a></li>
+            
+            <li><a class="" href="https://www.giorgosneokleous.com/terms-and-conditions/" title=""><i class='fa fa-book-open'></i> <span>Terms and Conditions</a></li>
+            
+            </ul>
         
         <div class="copyright">
             <p>© Giorgos Neokleous, 2020<br>

@@ -19,7 +19,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1600805954" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1606773380" />
 <style>
 
     [data-theme="dark"] {   
@@ -53,9 +53,11 @@
 
 </style>
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1600805954" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1606773380" />
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/cookie-notice.css" />
 
 
 
@@ -186,7 +188,7 @@ if (!doNotTrack) {
     <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> ttsSpanType: String?
 ) {
   <span style="color:#66d9ef">var</span> id: Int = <span style="color:#ae81ff">0</span>
-  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">toSpannable</span>(): SpannableString? { ... }
+  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">toSpannable</span>(): SpannableString? { <span style="color:#f92672">..</span>. }
 }
 </code></pre></div><p><img src="/posts/lets-talk-spans-ttsitem.png" alt="TtsItem demo"></p>
 <p>To produce the different TtsItem, we have a data factory called DummyDataFactory .</p>
@@ -203,8 +205,8 @@ if (!doNotTrack) {
 
         TtsItem(<span style="color:#e6db74">&#34;admin:123456789&#34;</span>, <span style="color:#e6db74">&#34;Password without TTSSpan&#34;</span>, <span style="color:#66d9ef">null</span>),
         TtsItem(<span style="color:#e6db74">&#34;admin:123456789&#34;</span>, <span style="color:#e6db74">&#34;Password with TTSSpan&#34;</span>, TtsSpan.TYPE_ELECTRONIC)
-    ).also { list -&gt;
-        list.forEachIndexed { index, ttsItem -&gt; ttsItem.id = index }
+    ).also { list <span style="color:#f92672">-&gt;</span>
+        list.forEachIndexed { index, ttsItem <span style="color:#f92672">-&gt;</span> ttsItem.id = index }
     }
 }
 </code></pre></div><h3 id="explore-tospannable-from-ttsitem">Explore toSpannable() from TtsItem</h3>
@@ -346,6 +348,15 @@ The above example is my favourite as it demonstrates how powerful the Text-to-Sp
     
 
     <div class="common-footer-bottom">
+        
+            
+            <ul class="footer-menu">
+            
+            <li><a class="" href="https://www.giorgosneokleous.com/privacy-policy/" title=""><i class='fa fa-cookie-bite'></i> <span>Privacy Policy</a></li>
+            
+            <li><a class="" href="https://www.giorgosneokleous.com/terms-and-conditions/" title=""><i class='fa fa-book-open'></i> <span>Terms and Conditions</a></li>
+            
+            </ul>
         
         <div class="copyright">
             <p>© Giorgos Neokleous, 2020<br>
