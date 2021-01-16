@@ -19,7 +19,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1606773380" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1610799664" />
 <style>
 
     [data-theme="dark"] {   
@@ -53,7 +53,7 @@
 
 </style>
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1606773380" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1610799664" />
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -175,7 +175,10 @@ if (!doNotTrack) {
 <span style="color:#75715e">// request code and flags not added for demo purposes
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> pendingIntent = PendingIntent.getActivity(<span style="color:#66d9ef">this</span>, <span style="color:#ae81ff">0</span>, intent, <span style="color:#ae81ff">0</span>)
 builder.setFullScreenIntent(pendingIntent) <span style="color:#75715e">// THIS HERE is the full-screen intent
-</span></code></pre></div><h3 id="2-schedule-full-screen-intent-notification">2. Schedule Full-Screen Intent Notification</h3>
+</span></code></pre></div><p>Don’t forget to add in your AndroidManifest.xml’s Activity the following as well:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;activity</span> <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;.LockScreenActivity&#34;</span>
+    <span style="color:#a6e22e">android:showOnLockScreen=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">/&gt;</span>
+</code></pre></div><h3 id="2-schedule-full-screen-intent-notification">2. Schedule Full-Screen Intent Notification</h3>
 <p>Building the notification is identical to the previous example. The main difference is that the notification is not built by an Activity but by a <a href="https://developer.android.com/reference/android/content/BroadcastReceiver">BroadcastReceiver</a> to enable scheduling in the future using <a href="https://developer.android.com/reference/android/app/AlarmManager">AlarmManager</a>.</p>
 <p><img src="/posts/full_screen_intent-schedule.gif" alt="Schedule Full-Screen Intent Notification demo"></p>
 <p><strong>Scheduling</strong>
@@ -337,7 +340,7 @@ Note: To be able to turn on the screen we need to also request it using the:</p>
             </ul>
         
         <div class="copyright">
-            <p>© Giorgos Neokleous, 2020<br>
+            <p>© Giorgos Neokleous, 2021<br>
             Powered by <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
             </p>  
         </div> 

@@ -205,15 +205,20 @@
       <pubDate>Sat, 12 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.giorgosneokleous.com/about/</guid>
-      <description>&lt;p&gt;Android Engineer @ &lt;a href=&#34;https://www.peak.net/&#34;&gt;Peak Brain Training&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;Android Engineer @ &lt;a href=&#34;http://curve.com/&#34;&gt;Curve&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;mailto:giorgos.neokleous93@gmail.com&#34;&gt;giorgos.neokleous93@gmail.com&lt;/a&gt; | &lt;a href=&#34;http://www.giorgosneokleous.com&#34;&gt;www.giorgosneokleous.com&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;experience&#34;&gt;Experience&lt;/h1&gt;
 &lt;hr&gt;
+&lt;h3 id=&#34;mobile-engineer-android--curvehttpcurvecom&#34;&gt;Mobile Engineer (Android) @ &lt;a href=&#34;http://curve.com/&#34;&gt;Curve&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Dec 2020 - Present, London, UK&lt;/p&gt;
 &lt;h3 id=&#34;android-engineer--peak-brain-traininghttpswwwpeaknet&#34;&gt;Android Engineer @ &lt;a href=&#34;https://www.peak.net/&#34;&gt;Peak Brain Training&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Jan 2019 - Present, London, UK&lt;/p&gt;
+&lt;p&gt;Jan 2019 - Dec 2020, London, UK&lt;/p&gt;
+&lt;p&gt;Maintain and build new features for the flagship product &lt;a href=&#34;https://play.google.com/store/apps/details?id=com.brainbow.peak.app&amp;amp;hl=en&#34;&gt;Peak Brain Training App&lt;/a&gt; on Android and also on Peak Sleep for Android which is decommissioned.&lt;/p&gt;
+&lt;p&gt;Technologies used: Java, Kotlin, Coroutines, MVVM, Clean Architecture, Toothpick, Dagger.&lt;/p&gt;
 &lt;h3 id=&#34;software-developer--coderushttpswwwcoderuscom&#34;&gt;Software Developer @ &lt;a href=&#34;https://www.coderus.com/&#34;&gt;Coderus&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Sep 2017 - Dec 2018, Ipswich UK&lt;/p&gt;
 &lt;p&gt;Maintaining and developing new features for clients’ android applications. Heavily worked with Bluetooth Low Energy frameworks.&lt;/p&gt;
+&lt;p&gt;Technologies used: Java, Kotlin, MVVM.&lt;/p&gt;
 &lt;h3 id=&#34;co-founder-website-developer--administrator--reservationscy&#34;&gt;Co-Founder, Website Developer &amp;amp; Administrator @ ReservationsCy&lt;/h3&gt;
 &lt;p&gt;Jun 2014 - Aug 2017, Cyprus&lt;/p&gt;
 &lt;ul&gt;
@@ -511,7 +516,10 @@ The above example is my favourite as it demonstrates how powerful the Text-to-Sp
 &lt;span style=&#34;color:#75715e&#34;&gt;// request code and flags not added for demo purposes
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; pendingIntent = PendingIntent.getActivity(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, intent, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
 builder.setFullScreenIntent(pendingIntent) &lt;span style=&#34;color:#75715e&#34;&gt;// THIS HERE is the full-screen intent
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-schedule-full-screen-intent-notification&#34;&gt;2. Schedule Full-Screen Intent Notification&lt;/h3&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Don’t forget to add in your AndroidManifest.xml’s Activity the following as well:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;activity&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;android:name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.LockScreenActivity&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;android:showOnLockScreen=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-schedule-full-screen-intent-notification&#34;&gt;2. Schedule Full-Screen Intent Notification&lt;/h3&gt;
 &lt;p&gt;Building the notification is identical to the previous example. The main difference is that the notification is not built by an Activity but by a &lt;a href=&#34;https://developer.android.com/reference/android/content/BroadcastReceiver&#34;&gt;BroadcastReceiver&lt;/a&gt; to enable scheduling in the future using &lt;a href=&#34;https://developer.android.com/reference/android/app/AlarmManager&#34;&gt;AlarmManager&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/full_screen_intent-schedule.gif&#34; alt=&#34;Schedule Full-Screen Intent Notification demo&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Scheduling&lt;/strong&gt;
