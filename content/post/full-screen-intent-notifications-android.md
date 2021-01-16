@@ -63,6 +63,12 @@ val pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
 builder.setFullScreenIntent(pendingIntent) // THIS HERE is the full-screen intent
 ```
 
+Don’t forget to add in your AndroidManifest.xml’s Activity the following as well:
+```xml
+<activity android:name=".LockScreenActivity"
+    android:showOnLockScreen="true"/>
+```
+
 ### 2. Schedule Full-Screen Intent Notification
 Building the notification is identical to the previous example. The main difference is that the notification is not built by an Activity but by a [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver) to enable scheduling in the future using [AlarmManager](https://developer.android.com/reference/android/app/AlarmManager).
 
