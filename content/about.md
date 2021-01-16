@@ -8,7 +8,7 @@ author: "Giorgos Neokleous"
 disableComments: true
 ---
 
-Android Engineer @ [Peak Brain Training](https://www.peak.net/)
+Android Engineer @ [Curve](http://curve.com/)
 
 <giorgos.neokleous93@gmail.com> | [www.giorgosneokleous.com](http://www.giorgosneokleous.com)
 
@@ -16,13 +16,22 @@ Android Engineer @ [Peak Brain Training](https://www.peak.net/)
 
 ---
 
+### Mobile Engineer (Android) @ [Curve](http://curve.com/)
+Dec 2020 - Present, London, UK
+
 ### Android Engineer @ [Peak Brain Training](https://www.peak.net/)
-Jan 2019 - Present, London, UK
+Jan 2019 - Dec 2020, London, UK
+
+Maintain and build new features for the flagship product [Peak Brain Training App](https://play.google.com/store/apps/details?id=com.brainbow.peak.app&hl=en) on Android and also on Peak Sleep for Android which is decommissioned. 
+
+Technologies used: Java, Kotlin, Coroutines, MVVM, Clean Architecture, Toothpick, Dagger.
 
 ### Software Developer @ [Coderus](https://www.coderus.com/)
 Sep 2017 - Dec 2018, Ipswich UK
 
 Maintaining and developing new features for clients’ android applications. Heavily worked with Bluetooth Low Energy frameworks.
+
+Technologies used: Java, Kotlin, MVVM.
 
 ### Co-Founder, Website Developer & Administrator @ ReservationsCy
 Jun 2014 - Aug 2017, Cyprus
