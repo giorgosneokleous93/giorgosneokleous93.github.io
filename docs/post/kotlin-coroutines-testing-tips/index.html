@@ -19,7 +19,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1600805954" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1606773380" />
 <style>
 
     [data-theme="dark"] {   
@@ -53,9 +53,11 @@
 
 </style>
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1600805954" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1606773380" />
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/cookie-notice.css" />
 
 
 
@@ -161,14 +163,14 @@ if (!doNotTrack) {
 <p><code>runBlockingTest</code> (<a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/run-blocking-test.html">link</a>) provides a scope which can be used to control time, such as advancing time, pausing and resuming dispatchers.</p>
 <p>Within the body of the <code>runBlockingTest</code> you can run suspending operations and manipulate time. You can forward time using the <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-test-coroutine-scope/index.html">TestCoroutineScope</a> which can be accessed directly from within the <code>runBlockingTest</code>.</p>
 <p>Let&rsquo;s see an example and then break it down.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">@Test
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#a6e22e">@Test</span>
 <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`Advancing Time with TestCoroutineScope`</span>() = runBlockingTest {
     <span style="color:#66d9ef">val</span> delay = <span style="color:#ae81ff">100.</span>milliseconds
     <span style="color:#66d9ef">val</span> flow = operationForTimeController(delay = delay, rounds = <span style="color:#ae81ff">5</span>)
 
     <span style="color:#75715e">// observing flow and storing emissions
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">val</span> results = mutableListOf&lt;Int&gt;()
-    launch { flow.collect { results.add(it) } }
+    launch { flow.collect { results.add(<span style="color:#66d9ef">it</span>) } }
 
     <span style="color:#75715e">// assert that results is empty
 </span><span style="color:#75715e"></span>    Assert.assertThat(results.isEmpty(), CoreMatchers.equalTo(<span style="color:#66d9ef">true</span>))
@@ -198,13 +200,13 @@ if (!doNotTrack) {
 <p><code>runBlockingTest</code> under the hood calls <code>cleanupTestCoroutines</code> to make sure that coroutines are properly cleaned up.</p>
 <p>Let&rsquo;s see the implemenation of the function, emited logic for simplification (<a href="https://github.com/Kotlin/kotlinx.coroutines/blob/master/kotlinx-coroutines-test/src/TestBuilders.kt#L45">source code</a>):</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"> <span style="color:#66d9ef">val</span> <span style="color:#960050;background-color:#1e0010">(</span>safeContext, dispatcher) = context.checkArguments()
-    ..
+    <span style="color:#f92672">..</span>
     <span style="color:#66d9ef">val</span> deferred = scope.async {
         scope.testBody()
     }
-    ..
+    <span style="color:#f92672">..</span>
     scope.cleanupTestCoroutines()
-    ..
+    <span style="color:#f92672">..</span>
 </code></pre></div><p>The <code>cleanupTestCoroutines</code> will call the same method from the <code>UncaughtExceptionCaptor</code> and <code>DelayController</code>. What does that mean for us?</p>
 <ul>
 <li>The <code>UncaughtExceptionCaptor</code> throws the first uncaught exception + prints all exceptions' stacktraces.</li>
@@ -219,7 +221,7 @@ if (!doNotTrack) {
 <li><a href="https://www.lukaslechner.com/why-exception-handling-with-kotlin-coroutines-is-so-hard-and-how-to-successfully-master-it/">&ldquo;Why exception handling with Kotlin Coroutines is so hard and how to successfully master it!&rdquo; by Lukas Lechner</a></li>
 </ul>
 <p>Let&rsquo;s see how to leverage <code>TestCoroutineExceptionHandler</code> to test exceptions.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">@Test
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#a6e22e">@Test</span>
 <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`Assert Exception with Coroutines`</span>() = runBlockingTest {
     <span style="color:#75715e">// handler will catch Exceptions
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">val</span> exceptionHandler = TestCoroutineExceptionHandler()
@@ -309,6 +311,15 @@ if (!doNotTrack) {
     
 
     <div class="common-footer-bottom">
+        
+            
+            <ul class="footer-menu">
+            
+            <li><a class="" href="https://www.giorgosneokleous.com/privacy-policy/" title=""><i class='fa fa-cookie-bite'></i> <span>Privacy Policy</a></li>
+            
+            <li><a class="" href="https://www.giorgosneokleous.com/terms-and-conditions/" title=""><i class='fa fa-book-open'></i> <span>Terms and Conditions</a></li>
+            
+            </ul>
         
         <div class="copyright">
             <p>© Giorgos Neokleous, 2020<br>

@@ -19,7 +19,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1600805954" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1606773380" />
 <style>
 
     [data-theme="dark"] {   
@@ -53,9 +53,11 @@
 
 </style>
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1600805954" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1606773380" />
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/cookie-notice.css" />
 
 
 
@@ -147,7 +149,7 @@ if (!doNotTrack) {
 <li>Assert: Make sure that the output matches the expected output.</li>
 </ol>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">@Test
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#a6e22e">@Test</span>
 <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example of AAA`</span>() {
     <span style="color:#75715e">// Arrange
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">val</span> input = <span style="color:#ae81ff">2</span>
@@ -162,13 +164,13 @@ if (!doNotTrack) {
 <p>The whole set can be found at their <a href="https://junit.org/junit4/javadoc/latest/org/junit/Assert.html">JavaDoc</a>.</p>
 <p>JUnit also comes with the <a href="http://hamcrest.org/JavaHamcrest/index">Hamcrest</a> assertions which are very nice!</p>
 <p><strong>Hamcrest Example</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">@Test
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#a6e22e">@Test</span>
 <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example of Hamcrest`</span>(){
     <span style="color:#66d9ef">val</span> input = <span style="color:#ae81ff">2</span>
 
     <span style="color:#66d9ef">val</span> output = toThePowerOfTwo(input)
 
-    Assert.assertThat(output, CoreMatchers.`is`(<span style="color:#ae81ff">4</span>))
+    Assert.assertThat(output, CoreMatchers.<span style="color:#a6e22e">`is</span><span style="color:#960050;background-color:#1e0010">`</span>(<span style="color:#ae81ff">4</span>))
 }
 </code></pre></div><p>In my opinion matchers are a much readable form of unit tests as it can be easily expressed, also the unit tests failures are much more readable.</p>
 <p>Let’s go one step beyond now and introduce the main star of the post, <a href="https://truth.dev/">Truth</a>.</p>
@@ -179,7 +181,7 @@ if (!doNotTrack) {
 </blockquote>
 <p>Truth’s API enables chained method calls, this is a huge win for me as it’s easier to read.</p>
 <p><strong>Example 1</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">@Test
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#a6e22e">@Test</span>
 <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example one of Truth`</span>() {
     Truth.assertThat(getUsers()).containsEntry(<span style="color:#e6db74">&#34;User 1&#34;</span>, <span style="color:#e6db74">&#34;John Doe&#34;</span>)
 }
@@ -207,7 +209,7 @@ expected: [User 2, User 1, User 3]
 but was : [User 1, User 2, User 3]
 </code></pre><p><strong>Example 3</strong>
 Assertions on String objects.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">@Test
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#a6e22e">@Test</span>
 <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example three of Truth`</span>() {
     <span style="color:#66d9ef">val</span> user = getRandomUser()
 
@@ -225,13 +227,13 @@ With Kotlin’s extension functions we can power up Truth 🆙💪</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">/**
 </span><span style="color:#75715e"> * Invoke multiple calls on [T] objects.
 </span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">fun</span> &lt;T : Subject&gt; <span style="color:#a6e22e">T</span>.toTruthSerum(<span style="color:#66d9ef">vararg</span> calls: T.() -&gt; Unit) {
-    calls.forEach { it.invoke(<span style="color:#66d9ef">this</span>@toTruthSerum) }
+<span style="color:#66d9ef">fun</span> &lt;<span style="color:#a6e22e">T</span> : <span style="color:#a6e22e">Subject</span>&gt; <span style="color:#a6e22e">T</span>.toTruthSerum(<span style="color:#66d9ef">vararg</span> calls: T.() <span style="color:#f92672">-&gt;</span> Unit) {
+    calls.forEach { <span style="color:#66d9ef">it</span>.invoke(<span style="color:#66d9ef">this</span><span style="color:#a6e22e">@toTruthSerum</span>) }
 }
 
 <span style="color:#75715e">// how to use
-</span><span style="color:#75715e"></span>@Test
-<span style="color:#66d9ef">fun</span> <span style="color:#960050;background-color:#1e0010">`</span><span style="color:#a6e22e">example</span> four of Truth - with kotlin extensions<span style="color:#960050;background-color:#1e0010">`</span>() {
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example four of Truth - with kotlin extensions`</span>() {
     <span style="color:#66d9ef">val</span> user = getJohnWick()
 
     Truth.assertThat(user.name).toTruthSerum(
@@ -316,6 +318,15 @@ but was               : John Wick
     
 
     <div class="common-footer-bottom">
+        
+            
+            <ul class="footer-menu">
+            
+            <li><a class="" href="https://www.giorgosneokleous.com/privacy-policy/" title=""><i class='fa fa-cookie-bite'></i> <span>Privacy Policy</a></li>
+            
+            <li><a class="" href="https://www.giorgosneokleous.com/terms-and-conditions/" title=""><i class='fa fa-book-open'></i> <span>Terms and Conditions</a></li>
+            
+            </ul>
         
         <div class="copyright">
             <p>© Giorgos Neokleous, 2020<br>

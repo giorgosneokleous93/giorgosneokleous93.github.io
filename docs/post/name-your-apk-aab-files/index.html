@@ -19,7 +19,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1600805954" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1606773380" />
 <style>
 
     [data-theme="dark"] {   
@@ -53,9 +53,11 @@
 
 </style>
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1600805954" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1606773380" />
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/cookie-notice.css" />
 
 
 
@@ -153,9 +155,9 @@ if (!doNotTrack) {
 <span style="color:#f92672">}</span>
 </code></pre></div><p>The DSL Version</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">applicationVariants.all {
-    outputs.forEach { output -&gt;
+    outputs.forEach { output <span style="color:#f92672">-&gt;</span>
         <span style="color:#66d9ef">if</span> (output <span style="color:#66d9ef">is</span> com.android.build.gradle.<span style="color:#66d9ef">internal</span>.api.BaseVariantOutputImpl) {
-            output.outputFileName = <span style="color:#e6db74">&#34;${applicationId}-v${versionName}(${this.versionCode})-${name}.${output.outputFile.extension}&#34;</span>
+            output.outputFileName = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${applicationId}</span><span style="color:#e6db74">-v</span><span style="color:#e6db74">${versionName}</span><span style="color:#e6db74">(</span><span style="color:#e6db74">${this.versionCode}</span><span style="color:#e6db74">)-</span><span style="color:#e6db74">${name}</span><span style="color:#e6db74">.</span><span style="color:#e6db74">${output.outputFile.extension}</span><span style="color:#e6db74">&#34;</span>
         }
     }
 }
@@ -173,10 +175,10 @@ if (!doNotTrack) {
 <span style="color:#f92672">}</span>
 </code></pre></div><p>THE DSL Version</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">android {
-  ...
+  <span style="color:#f92672">..</span>.
   defaultConfig {
-    ...
-    setProperty(<span style="color:#e6db74">&#34;archivesBaseName&#34;</span>, <span style="color:#e6db74">&#34;${applicationId}-v${versionName}(${versionCode})&#34;</span>)
+    <span style="color:#f92672">..</span>.
+    setProperty(<span style="color:#e6db74">&#34;archivesBaseName&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${applicationId}</span><span style="color:#e6db74">-v</span><span style="color:#e6db74">${versionName}</span><span style="color:#e6db74">(</span><span style="color:#e6db74">${versionCode}</span><span style="color:#e6db74">)&#34;</span>)
   }
 }
 </code></pre></div><p><strong>Output</strong></p>
@@ -306,6 +308,15 @@ As you can see from the graphs and metrics above, the two options have identical
     
 
     <div class="common-footer-bottom">
+        
+            
+            <ul class="footer-menu">
+            
+            <li><a class="" href="https://www.giorgosneokleous.com/privacy-policy/" title=""><i class='fa fa-cookie-bite'></i> <span>Privacy Policy</a></li>
+            
+            <li><a class="" href="https://www.giorgosneokleous.com/terms-and-conditions/" title=""><i class='fa fa-book-open'></i> <span>Terms and Conditions</a></li>
+            
+            </ul>
         
         <div class="copyright">
             <p>© Giorgos Neokleous, 2020<br>
