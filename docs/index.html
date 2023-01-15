@@ -3,7 +3,7 @@
 
 <html lang="en-us" data-theme="">
 <head>
-	<meta name="generator" content="Hugo 0.80.0" />
+	<meta name="generator" content="Hugo 0.109.0">
     
         
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1610799664" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1673784443" />
 <style>
 
     [data-theme="dark"] {   
@@ -55,7 +55,7 @@
 
 </style>
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1610799664" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1673784443" />
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -67,7 +67,6 @@
 <meta property="og:description" content="Giorgos Neokleous&#39;s stories about Android Development and Programming!" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.giorgosneokleous.com/" />
-<meta property="og:updated_time" content="2020-09-22T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Giorgos Neokleous"/>
@@ -140,7 +139,7 @@ if (!doNotTrack) {
     <div class="content post-summary">
         Introduction Do you love Kotlin&rsquo;s Coroutines? So do I!
 Kotlin&rsquo;s Coroutines offer many benefits such as:
- Readability: the following code can be read line by line and understand the order of execution without going into callbacks (at least on what the developers write).  suspend fun runTwoExpensiveOperations() { // Running First Operation  val resultOfFirstExpensiveOperation = withContext(Dispatchers.IO) { runFirstExpensiveOperation() } // Running Second Operation  val resultOfSecondExpensiveOperation = withContext(Dispatchers.IO) { runSecondExpensiveOperation(resultOfFirstExpensiveOperation) } return resultOfSecondExpensiveOperation }  Reactive capabilities: Flows, Channels, StateFlow come with a lot of operators which provide an API for hot and cold streams.
+Readability: the following code can be read line by line and understand the order of execution without going into callbacks (at least on what the developers write). suspend fun runTwoExpensiveOperations() { // Running First Operation val resultOfFirstExpensiveOperation = withContext(Dispatchers.IO) { runFirstExpensiveOperation() } // Running Second Operation val resultOfSecondExpensiveOperation = withContext(Dispatchers.IO) { runSecondExpensiveOperation(resultOfFirstExpensiveOperation) } return resultOfSecondExpensiveOperation } Reactive capabilities: Flows, Channels, StateFlow come with a lot of operators which provide an API for hot and cold streams.
     </div>
     
     
@@ -197,7 +196,7 @@ Kotlin&rsquo;s Coroutines offer many benefits such as:
         What are Full-Screen Intents? Full-Screen Intents are Intents that can launch in full-screen and can be used for showing a full-screen notification.
 Well, I guess that needs a bit more explanation so keep on reading.
 From the official docs:
- Your app might need to display an urgent, time-sensitive message, such as an incoming phone call or a ringing alarm. In these situations, you can associate a full-screen intent with your notification.
+Your app might need to display an urgent, time-sensitive message, such as an incoming phone call or a ringing alarm. In these situations, you can associate a full-screen intent with your notification.
     </div>
     
     
@@ -255,7 +254,7 @@ Why Documentation sometimes is redundant if the method, class or property is sel
     <div class="content post-summary">
         This post will explore how to rename your artifacts, to convey meaning.
 Why? Use cases:
- When your application has multiple “flavours”, you need the outputs identifiable. When you produce multiple versions at the same time, you need to tell which artifact is which.  To check your current artifact’s name simply run assembleDebug Gradle task. If you haven’t modified it yet, your output will be app-debug.apk.
+When your application has multiple “flavours”, you need the outputs identifiable. When you produce multiple versions at the same time, you need to tell which artifact is which. To check your current artifact’s name simply run assembleDebug Gradle task. If you haven’t modified it yet, your output will be app-debug.apk.
 What would be better to have is something that is identifiable and meaningful like the template below:
     </div>
     
@@ -323,7 +322,7 @@ What would be better to have is something that is identifiable and meaningful li
             </ul>
         
         <div class="copyright">
-            <p>© Giorgos Neokleous, 2021<br>
+            <p>© Giorgos Neokleous, 2023<br>
             Powered by <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
             </p>  
         </div> 

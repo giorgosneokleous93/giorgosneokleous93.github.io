@@ -19,7 +19,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1610799664" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1673784443" />
 <style>
 
     [data-theme="dark"] {   
@@ -53,7 +53,7 @@
 
 </style>
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1610799664" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1673784443" />
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -64,8 +64,7 @@
 <meta property="og:title" content="Sweet Truth, the Truth fairy 🦷" />
 <meta property="og:description" content="Exploring Google&#39;s Truth Assertion Library" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.giorgosneokleous.com/post/sweet-truth-the-truth-fairy/" />
-<meta property="og:image" content="https://www.giorgosneokleous.com/posts/sweet-truth-the-truth-fairy-banner.png" />
+<meta property="og:url" content="https://www.giorgosneokleous.com/post/sweet-truth-the-truth-fairy/" /><meta property="og:image" content="https://www.giorgosneokleous.com/posts/sweet-truth-the-truth-fairy-banner.png" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-09-18T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-09-18T00:00:00+00:00" />
 
@@ -149,30 +148,30 @@ if (!doNotTrack) {
 <li>Assert: Make sure that the output matches the expected output.</li>
 </ol>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#a6e22e">@Test</span>
-<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example of AAA`</span>() {
-    <span style="color:#75715e">// Arrange
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">val</span> input = <span style="color:#ae81ff">2</span>
-    <span style="color:#75715e">// Act
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">val</span> output = toThePowerOfTwo(number = input)
-    <span style="color:#75715e">// Assert
-</span><span style="color:#75715e"></span>    Assert.assertEquals(<span style="color:#ae81ff">4</span>, output)
-}
-</code></pre></div><p>On this blog post we are going to focused on the <strong>Assertions</strong> part.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example of AAA`</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Arrange
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">val</span> input = <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Act
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">val</span> output = toThePowerOfTwo(number = input)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Assert
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Assert</span>.assertEquals(<span style="color:#ae81ff">4</span>, output)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>On this blog post we are going to focused on the <strong>Assertions</strong> part.</p>
 <h2 id="junit-assertions">JUnit Assertions</h2>
 <p>JUnit comes with a set of pretty basic assertions which can be used during testing.</p>
 <p>The whole set can be found at their <a href="https://junit.org/junit4/javadoc/latest/org/junit/Assert.html">JavaDoc</a>.</p>
 <p>JUnit also comes with the <a href="http://hamcrest.org/JavaHamcrest/index">Hamcrest</a> assertions which are very nice!</p>
 <p><strong>Hamcrest Example</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#a6e22e">@Test</span>
-<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example of Hamcrest`</span>(){
-    <span style="color:#66d9ef">val</span> input = <span style="color:#ae81ff">2</span>
-
-    <span style="color:#66d9ef">val</span> output = toThePowerOfTwo(input)
-
-    Assert.assertThat(output, CoreMatchers.<span style="color:#a6e22e">`is</span><span style="color:#960050;background-color:#1e0010">`</span>(<span style="color:#ae81ff">4</span>))
-}
-</code></pre></div><p>In my opinion matchers are a much readable form of unit tests as it can be easily expressed, also the unit tests failures are much more readable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example of Hamcrest`</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> input = <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> output = toThePowerOfTwo(input)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Assert</span>.assertThat(output, <span style="color:#a6e22e">CoreMatchers</span>.`is`(<span style="color:#ae81ff">4</span>))
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In my opinion matchers are a much readable form of unit tests as it can be easily expressed, also the unit tests failures are much more readable.</p>
 <p>Let’s go one step beyond now and introduce the main star of the post, <a href="https://truth.dev/">Truth</a>.</p>
 <h2 id="truth">Truth</h2>
 <p>Truth is an assertion library, that comes with assertions and nice failure messages and as a result of that much more readable unit tests ♥️.</p>
@@ -181,13 +180,13 @@ if (!doNotTrack) {
 </blockquote>
 <p>Truth’s API enables chained method calls, this is a huge win for me as it’s easier to read.</p>
 <p><strong>Example 1</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#a6e22e">@Test</span>
-<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example one of Truth`</span>() {
-    Truth.assertThat(getUsers()).containsEntry(<span style="color:#e6db74">&#34;User 1&#34;</span>, <span style="color:#e6db74">&#34;John Doe&#34;</span>)
-}
-</code></pre></div><p>The above example can be easily read as: “Assert that getAllUsers() returns a map with an entry with key: User 1 and value John Doe. Truth can also be imported statically so you can no always add Truth.*.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example one of Truth`</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Truth</span>.assertThat(getUsers()).containsEntry(<span style="color:#e6db74">&#34;User 1&#34;</span>, <span style="color:#e6db74">&#34;John Doe&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The above example can be easily read as: “Assert that getAllUsers() returns a map with an entry with key: User 1 and value John Doe. Truth can also be imported statically so you can no always add Truth.*.</p>
 <p>A failure message of the above would look like:</p>
-<pre><code>value of: map.get(User 2)
+<pre tabindex="0"><code>value of: map.get(User 2)
 expected: John Doe
 but was : John Wick
 map was : {User 1=John Doe, User 2=John Wick, User 3=Steve Rogers}
@@ -197,52 +196,51 @@ Actual   :John Wick
 <p>Full JavaDoc for Truth can be found at: <a href="https://truth.dev/api/1.0/">https://truth.dev/api/1.0/</a></p>
 <p><strong>Example 2</strong>
 Check that a list contains the items you expect and in the correct order.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">Test
-<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example two of Truth`</span>() {
-    Truth.assertThat(getAllUsernames())
-        .containsExactly(<span style="color:#e6db74">&#34;User 1&#34;</span>, <span style="color:#e6db74">&#34;User 2&#34;</span>, <span style="color:#e6db74">&#34;User 3&#34;</span>)
-        .inOrder()
-}
-</code></pre></div><p>A failure message of the above would look like:</p>
-<pre><code>contents match, but order was wrong
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span>Test
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example two of Truth`</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Truth</span>.assertThat(getAllUsernames())
+</span></span><span style="display:flex;"><span>        .containsExactly(<span style="color:#e6db74">&#34;User 1&#34;</span>, <span style="color:#e6db74">&#34;User 2&#34;</span>, <span style="color:#e6db74">&#34;User 3&#34;</span>)
+</span></span><span style="display:flex;"><span>        .inOrder()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>A failure message of the above would look like:</p>
+<pre tabindex="0"><code>contents match, but order was wrong
 expected: [User 2, User 1, User 3]
 but was : [User 1, User 2, User 3]
 </code></pre><p><strong>Example 3</strong>
 Assertions on String objects.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#a6e22e">@Test</span>
-<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example three of Truth`</span>() {
-    <span style="color:#66d9ef">val</span> user = getRandomUser()
-
-    Truth.assertThat(user.name).contains(<span style="color:#e6db74">&#34;John&#34;</span>)
-    Truth.assertThat(user.username).startsWith(<span style="color:#e6db74">&#34;User&#34;</span>)
-}
-
-</code></pre></div><p>A failure message of the above would look like:</p>
-<pre><code>expected to contain: Steve
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example three of Truth`</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> user = getRandomUser()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Truth</span>.assertThat(user.name).contains(<span style="color:#e6db74">&#34;John&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Truth</span>.assertThat(user.username).startsWith(<span style="color:#e6db74">&#34;User&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>A failure message of the above would look like:</p>
+<pre tabindex="0"><code>expected to contain: Steve
 but was            : John Doe
 </code></pre><p><strong>Example 4</strong>
 With Kotlin’s extension functions we can power up Truth 🆙💪</p>
 <p>With the following extension we can chain multiple assertions, Truth allows one at time, except if the method allows it, like <em>Example 2</em>.</p>
 <p>The only downside is that failures will be invoked on the first call and not the subsequent ones.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">/**
-</span><span style="color:#75715e"> * Invoke multiple calls on [T] objects.
-</span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">fun</span> &lt;<span style="color:#a6e22e">T</span> : <span style="color:#a6e22e">Subject</span>&gt; <span style="color:#a6e22e">T</span>.toTruthSerum(<span style="color:#66d9ef">vararg</span> calls: T.() <span style="color:#f92672">-&gt;</span> Unit) {
-    calls.forEach { <span style="color:#66d9ef">it</span>.invoke(<span style="color:#66d9ef">this</span><span style="color:#a6e22e">@toTruthSerum</span>) }
-}
-
-<span style="color:#75715e">// how to use
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">@Test</span>
-<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example four of Truth - with kotlin extensions`</span>() {
-    <span style="color:#66d9ef">val</span> user = getJohnWick()
-
-    Truth.assertThat(user.name).toTruthSerum(
-        { startsWith(<span style="color:#e6db74">&#34;John&#34;</span>) },
-        { endsWith(<span style="color:#e6db74">&#34;Wick&#34;</span>) }
-    )
-} 
-</code></pre></div><p>A failure message of the above would look like:</p>
-<pre><code>expected to start with: Wick
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Invoke multiple calls on [T] objects.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> &lt;<span style="color:#a6e22e">T</span> : <span style="color:#a6e22e">Subject</span>&gt; <span style="color:#a6e22e">T</span>.toTruthSerum(<span style="color:#66d9ef">vararg</span> calls: <span style="color:#a6e22e">T</span>.() <span style="color:#f92672">-&gt;</span> Unit) {
+</span></span><span style="display:flex;"><span>    calls.forEach { <span style="color:#66d9ef">it</span>.invoke(<span style="color:#66d9ef">this</span><span style="color:#a6e22e">@toTruthSerum</span>) }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// how to use
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`example four of Truth - with kotlin extensions`</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> user = getJohnWick()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Truth</span>.assertThat(user.name).toTruthSerum(
+</span></span><span style="display:flex;"><span>        { startsWith(<span style="color:#e6db74">&#34;John&#34;</span>) },
+</span></span><span style="display:flex;"><span>        { endsWith(<span style="color:#e6db74">&#34;Wick&#34;</span>) }
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>} 
+</span></span></code></pre></div><p>A failure message of the above would look like:</p>
+<pre tabindex="0"><code>expected to start with: Wick
 but was               : John Wick
 </code></pre><h3 id="conclusion">Conclusion</h3>
 <p>I really like Truth! It can make testing really really fun 🥳 and easier to debug. Refactoring tests or failing tests can be an easy-peasy task now!</p>
@@ -290,7 +288,7 @@ but was               : John Wick
     
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -329,7 +327,7 @@ but was               : John Wick
             </ul>
         
         <div class="copyright">
-            <p>© Giorgos Neokleous, 2021<br>
+            <p>© Giorgos Neokleous, 2023<br>
             Powered by <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
             </p>  
         </div> 

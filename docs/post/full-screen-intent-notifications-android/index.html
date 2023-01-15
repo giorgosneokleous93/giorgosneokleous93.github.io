@@ -19,7 +19,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1610799664" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1673784443" />
 <style>
 
     [data-theme="dark"] {   
@@ -53,7 +53,7 @@
 
 </style>
 
-<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1610799664" />
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1673784443" />
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -64,7 +64,7 @@
 <meta property="og:title" content="Full-Screen Intent Notifications – Android" />
 <meta property="og:description" content="Learn how to document your XML attributes for your Custom Views." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.giorgosneokleous.com/post/full-screen-intent-notifications-android/" />
+<meta property="og:url" content="https://www.giorgosneokleous.com/post/full-screen-intent-notifications-android/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-03-15T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-03-15T00:00:00+00:00" />
 
@@ -167,63 +167,62 @@ if (!doNotTrack) {
 <p><img src="/posts/full_screen_intent-notify-while-foreground.gif" alt="Notify while the app on the foreground demo"></p>
 <p>In order to show a full-screen intent, we need to first build the notification and <strong>set the full-screen intent to the notification</strong>.</p>
 <p>To build the intent we need a pending intent, which can be achieved using <a href="https://developer.android.com/reference/android/app/PendingIntent">PendingIntent</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"> <span style="color:#66d9ef">val</span> builder = NotificationCompat.Builder(<span style="color:#66d9ef">this</span>, channelId)
-        .setSmallIcon(android.R.drawable.arrow_up_float)
-        .setContentTitle(title)
-        .setContentText(description)
-        .setPriority(NotificationCompat.PRIORITY_HIGH)
-<span style="color:#75715e">// request code and flags not added for demo purposes
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> pendingIntent = PendingIntent.getActivity(<span style="color:#66d9ef">this</span>, <span style="color:#ae81ff">0</span>, intent, <span style="color:#ae81ff">0</span>)
-builder.setFullScreenIntent(pendingIntent) <span style="color:#75715e">// THIS HERE is the full-screen intent
-</span></code></pre></div><p>Don’t forget to add in your AndroidManifest.xml’s Activity the following as well:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;activity</span> <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;.LockScreenActivity&#34;</span>
-    <span style="color:#a6e22e">android:showOnLockScreen=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">/&gt;</span>
-</code></pre></div><h3 id="2-schedule-full-screen-intent-notification">2. Schedule Full-Screen Intent Notification</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span> <span style="color:#66d9ef">val</span> builder = <span style="color:#a6e22e">NotificationCompat</span>.Builder(<span style="color:#66d9ef">this</span>, channelId)
+</span></span><span style="display:flex;"><span>        .setSmallIcon(android.<span style="color:#a6e22e">R</span>.drawable.arrow_up_float)
+</span></span><span style="display:flex;"><span>        .setContentTitle(title)
+</span></span><span style="display:flex;"><span>        .setContentText(description)
+</span></span><span style="display:flex;"><span>        .setPriority(<span style="color:#a6e22e">NotificationCompat</span>.PRIORITY_HIGH)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// request code and flags not added for demo purposes
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> pendingIntent = <span style="color:#a6e22e">PendingIntent</span>.getActivity(<span style="color:#66d9ef">this</span>, <span style="color:#ae81ff">0</span>, intent, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>builder.setFullScreenIntent(pendingIntent) <span style="color:#75715e">// THIS HERE is the full-screen intent
+</span></span></span></code></pre></div><p>Don’t forget to add in your AndroidManifest.xml’s Activity the following as well:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;activity</span> <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;.LockScreenActivity&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">android:showOnLockScreen=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span></code></pre></div><h3 id="2-schedule-full-screen-intent-notification">2. Schedule Full-Screen Intent Notification</h3>
 <p>Building the notification is identical to the previous example. The main difference is that the notification is not built by an Activity but by a <a href="https://developer.android.com/reference/android/content/BroadcastReceiver">BroadcastReceiver</a> to enable scheduling in the future using <a href="https://developer.android.com/reference/android/app/AlarmManager">AlarmManager</a>.</p>
 <p><img src="/posts/full_screen_intent-schedule.gif" alt="Schedule Full-Screen Intent Notification demo"></p>
 <p><strong>Scheduling</strong>
 AlarmManager needs a PendingIntent with a BroadcastReceiver.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">Context</span>.scheduleNotification(isLockScreen: Boolean) {
-    <span style="color:#66d9ef">val</span> alarmManager = getSystemService(Context.ALARM_SERVICE) <span style="color:#66d9ef">as</span> AlarmManager
-    <span style="color:#66d9ef">val</span> timeInMillis = System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(SCHEDULE_TIME)
-    with(alarmManager) {
-        setExact(AlarmManager.RTC_WAKEUP, timeInMillis, getReceiver(isLockScreen))
-    }
-}
-<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">Context</span>.getReceiver(isLockScreen: Boolean): PendingIntent {
-    <span style="color:#75715e">// for demo purposes no request code and no flags
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> PendingIntent.getBroadcast(
-        <span style="color:#66d9ef">this</span>,
-        <span style="color:#ae81ff">0</span>,
-        NotificationReceiver.build(<span style="color:#66d9ef">this</span>, isLockScreen),
-        <span style="color:#ae81ff">0</span>
-    )
-}
-
-</code></pre></div><p><strong>Receiver</strong>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">Context</span>.scheduleNotification(isLockScreen: Boolean) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> alarmManager = getSystemService(<span style="color:#a6e22e">Context</span>.ALARM_SERVICE) <span style="color:#66d9ef">as</span> AlarmManager
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> timeInMillis = <span style="color:#a6e22e">System</span>.currentTimeMillis() + <span style="color:#a6e22e">TimeUnit</span>.<span style="color:#a6e22e">SECONDS</span>.toMillis(SCHEDULE_TIME)
+</span></span><span style="display:flex;"><span>    with(alarmManager) {
+</span></span><span style="display:flex;"><span>        setExact(<span style="color:#a6e22e">AlarmManager</span>.RTC_WAKEUP, timeInMillis, getReceiver(isLockScreen))
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">Context</span>.getReceiver(isLockScreen: Boolean): PendingIntent {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// for demo purposes no request code and no flags
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">PendingIntent</span>.getBroadcast(
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">NotificationReceiver</span>.build(<span style="color:#66d9ef">this</span>, isLockScreen),
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Receiver</strong>
 The Receiver below is called in two cases:</p>
 <ul>
 <li>When the system is locked</li>
 <li>When the system is not locked</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NotificationReceiver</span> : BroadcastReceiver() {
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onReceive</span>(context: Context, intent: Intent) {
-        <span style="color:#66d9ef">if</span>(intent.getBooleanExtra(LOCK_SCREEN_KEY, <span style="color:#66d9ef">true</span>)) {
-            context.showNotificationWithFullScreenIntent(<span style="color:#66d9ef">true</span>)
-        } <span style="color:#66d9ef">else</span> {
-            context.showNotificationWithFullScreenIntent()
-        }
-    }
-    <span style="color:#66d9ef">companion</span> <span style="color:#66d9ef">object</span> {
-        <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">build</span>(context: Context, isLockScreen: Boolean): Intent {
-            <span style="color:#66d9ef">return</span> Intent(context, NotificationReceiver<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>.java).also {
-                <span style="color:#66d9ef">it</span>.putExtra(LOCK_SCREEN_KEY, isLockScreen)
-            }
-        }
-    }
-}
-<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">val</span> LOCK_SCREEN_KEY = <span style="color:#e6db74">&#34;lockScreenKey&#34;</span>
-</code></pre></div><h3 id="3-full-screen-intent-on-lock-screen-with-a-keyguard">3. Full-Screen Intent on Lock Screen with a Keyguard</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NotificationReceiver</span> : BroadcastReceiver() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onReceive</span>(context: Context, intent: Intent) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(intent.getBooleanExtra(LOCK_SCREEN_KEY, <span style="color:#66d9ef">true</span>)) {
+</span></span><span style="display:flex;"><span>            context.showNotificationWithFullScreenIntent(<span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            context.showNotificationWithFullScreenIntent()
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">companion</span> <span style="color:#66d9ef">object</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">build</span>(context: Context, isLockScreen: Boolean): Intent {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> Intent(context, NotificationReceiver<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>.java).also {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">it</span>.putExtra(LOCK_SCREEN_KEY, isLockScreen)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">val</span> LOCK_SCREEN_KEY = <span style="color:#e6db74">&#34;lockScreenKey&#34;</span>
+</span></span></code></pre></div><h3 id="3-full-screen-intent-on-lock-screen-with-a-keyguard">3. Full-Screen Intent on Lock Screen with a Keyguard</h3>
 <p><a href="https://developer.android.com/reference/android/app/KeyguardManager">Keyguard</a> could prevent the notification from being displayed.</p>
 <p>Let’s see an example to visualize it.</p>
 <p><img src="/posts/full_screen_intent-keyguard-blocker.gif" alt="Full-Screen Intent on Lock Screen with a Keyguard demo blocker"></p>
@@ -232,23 +231,23 @@ The Receiver below is called in two cases:</p>
 Note: To be able to turn on the screen we need to also request it using the:</p>
 <p>– Activity#<a href="https://developer.android.com/reference/android/app/Activity#setTurnScreenOn(boolean)">setTurnScreenOn</a>(true) method</p>
 <p>Time for an extension function that sets both flags with backward compatibility 🚀</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">Activity</span>.turnScreenOnAndKeyguardOff() {
-    <span style="color:#66d9ef">if</span> (Build.VERSION.SDK_INT <span style="color:#f92672">&gt;=</span> Build.VERSION_CODES.O_MR1) {
-        setShowWhenLocked(<span style="color:#66d9ef">true</span>)
-        setTurnScreenOn(<span style="color:#66d9ef">true</span>)
-    } <span style="color:#66d9ef">else</span> {
-        window.addFlags(
-            WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-                    or WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON
-        )
-    }
-    with(getSystemService(Context.KEYGUARD_SERVICE) <span style="color:#66d9ef">as</span> KeyguardManager) {
-        <span style="color:#66d9ef">if</span> (Build.VERSION.SDK_INT <span style="color:#f92672">&gt;=</span> Build.VERSION_CODES.O) {
-            requestDismissKeyguard(<span style="color:#66d9ef">this</span><span style="color:#a6e22e">@turnScreenOnAndKeyguardOff</span>, <span style="color:#66d9ef">null</span>)
-        }
-    }
-}
-</code></pre></div><p>Demo 🎬
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">Activity</span>.turnScreenOnAndKeyguardOff() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">Build</span>.<span style="color:#a6e22e">VERSION</span>.SDK_INT <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">Build</span>.<span style="color:#a6e22e">VERSION_CODES</span>.O_MR1) {
+</span></span><span style="display:flex;"><span>        setShowWhenLocked(<span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>        setTurnScreenOn(<span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        window.addFlags(
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">WindowManager</span>.<span style="color:#a6e22e">LayoutParams</span>.FLAG_KEEP_SCREEN_ON
+</span></span><span style="display:flex;"><span>                    or <span style="color:#a6e22e">WindowManager</span>.<span style="color:#a6e22e">LayoutParams</span>.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    with(getSystemService(<span style="color:#a6e22e">Context</span>.KEYGUARD_SERVICE) <span style="color:#66d9ef">as</span> KeyguardManager) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">Build</span>.<span style="color:#a6e22e">VERSION</span>.SDK_INT <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">Build</span>.<span style="color:#a6e22e">VERSION_CODES</span>.O) {
+</span></span><span style="display:flex;"><span>            requestDismissKeyguard(<span style="color:#66d9ef">this</span><span style="color:#a6e22e">@turnScreenOnAndKeyguardOff</span>, <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Demo 🎬
 <img src="/posts/full_screen_intent-keyguard-fixed.gif" alt="Full-Screen Intent on Lock Screen with a Keyguard"></p>
 <h3 id="conclusion">Conclusion</h3>
 <p>Using Full-Screen Intents is easy and it’s the recommended way of launching an activity, especially for alarms.</p>
@@ -301,7 +300,7 @@ Note: To be able to turn on the screen we need to also request it using the:</p>
     
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -340,7 +339,7 @@ Note: To be able to turn on the screen we need to also request it using the:</p>
             </ul>
         
         <div class="copyright">
-            <p>© Giorgos Neokleous, 2021<br>
+            <p>© Giorgos Neokleous, 2023<br>
             Powered by <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
             </p>  
         </div> 

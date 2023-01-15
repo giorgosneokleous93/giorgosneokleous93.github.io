@@ -18,7 +18,7 @@
       
       <guid>https://www.giorgosneokleous.com/privacy-policy/</guid>
       <description>&lt;h1 id=&#34;privacy-policy&#34;&gt;Privacy Policy&lt;/h1&gt;
-&lt;p&gt;Your privacy is important to us. It is Giorgos Neokleous&#39; policy to respect your privacy regarding any information we may collect from you across our website, &lt;a href=&#34;https://www.giorgosneokleous.com/&#34;&gt;&lt;a href=&#34;https://www.giorgosneokleous.com/&#34;&gt;https://www.giorgosneokleous.com/&lt;/a&gt;&lt;/a&gt;, and other sites we own and operate.&lt;/p&gt;
+&lt;p&gt;Your privacy is important to us. It is Giorgos Neokleous&amp;rsquo; policy to respect your privacy regarding any information we may collect from you across our website, &lt;a href=&#34;https://www.giorgosneokleous.com/&#34;&gt;&lt;a href=&#34;https://www.giorgosneokleous.com/&#34;&gt;https://www.giorgosneokleous.com/&lt;/a&gt;&lt;/a&gt;, and other sites we own and operate.&lt;/p&gt;
 &lt;p&gt;We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.&lt;/p&gt;
 &lt;p&gt;We only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorised access, disclosure, copying, use or modification.&lt;/p&gt;
 &lt;p&gt;We don’t share any personally identifying information publicly or with third-parties, except when required to by law.&lt;/p&gt;
@@ -82,20 +82,20 @@
 &lt;ul&gt;
 &lt;li&gt;Readability: the following code can be read line by line and understand the order of execution without going into callbacks (at least on what the developers write).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;suspend&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;runTwoExpensiveOperations&lt;/span&gt;() {
-      &lt;span style=&#34;color:#75715e&#34;&gt;// Running First Operation 
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; resultOfFirstExpensiveOperation = withContext(Dispatchers.IO) {        
-            runFirstExpensiveOperation()
-      }
-
-      &lt;span style=&#34;color:#75715e&#34;&gt;// Running Second Operation
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; resultOfSecondExpensiveOperation = withContext(Dispatchers.IO) {
-            runSecondExpensiveOperation(resultOfFirstExpensiveOperation)
-      }
-
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; resultOfSecondExpensiveOperation
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;suspend&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;runTwoExpensiveOperations&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;// Running First Operation 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; resultOfFirstExpensiveOperation = withContext(&lt;span style=&#34;color:#a6e22e&#34;&gt;Dispatchers&lt;/span&gt;.IO) {        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            runFirstExpensiveOperation()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;// Running Second Operation
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; resultOfSecondExpensiveOperation = withContext(&lt;span style=&#34;color:#a6e22e&#34;&gt;Dispatchers&lt;/span&gt;.IO) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            runSecondExpensiveOperation(resultOfFirstExpensiveOperation)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; resultOfSecondExpensiveOperation
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Reactive capabilities: Flows, Channels, StateFlow come with a lot of operators which provide an API for hot and cold streams.&lt;/li&gt;
 &lt;li&gt;Supported as a language feature&lt;/li&gt;
 &lt;/ul&gt;
@@ -104,31 +104,31 @@
 &lt;p&gt;&lt;code&gt;runBlockingTest&lt;/code&gt; (&lt;a href=&#34;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/run-blocking-test.html&#34;&gt;link&lt;/a&gt;) provides a scope which can be used to control time, such as advancing time, pausing and resuming dispatchers.&lt;/p&gt;
 &lt;p&gt;Within the body of the &lt;code&gt;runBlockingTest&lt;/code&gt; you can run suspending operations and manipulate time. You can forward time using the &lt;a href=&#34;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-test-coroutine-scope/index.html&#34;&gt;TestCoroutineScope&lt;/a&gt; which can be accessed directly from within the &lt;code&gt;runBlockingTest&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s see an example and then break it down.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Test&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;`Advancing Time with TestCoroutineScope`&lt;/span&gt;() = runBlockingTest {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; delay = &lt;span style=&#34;color:#ae81ff&#34;&gt;100.&lt;/span&gt;milliseconds
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; flow = operationForTimeController(delay = delay, rounds = &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;)
-
-    &lt;span style=&#34;color:#75715e&#34;&gt;// observing flow and storing emissions
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; results = mutableListOf&amp;lt;Int&amp;gt;()
-    launch { flow.collect { results.add(&lt;span style=&#34;color:#66d9ef&#34;&gt;it&lt;/span&gt;) } }
-
-    &lt;span style=&#34;color:#75715e&#34;&gt;// assert that results is empty
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    Assert.assertThat(results.isEmpty(), CoreMatchers.equalTo(&lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;))
-
-    &lt;span style=&#34;color:#75715e&#34;&gt;// forward one emission with `delay
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    advanceTimeBy(delay.toLongMilliseconds())
-
-    &lt;span style=&#34;color:#75715e&#34;&gt;// assert first item is correct
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    Assert.assertThat(results.first(), CoreMatchers.equalTo(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;))
-
-    &lt;span style=&#34;color:#75715e&#34;&gt;// advanced at the end of the flow
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    advanceUntilIdle()
-
-    &lt;span style=&#34;color:#75715e&#34;&gt;// assert emissions
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    Assert.assertThat(results, CoreMatchers.equalTo(mutableListOf(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;)))
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The unit test above observes a flow of integers. In order to assert the behaviour on flow, we are launching a coroutine which adds into &lt;code&gt;results&lt;/code&gt; the emissions for inspection at a later stage.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;`Advancing Time with TestCoroutineScope`&lt;/span&gt;() = runBlockingTest {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; delay = &lt;span style=&#34;color:#ae81ff&#34;&gt;100.&lt;/span&gt;milliseconds
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; flow = operationForTimeController(delay = delay, rounds = &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// observing flow and storing emissions
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; results = mutableListOf&amp;lt;Int&amp;gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    launch { flow.collect { results.add(&lt;span style=&#34;color:#66d9ef&#34;&gt;it&lt;/span&gt;) } }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// assert that results is empty
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;Assert&lt;/span&gt;.assertThat(results.isEmpty(), &lt;span style=&#34;color:#a6e22e&#34;&gt;CoreMatchers&lt;/span&gt;.equalTo(&lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// forward one emission with `delay
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    advanceTimeBy(delay.toLongMilliseconds())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// assert first item is correct
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;Assert&lt;/span&gt;.assertThat(results.first(), &lt;span style=&#34;color:#a6e22e&#34;&gt;CoreMatchers&lt;/span&gt;.equalTo(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// advanced at the end of the flow
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    advanceUntilIdle()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// assert emissions
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;Assert&lt;/span&gt;.assertThat(results, &lt;span style=&#34;color:#a6e22e&#34;&gt;CoreMatchers&lt;/span&gt;.equalTo(mutableListOf(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The unit test above observes a flow of integers. In order to assert the behaviour on flow, we are launching a coroutine which adds into &lt;code&gt;results&lt;/code&gt; the emissions for inspection at a later stage.&lt;/p&gt;
 &lt;p&gt;Then we do the following to test emissions:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Assert that the list of results is empty&lt;/li&gt;
@@ -140,17 +140,17 @@
 &lt;p&gt;All of the above are achieved without waiting 500ms for the delays to run!&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;runBlockingTest&lt;/code&gt; under the hood calls &lt;code&gt;cleanupTestCoroutines&lt;/code&gt; to make sure that coroutines are properly cleaned up.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s see the implemenation of the function, emited logic for simplification (&lt;a href=&#34;https://github.com/Kotlin/kotlinx.coroutines/blob/master/kotlinx-coroutines-test/src/TestBuilders.kt#L45&#34;&gt;source code&lt;/a&gt;):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;(&lt;/span&gt;safeContext, dispatcher) = context.checkArguments()
-    &lt;span style=&#34;color:#f92672&#34;&gt;..&lt;/span&gt;
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; deferred = scope.async {
-        scope.testBody()
-    }
-    &lt;span style=&#34;color:#f92672&#34;&gt;..&lt;/span&gt;
-    scope.cleanupTestCoroutines()
-    &lt;span style=&#34;color:#f92672&#34;&gt;..&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;cleanupTestCoroutines&lt;/code&gt; will call the same method from the &lt;code&gt;UncaughtExceptionCaptor&lt;/code&gt; and &lt;code&gt;DelayController&lt;/code&gt;. What does that mean for us?&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;(&lt;/span&gt;safeContext, dispatcher) = context.checkArguments()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;..&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; deferred = scope.async {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        scope.testBody()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;..&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    scope.cleanupTestCoroutines()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;..&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;cleanupTestCoroutines&lt;/code&gt; will call the same method from the &lt;code&gt;UncaughtExceptionCaptor&lt;/code&gt; and &lt;code&gt;DelayController&lt;/code&gt;. What does that mean for us?&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;The &lt;code&gt;UncaughtExceptionCaptor&lt;/code&gt; throws the first uncaught exception + prints all exceptions&#39; stacktraces.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;UncaughtExceptionCaptor&lt;/code&gt; throws the first uncaught exception + prints all exceptions&amp;rsquo; stacktraces.&lt;/li&gt;
 &lt;li&gt;The &lt;code&gt;DelayController&lt;/code&gt; tries to complete all pending tasks.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;exception-master---testcoroutineexceptionhandler&#34;&gt;Exception Master - TestCoroutineExceptionHandler&lt;/h3&gt;
@@ -162,20 +162,20 @@
 &lt;li&gt;&lt;a href=&#34;https://www.lukaslechner.com/why-exception-handling-with-kotlin-coroutines-is-so-hard-and-how-to-successfully-master-it/&#34;&gt;&amp;ldquo;Why exception handling with Kotlin Coroutines is so hard and how to successfully master it!&amp;rdquo; by Lukas Lechner&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Let&amp;rsquo;s see how to leverage &lt;code&gt;TestCoroutineExceptionHandler&lt;/code&gt; to test exceptions.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Test&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;`Assert Exception with Coroutines`&lt;/span&gt;() = runBlockingTest {
-    &lt;span style=&#34;color:#75715e&#34;&gt;// handler will catch Exceptions
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; exceptionHandler = TestCoroutineExceptionHandler()
-
-    launch(exceptionHandler) { operation().collect() }
-
-    &lt;span style=&#34;color:#75715e&#34;&gt;// asserting that first uncaught exception is CustomException
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    Assert.assertThat(
-        exceptionHandler.uncaughtExceptions.first(),
-        CoreMatchers.instanceOf(CustomException&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt;.java)
-    )
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The unit test above observes a Flow and asserts the first exception. The &lt;code&gt;operation&lt;/code&gt; flow throws a &lt;code&gt;CustomException::class.java&lt;/code&gt; immediately.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;`Assert Exception with Coroutines`&lt;/span&gt;() = runBlockingTest {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// handler will catch Exceptions
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; exceptionHandler = TestCoroutineExceptionHandler()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    launch(exceptionHandler) { operation().collect() }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// asserting that first uncaught exception is CustomException
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;Assert&lt;/span&gt;.assertThat(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        exceptionHandler.uncaughtExceptions.first(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;CoreMatchers&lt;/span&gt;.instanceOf(CustomException&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt;.java)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The unit test above observes a Flow and asserts the first exception. The &lt;code&gt;operation&lt;/code&gt; flow throws a &lt;code&gt;CustomException::class.java&lt;/code&gt; immediately.&lt;/p&gt;
 &lt;p&gt;As you can see I am passing to &lt;code&gt;launch&lt;/code&gt; an &lt;code&gt;exceptionHandler&lt;/code&gt; as extra context which will catch exceptions. The exceptions can be observed using the &lt;code&gt;.uncaughtExceptions&lt;/code&gt; which returns all exceptions thrown from within the enclosed job.&lt;/p&gt;
 &lt;h3 id=&#34;today-we-explored-how-to&#34;&gt;Today we explored how to:&lt;/h3&gt;
 &lt;ol&gt;
@@ -365,59 +365,58 @@ shops.&lt;/li&gt;
 &lt;p&gt;The demo videos use the first point + &lt;a href=&#34;https://support.google.com/accessibility/android/answer/9350862?hl=en-GB&#34;&gt;Live Caption&lt;/a&gt; to verify and present you the output.&lt;/p&gt;
 &lt;h3 id=&#34;building-the-list&#34;&gt;Building the list&lt;/h3&gt;
 &lt;p&gt;The list is built using RecyclerView with &lt;code&gt;TtsItem&lt;/code&gt; classes. Each item has a title, a caption and a nullable type of TtsSpan (if null then no TtsSpan is built).&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;TtsItem&lt;/span&gt;(
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; title: String,
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; caption: String,
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; ttsSpanType: String?
-) {
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; id: Int = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;toSpannable&lt;/span&gt;(): SpannableString? { &lt;span style=&#34;color:#f92672&#34;&gt;..&lt;/span&gt;. }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/lets-talk-spans-ttsitem.png&#34; alt=&#34;TtsItem demo&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;TtsItem&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; title: String,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; caption: String,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; ttsSpanType: String?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; id: Int = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;toSpannable&lt;/span&gt;(): SpannableString? { &lt;span style=&#34;color:#f92672&#34;&gt;..&lt;/span&gt;. }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/lets-talk-spans-ttsitem.png&#34; alt=&#34;TtsItem demo&#34;&gt;&lt;/p&gt;
 &lt;p&gt;To produce the different TtsItem, we have a data factory called DummyDataFactory .&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;object&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;DummyDataFactory&lt;/span&gt; {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;getListOfTtsItem&lt;/span&gt;(): List&amp;lt;TtsItem&amp;gt; = listOf(
-        TtsItem(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;18/04/2020&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Date without TTSSpan&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;),
-        TtsItem(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;18/04/2020&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Date with TtsSpan.DateBuilder&amp;#34;&lt;/span&gt;, TtsSpan.TYPE_DATE),
-
-        TtsItem(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;5 meter&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Measure without TTSSpan&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;),
-        TtsItem(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;5 meter&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Measure with TTSSpan&amp;#34;&lt;/span&gt;, TtsSpan.TYPE_MEASURE),
-
-        TtsItem(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;14:00&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Time without TTSSpan&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;),
-        TtsItem(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;14:00&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Time with TTSSpan&amp;#34;&lt;/span&gt;, TtsSpan.TYPE_TIME),
-
-        TtsItem(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;admin:123456789&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Password without TTSSpan&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;),
-        TtsItem(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;admin:123456789&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Password with TTSSpan&amp;#34;&lt;/span&gt;, TtsSpan.TYPE_ELECTRONIC)
-    ).also { list &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;
-        list.forEachIndexed { index, ttsItem &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt; ttsItem.id = index }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;explore-tospannable-from-ttsitem&#34;&gt;Explore toSpannable() from TtsItem&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;object&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;DummyDataFactory&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;getListOfTtsItem&lt;/span&gt;(): List&amp;lt;TtsItem&amp;gt; = listOf(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        TtsItem(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;18/04/2020&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Date without TTSSpan&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        TtsItem(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;18/04/2020&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Date with TtsSpan.DateBuilder&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;TtsSpan&lt;/span&gt;.TYPE_DATE),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        TtsItem(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;5 meter&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Measure without TTSSpan&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        TtsItem(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;5 meter&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Measure with TTSSpan&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;TtsSpan&lt;/span&gt;.TYPE_MEASURE),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        TtsItem(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;14:00&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Time without TTSSpan&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        TtsItem(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;14:00&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Time with TTSSpan&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;TtsSpan&lt;/span&gt;.TYPE_TIME),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        TtsItem(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;admin:123456789&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Password without TTSSpan&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        TtsItem(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;admin:123456789&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Password with TTSSpan&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;TtsSpan&lt;/span&gt;.TYPE_ELECTRONIC)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ).also { list &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        list.forEachIndexed { index, ttsItem &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt; ttsItem.id = index }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;explore-tospannable-from-ttsitem&#34;&gt;Explore toSpannable() from TtsItem&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: Please note that some of the code shown below is for demonstration purposes only and mapping strings to TtsSpan most likely won’t work like that in real life projects.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: Have a look at the &lt;strong&gt;captions&lt;/strong&gt; to see the difference with and without TtsSpan.&lt;/p&gt;
 &lt;h3 id=&#34;ttsspantype_date&#34;&gt;TtsSpan.TYPE_DATE&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; calendar = Calendar.getInstance()
-calendar.time = simpleDataFormat.parse(title)
-   &lt;span style=&#34;color:#f92672&#34;&gt;?:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;throw&lt;/span&gt; IllegalStateException(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Not expected null Date&amp;#34;&lt;/span&gt;)
-TtsSpan.DateBuilder()
-   .setWeekday(calendar.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;(Calendar.DAY_OF_WEEK))
-   .setDay(calendar.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;(Calendar.DAY_OF_MONTH))
-   .setMonth(calendar.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;(Calendar.MONTH))
-   .setYear(calendar.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;(Calendar.YEAR))
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above code block will take a String date, parse it into a Date object which is then supplied to a Calendar. Then the Calendar object is used to extract different information that would be useful to &lt;a href=&#34;https://developer.android.com/reference/android/text/style/TtsSpan.DateBuilder?hl=en&#34;&gt;TtsSpan.DateBuilder()&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; calendar = &lt;span style=&#34;color:#a6e22e&#34;&gt;Calendar&lt;/span&gt;.getInstance()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;calendar.time = simpleDataFormat.parse(title)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;?:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;throw&lt;/span&gt; IllegalStateException(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Not expected null Date&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;TtsSpan&lt;/span&gt;.DateBuilder()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   .setWeekday(calendar.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;Calendar&lt;/span&gt;.DAY_OF_WEEK))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   .setDay(calendar.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;Calendar&lt;/span&gt;.DAY_OF_MONTH))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   .setMonth(calendar.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;Calendar&lt;/span&gt;.MONTH))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   .setYear(calendar.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;Calendar&lt;/span&gt;.YEAR))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above code block will take a String date, parse it into a Date object which is then supplied to a Calendar. Then the Calendar object is used to extract different information that would be useful to &lt;a href=&#34;https://developer.android.com/reference/android/text/style/TtsSpan.DateBuilder?hl=en&#34;&gt;TtsSpan.DateBuilder()&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;video controls src=&#34;https://www.giorgosneokleous.com/posts/lets-talk-spans-date-demo.mp4&#34;&gt;&lt;/video&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Caption without TtsSpan:&lt;/strong&gt; “18 slash 04 slash 2020“&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Caption with TtsSpan:&lt;/strong&gt; “Sunday the 18th of April 2020“&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;ttsspantype_measure&#34;&gt;TtsSpan.TYPE_MEASURE&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; number = digitsPattern.find(title)&lt;span style=&#34;color:#f92672&#34;&gt;?.&lt;/span&gt;value &lt;span style=&#34;color:#75715e&#34;&gt;// extracts digits
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; unit = stringPattern.find(title)&lt;span style=&#34;color:#f92672&#34;&gt;?.&lt;/span&gt;value &lt;span style=&#34;color:#75715e&#34;&gt;// extracts string
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;TtsSpan.MeasureBuilder()
-   .setNumber(number)
-   .setUnit(unit)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above code block will extract the digits from the string which will be treated as the number and then extract the text from the string which will be treated as the Measurement unit. All the extracted data are supplied to the &lt;a href=&#34;https://developer.android.com/reference/android/text/style/TtsSpan.MeasureBuilder?hl=en&#34;&gt;TtsSpan.MeasureBuilder&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; number = digitsPattern.find(title)&lt;span style=&#34;color:#f92672&#34;&gt;?.&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;value&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// extracts digits
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; unit = stringPattern.find(title)&lt;span style=&#34;color:#f92672&#34;&gt;?.&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;value&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// extracts string
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;TtsSpan&lt;/span&gt;.MeasureBuilder()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   .setNumber(number)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   .setUnit(unit)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above code block will extract the digits from the string which will be treated as the number and then extract the text from the string which will be treated as the Measurement unit. All the extracted data are supplied to the &lt;a href=&#34;https://developer.android.com/reference/android/text/style/TtsSpan.MeasureBuilder?hl=en&#34;&gt;TtsSpan.MeasureBuilder&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;video controls src=&#34;https://www.giorgosneokleous.com/posts/lets-talk-spans-measure-demo.mp4&#34;&gt;&lt;/video&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Caption without TtsSpan:&lt;/strong&gt; “5 metre“&lt;/li&gt;
@@ -425,12 +424,12 @@ TtsSpan.DateBuilder()
 &lt;/ul&gt;
 &lt;p&gt;As you can see the metadata helps identify whether the measurement is singular or plural.&lt;/p&gt;
 &lt;h3 id=&#34;ttsspantype_time&#34;&gt;TtsSpan.TYPE_TIME&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; hours = title.split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt;)[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
-&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; minutes = title.split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt;)[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]
-TtsSpan.TimeBuilder()
-   .setHours(hours.toInt())
-   .setMinutes(minutes.toInt())
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above code block builds metadata needed for time. It simply extracts hours and minutes from string and supplies them to the &lt;a href=&#34;https://developer.android.com/reference/android/text/style/TtsSpan.TimeBuilder?hl=en&#34;&gt;TtsSpan.TimeBuilder()&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; hours = title.split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt;)[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; minutes = title.split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt;)[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;TtsSpan&lt;/span&gt;.TimeBuilder()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   .setHours(hours.toInt())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   .setMinutes(minutes.toInt())
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above code block builds metadata needed for time. It simply extracts hours and minutes from string and supplies them to the &lt;a href=&#34;https://developer.android.com/reference/android/text/style/TtsSpan.TimeBuilder?hl=en&#34;&gt;TtsSpan.TimeBuilder()&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;video controls src=&#34;https://www.giorgosneokleous.com/posts/lets-talk-spans-time-demo.mp4&#34;&gt;&lt;/video&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Caption without TtsSpan:&lt;/strong&gt; “14 colon zero zero“&lt;/li&gt;
@@ -438,12 +437,12 @@ TtsSpan.TimeBuilder()
 &lt;/ul&gt;
 &lt;h3 id=&#34;ttsspantype_electronic&#34;&gt;TtsSpan.TYPE_ELECTRONIC&lt;/h3&gt;
 &lt;p&gt;This particular type can be used to build several “electronic” metadata. In our example we’ll build metadata for a username and password.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; username = title.split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt;)[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
-&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; password = title.split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt;)[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]
-TtsSpan.ElectronicBuilder()
-   .setPassword(password)
-   .setUsername(username)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above code block uses the &lt;a href=&#34;https://developer.android.com/reference/android/text/style/TtsSpan.ElectronicBuilder?hl=en&#34;&gt;TtsSpan.ElectronicBuilder&lt;/a&gt; to build the metadata. The first part of the string is treated as the username and the second part as the password.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; username = title.split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt;)[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; password = title.split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt;)[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;TtsSpan&lt;/span&gt;.ElectronicBuilder()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   .setPassword(password)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   .setUsername(username)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above code block uses the &lt;a href=&#34;https://developer.android.com/reference/android/text/style/TtsSpan.ElectronicBuilder?hl=en&#34;&gt;TtsSpan.ElectronicBuilder&lt;/a&gt; to build the metadata. The first part of the string is treated as the username and the second part as the password.&lt;/p&gt;
 &lt;p&gt;&lt;video controls src=&#34;https://www.giorgosneokleous.com/posts/lets-talk-spans-electronic-demo.mp4&#34;&gt;&lt;/video&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Caption without TtsSpan:&lt;/strong&gt; “admin 123 million 456 thousands 7 hundred and 89“&lt;/li&gt;
@@ -508,63 +507,62 @@ The above example is my favourite as it demonstrates how powerful the Text-to-Sp
 &lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/full_screen_intent-notify-while-foreground.gif&#34; alt=&#34;Notify while the app on the foreground demo&#34;&gt;&lt;/p&gt;
 &lt;p&gt;In order to show a full-screen intent, we need to first build the notification and &lt;strong&gt;set the full-screen intent to the notification&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;To build the intent we need a pending intent, which can be achieved using &lt;a href=&#34;https://developer.android.com/reference/android/app/PendingIntent&#34;&gt;PendingIntent&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; builder = NotificationCompat.Builder(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;, channelId)
-        .setSmallIcon(android.R.drawable.arrow_up_float)
-        .setContentTitle(title)
-        .setContentText(description)
-        .setPriority(NotificationCompat.PRIORITY_HIGH)
-&lt;span style=&#34;color:#75715e&#34;&gt;// request code and flags not added for demo purposes
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; pendingIntent = PendingIntent.getActivity(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, intent, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
-builder.setFullScreenIntent(pendingIntent) &lt;span style=&#34;color:#75715e&#34;&gt;// THIS HERE is the full-screen intent
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Don’t forget to add in your AndroidManifest.xml’s Activity the following as well:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;activity&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;android:name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.LockScreenActivity&amp;#34;&lt;/span&gt;
-    &lt;span style=&#34;color:#a6e22e&#34;&gt;android:showOnLockScreen=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-schedule-full-screen-intent-notification&#34;&gt;2. Schedule Full-Screen Intent Notification&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; builder = &lt;span style=&#34;color:#a6e22e&#34;&gt;NotificationCompat&lt;/span&gt;.Builder(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;, channelId)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        .setSmallIcon(android.&lt;span style=&#34;color:#a6e22e&#34;&gt;R&lt;/span&gt;.drawable.arrow_up_float)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        .setContentTitle(title)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        .setContentText(description)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        .setPriority(&lt;span style=&#34;color:#a6e22e&#34;&gt;NotificationCompat&lt;/span&gt;.PRIORITY_HIGH)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// request code and flags not added for demo purposes
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; pendingIntent = &lt;span style=&#34;color:#a6e22e&#34;&gt;PendingIntent&lt;/span&gt;.getActivity(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, intent, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;builder.setFullScreenIntent(pendingIntent) &lt;span style=&#34;color:#75715e&#34;&gt;// THIS HERE is the full-screen intent
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Don’t forget to add in your AndroidManifest.xml’s Activity the following as well:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;activity&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;android:name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.LockScreenActivity&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;android:showOnLockScreen=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-schedule-full-screen-intent-notification&#34;&gt;2. Schedule Full-Screen Intent Notification&lt;/h3&gt;
 &lt;p&gt;Building the notification is identical to the previous example. The main difference is that the notification is not built by an Activity but by a &lt;a href=&#34;https://developer.android.com/reference/android/content/BroadcastReceiver&#34;&gt;BroadcastReceiver&lt;/a&gt; to enable scheduling in the future using &lt;a href=&#34;https://developer.android.com/reference/android/app/AlarmManager&#34;&gt;AlarmManager&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/full_screen_intent-schedule.gif&#34; alt=&#34;Schedule Full-Screen Intent Notification demo&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Scheduling&lt;/strong&gt;
 AlarmManager needs a PendingIntent with a BroadcastReceiver.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Context&lt;/span&gt;.scheduleNotification(isLockScreen: Boolean) {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; alarmManager = getSystemService(Context.ALARM_SERVICE) &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; AlarmManager
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; timeInMillis = System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(SCHEDULE_TIME)
-    with(alarmManager) {
-        setExact(AlarmManager.RTC_WAKEUP, timeInMillis, getReceiver(isLockScreen))
-    }
-}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Context&lt;/span&gt;.getReceiver(isLockScreen: Boolean): PendingIntent {
-    &lt;span style=&#34;color:#75715e&#34;&gt;// for demo purposes no request code and no flags
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; PendingIntent.getBroadcast(
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;,
-        &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
-        NotificationReceiver.build(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;, isLockScreen),
-        &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-    )
-}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Receiver&lt;/strong&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Context&lt;/span&gt;.scheduleNotification(isLockScreen: Boolean) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; alarmManager = getSystemService(&lt;span style=&#34;color:#a6e22e&#34;&gt;Context&lt;/span&gt;.ALARM_SERVICE) &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; AlarmManager
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; timeInMillis = &lt;span style=&#34;color:#a6e22e&#34;&gt;System&lt;/span&gt;.currentTimeMillis() + &lt;span style=&#34;color:#a6e22e&#34;&gt;TimeUnit&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;SECONDS&lt;/span&gt;.toMillis(SCHEDULE_TIME)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    with(alarmManager) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        setExact(&lt;span style=&#34;color:#a6e22e&#34;&gt;AlarmManager&lt;/span&gt;.RTC_WAKEUP, timeInMillis, getReceiver(isLockScreen))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Context&lt;/span&gt;.getReceiver(isLockScreen: Boolean): PendingIntent {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// for demo purposes no request code and no flags
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;PendingIntent&lt;/span&gt;.getBroadcast(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;NotificationReceiver&lt;/span&gt;.build(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;, isLockScreen),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Receiver&lt;/strong&gt;
 The Receiver below is called in two cases:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;When the system is locked&lt;/li&gt;
 &lt;li&gt;When the system is not locked&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;NotificationReceiver&lt;/span&gt; : BroadcastReceiver() {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;onReceive&lt;/span&gt;(context: Context, intent: Intent) {
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(intent.getBooleanExtra(LOCK_SCREEN_KEY, &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;)) {
-            context.showNotificationWithFullScreenIntent(&lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;)
-        } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
-            context.showNotificationWithFullScreenIntent()
-        }
-    }
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;companion&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;object&lt;/span&gt; {
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;build&lt;/span&gt;(context: Context, isLockScreen: Boolean): Intent {
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; Intent(context, NotificationReceiver&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt;.java).also {
-                &lt;span style=&#34;color:#66d9ef&#34;&gt;it&lt;/span&gt;.putExtra(LOCK_SCREEN_KEY, isLockScreen)
-            }
-        }
-    }
-}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; LOCK_SCREEN_KEY = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;lockScreenKey&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;3-full-screen-intent-on-lock-screen-with-a-keyguard&#34;&gt;3. Full-Screen Intent on Lock Screen with a Keyguard&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;NotificationReceiver&lt;/span&gt; : BroadcastReceiver() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;onReceive&lt;/span&gt;(context: Context, intent: Intent) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(intent.getBooleanExtra(LOCK_SCREEN_KEY, &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            context.showNotificationWithFullScreenIntent(&lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            context.showNotificationWithFullScreenIntent()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;companion&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;object&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;build&lt;/span&gt;(context: Context, isLockScreen: Boolean): Intent {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; Intent(context, NotificationReceiver&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt;.java).also {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;it&lt;/span&gt;.putExtra(LOCK_SCREEN_KEY, isLockScreen)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; LOCK_SCREEN_KEY = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;lockScreenKey&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;3-full-screen-intent-on-lock-screen-with-a-keyguard&#34;&gt;3. Full-Screen Intent on Lock Screen with a Keyguard&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://developer.android.com/reference/android/app/KeyguardManager&#34;&gt;Keyguard&lt;/a&gt; could prevent the notification from being displayed.&lt;/p&gt;
 &lt;p&gt;Let’s see an example to visualize it.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/full_screen_intent-keyguard-blocker.gif&#34; alt=&#34;Full-Screen Intent on Lock Screen with a Keyguard demo blocker&#34;&gt;&lt;/p&gt;
@@ -573,23 +571,23 @@ The Receiver below is called in two cases:&lt;/p&gt;
 Note: To be able to turn on the screen we need to also request it using the:&lt;/p&gt;
 &lt;p&gt;– Activity#&lt;a href=&#34;https://developer.android.com/reference/android/app/Activity#setTurnScreenOn(boolean)&#34;&gt;setTurnScreenOn&lt;/a&gt;(true) method&lt;/p&gt;
 &lt;p&gt;Time for an extension function that sets both flags with backward compatibility 🚀&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Activity&lt;/span&gt;.turnScreenOnAndKeyguardOff() {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (Build.VERSION.SDK_INT &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; Build.VERSION_CODES.O_MR1) {
-        setShowWhenLocked(&lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;)
-        setTurnScreenOn(&lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;)
-    } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
-        window.addFlags(
-            WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-                    or WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON
-        )
-    }
-    with(getSystemService(Context.KEYGUARD_SERVICE) &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; KeyguardManager) {
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (Build.VERSION.SDK_INT &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; Build.VERSION_CODES.O) {
-            requestDismissKeyguard(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@turnScreenOnAndKeyguardOff&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;)
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Demo 🎬
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Activity&lt;/span&gt;.turnScreenOnAndKeyguardOff() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;Build&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;VERSION&lt;/span&gt;.SDK_INT &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Build&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;VERSION_CODES&lt;/span&gt;.O_MR1) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        setShowWhenLocked(&lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        setTurnScreenOn(&lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        window.addFlags(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;WindowManager&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;LayoutParams&lt;/span&gt;.FLAG_KEEP_SCREEN_ON
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    or &lt;span style=&#34;color:#a6e22e&#34;&gt;WindowManager&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;LayoutParams&lt;/span&gt;.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    with(getSystemService(&lt;span style=&#34;color:#a6e22e&#34;&gt;Context&lt;/span&gt;.KEYGUARD_SERVICE) &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; KeyguardManager) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;Build&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;VERSION&lt;/span&gt;.SDK_INT &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Build&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;VERSION_CODES&lt;/span&gt;.O) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            requestDismissKeyguard(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@turnScreenOnAndKeyguardOff&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Demo 🎬
 &lt;img src=&#34;https://www.giorgosneokleous.com/posts/full_screen_intent-keyguard-fixed.gif&#34; alt=&#34;Full-Screen Intent on Lock Screen with a Keyguard&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;Using Full-Screen Intents is easy and it’s the recommended way of launching an activity, especially for alarms.&lt;/p&gt;
@@ -628,14 +626,14 @@ Note: To be able to turn on the screen we need to also request it using the:&lt;
 &lt;li&gt;Open a declare-styleable tag&lt;/li&gt;
 &lt;li&gt;Include the attributes within the view&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;resources&amp;gt;&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;declare-styleable&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;CircleCustomView&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;attr&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fillColor&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;format=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;color&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;attr&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;radius&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;format=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dimension&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/declare-styleable&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/resources&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;em&gt;“name”&lt;/em&gt; should be your custom view’s class name to bind the enclosed attributes to it. In our case that would be &lt;em&gt;“CircleCustomView“&lt;/em&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;resources&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;declare-styleable&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;CircleCustomView&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;attr&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fillColor&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;format=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;color&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;attr&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;radius&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;format=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dimension&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/declare-styleable&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/resources&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;em&gt;“name”&lt;/em&gt; should be your custom view’s class name to bind the enclosed attributes to it. In our case that would be &lt;em&gt;“CircleCustomView“&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Now the enclosed attributes would be:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Fill Color of the format “color” resource&lt;/li&gt;
@@ -643,76 +641,76 @@ Note: To be able to turn on the screen we need to also request it using the:&lt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;fetch-custom-attributes&#34;&gt;Fetch custom attributes&lt;/h4&gt;
 &lt;p&gt;In the initialization of our custom view, we need to fetch and store those attributes in order to use them when drawing on the &lt;a href=&#34;https://developer.android.com/reference/android/graphics/Canvas&#34;&gt;Canvas&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;init&lt;/span&gt; {
-    context.theme.obtainStyledAttributes(
-        attrs,
-        R.styleable.CircleCustomView,
-        &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
-        &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-    ).apply {
-        circleFillColor = getColor(
-            R.styleable.CircleCustomView_fillColor,
-            context.getColor(R.color.colorAccent)
-        )
-        circleRadius = getDimension(R.styleable.CircleCustomView_radius, &lt;span style=&#34;color:#ae81ff&#34;&gt;100f&lt;/span&gt;)
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;draw-the-circle&#34;&gt;Draw the circle&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;onDraw&lt;/span&gt;(canvas: Canvas?) {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;.onDraw(canvas)
-    paint.color = circleFillColor
-    canvas&lt;span style=&#34;color:#f92672&#34;&gt;?.&lt;/span&gt;drawCircle(canvas.width / &lt;span style=&#34;color:#ae81ff&#34;&gt;2f&lt;/span&gt;, canvas.height / &lt;span style=&#34;color:#ae81ff&#34;&gt;2F&lt;/span&gt;, circleRadius, paint)
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;full-class&#34;&gt;Full Class&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;CircleCustomView&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;@JvmOverloads&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;constructor&lt;/span&gt;(
-    context: Context,
-    attrs: AttributeSet? = &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
-    defStyleAttr: Int = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-) : View(context, attrs, defStyleAttr) {
-    &lt;span style=&#34;color:#a6e22e&#34;&gt;@ColorInt&lt;/span&gt;
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; circleFillColor: Int
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; circleRadius: Float
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; paint = Paint()
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;init&lt;/span&gt; {
-        context.theme.obtainStyledAttributes(
-            attrs,
-            R.styleable.CircleCustomView,
-            &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
-            &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-        ).apply {
-            circleFillColor = getColor(
-                R.styleable.CircleCustomView_fillColor,
-                context.getColor(R.color.colorAccent)
-            )
-            circleRadius = getDimension(R.styleable.CircleCustomView_radius, &lt;span style=&#34;color:#ae81ff&#34;&gt;100f&lt;/span&gt;)
-        }
-    }
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;onDraw&lt;/span&gt;(canvas: Canvas?) {
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;.onDraw(canvas)
-        paint.color = circleFillColor
-        canvas&lt;span style=&#34;color:#f92672&#34;&gt;?.&lt;/span&gt;drawCircle(canvas.width / &lt;span style=&#34;color:#ae81ff&#34;&gt;2f&lt;/span&gt;, canvas.height / &lt;span style=&#34;color:#ae81ff&#34;&gt;2F&lt;/span&gt;, circleRadius, paint)
-    }
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setFillColor&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;@ColorRes&lt;/span&gt; colorRes: Int) {
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.circleFillColor = context.getColor(colorRes)
-    }
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setRadius&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;@DimenRes&lt;/span&gt; radius: Int) {
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.circleRadius = context.resources.getDimension(radius)
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;document-xml-attributes&#34;&gt;Document XML Attributes&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;init&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    context.theme.obtainStyledAttributes(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        attrs,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;R&lt;/span&gt;.styleable.CircleCustomView,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ).apply {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        circleFillColor = getColor(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;R&lt;/span&gt;.styleable.CircleCustomView_fillColor,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            context.getColor(&lt;span style=&#34;color:#a6e22e&#34;&gt;R&lt;/span&gt;.color.colorAccent)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        circleRadius = getDimension(&lt;span style=&#34;color:#a6e22e&#34;&gt;R&lt;/span&gt;.styleable.CircleCustomView_radius, &lt;span style=&#34;color:#ae81ff&#34;&gt;100f&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;draw-the-circle&#34;&gt;Draw the circle&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;onDraw&lt;/span&gt;(canvas: Canvas?) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;.onDraw(canvas)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    paint.color = circleFillColor
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    canvas&lt;span style=&#34;color:#f92672&#34;&gt;?.&lt;/span&gt;drawCircle(canvas.width / &lt;span style=&#34;color:#ae81ff&#34;&gt;2f&lt;/span&gt;, canvas.height / &lt;span style=&#34;color:#ae81ff&#34;&gt;2F&lt;/span&gt;, circleRadius, paint)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;full-class&#34;&gt;Full Class&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;CircleCustomView&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;@JvmOverloads&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;constructor&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    context: Context,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    attrs: AttributeSet? = &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    defStyleAttr: Int = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;) : View(context, attrs, defStyleAttr) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@ColorInt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; circleFillColor: Int
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; circleRadius: Float
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; paint = Paint()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;init&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        context.theme.obtainStyledAttributes(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            attrs,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;R&lt;/span&gt;.styleable.CircleCustomView,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ).apply {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            circleFillColor = getColor(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#a6e22e&#34;&gt;R&lt;/span&gt;.styleable.CircleCustomView_fillColor,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                context.getColor(&lt;span style=&#34;color:#a6e22e&#34;&gt;R&lt;/span&gt;.color.colorAccent)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            circleRadius = getDimension(&lt;span style=&#34;color:#a6e22e&#34;&gt;R&lt;/span&gt;.styleable.CircleCustomView_radius, &lt;span style=&#34;color:#ae81ff&#34;&gt;100f&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;onDraw&lt;/span&gt;(canvas: Canvas?) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;.onDraw(canvas)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        paint.color = circleFillColor
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        canvas&lt;span style=&#34;color:#f92672&#34;&gt;?.&lt;/span&gt;drawCircle(canvas.width / &lt;span style=&#34;color:#ae81ff&#34;&gt;2f&lt;/span&gt;, canvas.height / &lt;span style=&#34;color:#ae81ff&#34;&gt;2F&lt;/span&gt;, circleRadius, paint)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setFillColor&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;@ColorRes&lt;/span&gt; colorRes: Int) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.circleFillColor = context.getColor(colorRes)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setRadius&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;@DimenRes&lt;/span&gt; radius: Int) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.circleRadius = context.resources.getDimension(radius)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;document-xml-attributes&#34;&gt;Document XML Attributes&lt;/h3&gt;
 &lt;p&gt;Without documentation, if I try to check for it over the &lt;em&gt;fillColor&lt;/em&gt;, I am getting the following.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/documenting-your-xml-attributes-circle-fillColor-doc-popup.png&#34; alt=&#34;Fill Color IDE Popup&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Using normal XML comments above the attributes will result in attaching the comments as documentation for them.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;resources&amp;gt;&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;declare-styleable&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;CircleCustomView&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!-- Sets the fill color of the circle --&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;attr&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fillColor&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;format=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;color&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!-- Sets the radius of the circle --&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;attr&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;radius&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;format=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dimension&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/declare-styleable&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/resources&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now if I ask for documentation on the attribute, I am getting proper documentation as seen below:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;resources&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;declare-styleable&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;CircleCustomView&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!-- Sets the fill color of the circle --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;attr&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fillColor&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;format=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;color&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!-- Sets the radius of the circle --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;attr&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;radius&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;format=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dimension&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/declare-styleable&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/resources&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now if I ask for documentation on the attribute, I am getting proper documentation as seen below:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://www.giorgosneokleous.com/posts/documenting-your-xml-attributes-circle-fillColor-doc-popup-with-docs-1.png&#34; alt=&#34;Demonstration of Docs Popup 1&#34;&gt;
 &lt;img src=&#34;https://www.giorgosneokleous.com/posts/documenting-your-xml-attributes-circle-fillColor-doc-popup-with-docs-2.png&#34; alt=&#34;Demonstration of Docs Popup 2&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
@@ -743,48 +741,48 @@ Codelab &lt;a href=&#34;https://codelabs.developers.google.com/codelabs/advanced
 &lt;/ol&gt;
 &lt;p&gt;To check your current artifact’s name simply run assembleDebug Gradle task. If you haven’t modified it yet, your output will be &lt;strong&gt;app-debug.apk&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;What would be better to have is something that is identifiable and meaningful like the template below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;${applicationId}-v${versionName}(${versionCode})-${buildType}.apk
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;${applicationId}-v${versionName}(${versionCode})-${buildType}.apk
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This template will produce something like:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;com.example.sampleproject-v1.0.0(101)-release.apk
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;com.example.sampleproject-v1.0.0(101)-release.apk
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;By using this template you know what the APK is about.&lt;/p&gt;
 &lt;h3 id=&#34;option-1&#34;&gt;Option 1&lt;/h3&gt;
 &lt;p&gt;I personally do not recommend the following solution but you can find it in many StackOverflow answers.&lt;/p&gt;
 &lt;p&gt;When I tried it with app bundles, it was not working.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-groovy&#34; data-lang=&#34;groovy&#34;&gt;applicationVariants&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;all&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; variant &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;
-    variant&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;outputs&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;all&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-        outputFileName &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;${applicationId}-v${versionName}(${versionCode})-${buildType}.apk&amp;#34;&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The DSL Version&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;applicationVariants.all {
-    outputs.forEach { output &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (output &lt;span style=&#34;color:#66d9ef&#34;&gt;is&lt;/span&gt; com.android.build.gradle.&lt;span style=&#34;color:#66d9ef&#34;&gt;internal&lt;/span&gt;.api.BaseVariantOutputImpl) {
-            output.outputFileName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${applicationId}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;-v&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${versionName}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${this.versionCode}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;)-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${name}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${output.outputFile.extension}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above works fine for APKs but not for app bundles.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-groovy&#34; data-lang=&#34;groovy&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;applicationVariants&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;all&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; variant &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    variant&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;outputs&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;all&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        outputFileName &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;${applicationId}-v${versionName}(${versionCode})-${buildType}.apk&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The DSL Version&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;applicationVariants.all {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    outputs.forEach { output &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (output &lt;span style=&#34;color:#66d9ef&#34;&gt;is&lt;/span&gt; com.android.build.gradle.&lt;span style=&#34;color:#66d9ef&#34;&gt;internal&lt;/span&gt;.api.BaseVariantOutputImpl) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            output.outputFileName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${applicationId}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;-v&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${versionName}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${this.versionCode}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;)-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${name}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${output.outputFile.extension}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above works fine for APKs but not for app bundles.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;com.example.sampleproject-v1.0.0(101)_release.apk
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;com.example.sampleproject-v1.0.0(101)_release.apk
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;option-2&#34;&gt;Option 2&lt;/h3&gt;
 &lt;p&gt;The following implementation is easy and simple but as the property “archivesBaseName” implies, it will only set up the base name and not the full file’s name.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-groovy&#34; data-lang=&#34;groovy&#34;&gt;android &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;
-  defaultConfig &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;
-    archivesBaseName &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;${applicationId}-v${versionName}(${versionCode})&amp;#34;&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;THE DSL Version&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;android {
-  &lt;span style=&#34;color:#f92672&#34;&gt;..&lt;/span&gt;.
-  defaultConfig {
-    &lt;span style=&#34;color:#f92672&#34;&gt;..&lt;/span&gt;.
-    setProperty(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;archivesBaseName&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${applicationId}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;-v&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${versionName}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${versionCode}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;)&amp;#34;&lt;/span&gt;)
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;com.example.sampleproject-v1.0.0(101)-release.apk
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-groovy&#34; data-lang=&#34;groovy&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;android &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  defaultConfig &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    archivesBaseName &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;${applicationId}-v${versionName}(${versionCode})&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;THE DSL Version&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;android {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;..&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  defaultConfig {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;..&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    setProperty(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;archivesBaseName&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${applicationId}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;-v&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${versionName}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${versionCode}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;)&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;com.example.sampleproject-v1.0.0(101)-release.apk
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The “-release” part is added according to the build type automatically.&lt;/p&gt;
 &lt;h3 id=&#34;performance-comparison&#34;&gt;Performance Comparison&lt;/h3&gt;
 &lt;p&gt;In this section, Option 1 will be compared against Option 2.&lt;/p&gt;
@@ -871,8 +869,8 @@ As you can see from the graphs and metrics above, the two options have identical
 &lt;p&gt;All the above points are needed so that we can control and test different scenarios. For example, if the tests are making a real network call, then they could fail when the network connectivity is lost.&lt;/p&gt;
 &lt;h3 id=&#34;setup-&#34;&gt;Setup 🔨&lt;/h3&gt;
 &lt;p&gt;You need to add the following dependency in &lt;code&gt;build.gradle&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-groovy&#34; data-lang=&#34;groovy&#34;&gt;testImplementation&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;com.squareup.okhttp3:mockwebserver:see.latest.version&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Explore more about MockWebServer dependency at the &lt;a href=&#34;https://github.com/square/okhttp/tree/master/mockwebserver&#34;&gt;Github Repository&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-groovy&#34; data-lang=&#34;groovy&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;testImplementation&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;com.squareup.okhttp3:mockwebserver:see.latest.version&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Explore more about MockWebServer dependency at the &lt;a href=&#34;https://github.com/square/okhttp/tree/master/mockwebserver&#34;&gt;Github Repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;explore-&#34;&gt;Explore 🛫&lt;/h3&gt;
 &lt;p&gt;The &lt;em&gt;MockWebServer&lt;/em&gt; is really powerful and provides us with some incredible APIs to ease the pain when testing such features.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Some of the highlights are:&lt;/strong&gt;&lt;/p&gt;
@@ -887,46 +885,46 @@ As you can see from the graphs and metrics above, the two options have identical
 &lt;p&gt;This library makes it easy to test that your app Does The Right Thing when it makes HTTP and HTTPS calls. It lets you specify which responses to return and then verify that requests were made as expected.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h4 id=&#34;create-the-mock-web-server-&#34;&gt;Create the mock web server 🏗&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; mockWebServer = MockWebServer()
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When you are ready to start your tests, make sure you “Start” the mock server like:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;mockWebServer.start()
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;mocking-a-response&#34;&gt;Mocking a response&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;MockResponse()
-   .setResponseCode(HttpURLConnection.HTTP_OK)
-   .setBody(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;{&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;status&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;error&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;responseCode&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;)     &lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To instruct the server to return the mocked response, you need to &lt;a href=&#34;https://square.github.io/okhttp/4.x/mockwebserver/okhttp3.mockwebserver/-mock-web-server/enqueue/&#34;&gt;enqueue&lt;/a&gt; the mock response such as:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;mockWebServer.enqueue(mockResponse)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For further studying, head to MockWebServer’s Javadoc &lt;a href=&#34;https://square.github.io/okhttp/4.x/mockwebserver/okhttp3.mockwebserver/-mock-web-server/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; mockWebServer = MockWebServer()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When you are ready to start your tests, make sure you “Start” the mock server like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mockWebServer.start()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;mocking-a-response&#34;&gt;Mocking a response&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MockResponse()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   .setResponseCode(&lt;span style=&#34;color:#a6e22e&#34;&gt;HttpURLConnection&lt;/span&gt;.HTTP_OK)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   .setBody(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;{&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;status&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;error&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;responseCode&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;)     &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To instruct the server to return the mocked response, you need to &lt;a href=&#34;https://square.github.io/okhttp/4.x/mockwebserver/okhttp3.mockwebserver/-mock-web-server/enqueue/&#34;&gt;enqueue&lt;/a&gt; the mock response such as:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mockWebServer.enqueue(mockResponse)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For further studying, head to MockWebServer’s Javadoc &lt;a href=&#34;https://square.github.io/okhttp/4.x/mockwebserver/okhttp3.mockwebserver/-mock-web-server/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;basic-setup-for-unit-tests&#34;&gt;Basic Setup for unit tests&lt;/h3&gt;
 &lt;p&gt;The following setup will make sure that you start your mock server and shut it down between tests.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;YourTest&lt;/span&gt; {
- &lt;span style=&#34;color:#66d9ef&#34;&gt;lateinit&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; mockWebServer: MockWebServer
-
-    &lt;span style=&#34;color:#a6e22e&#34;&gt;@Before&lt;/span&gt;
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setUp&lt;/span&gt;() {
-        mockWebServer = MockWebServer()
-        mockWebServer.start()
-    }
-
-    &lt;span style=&#34;color:#a6e22e&#34;&gt;@After&lt;/span&gt;
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;tearDown&lt;/span&gt;() {
-        mockWebServer.shutdown()
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;mockwebserver-with-retrofit&#34;&gt;MockWebServer with Retrofit&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;YourTest&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;lateinit&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; mockWebServer: MockWebServer
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@Before&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setUp&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        mockWebServer = MockWebServer()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        mockWebServer.start()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@After&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;tearDown&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        mockWebServer.shutdown()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;mockwebserver-with-retrofit&#34;&gt;MockWebServer with Retrofit&lt;/h3&gt;
 &lt;p&gt;Now, let’s explore, how to use Retrofit with all the above.&lt;/p&gt;
 &lt;p&gt;Basic setup for Retrofit looks like:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;Retrofit retrofit = new Retrofit.Builder()
-    .baseUrl(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://ourapi.com/&amp;#34;&lt;/span&gt;)
-    .build()
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We are used to passing a String to the method &lt;code&gt;.baseUrl(string)&lt;/code&gt;. However, there is an overload which takes an &lt;a href=&#34;https://square.github.io/okhttp/4.x/okhttp/okhttp3/-http-url/&#34;&gt;HttpUrl&lt;/a&gt; object. The HttpUrl object is what the mock web server exposes and we could use to integrate it into tests.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrofit retrofit = new &lt;span style=&#34;color:#a6e22e&#34;&gt;Retrofit&lt;/span&gt;.Builder()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    .baseUrl(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://ourapi.com/&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    .build()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We are used to passing a String to the method &lt;code&gt;.baseUrl(string)&lt;/code&gt;. However, there is an overload which takes an &lt;a href=&#34;https://square.github.io/okhttp/4.x/okhttp/okhttp3/-http-url/&#34;&gt;HttpUrl&lt;/a&gt; object. The HttpUrl object is what the mock web server exposes and we could use to integrate it into tests.&lt;/p&gt;
 &lt;p&gt;If we actually check the &lt;a href=&#34;https://github.com/square/retrofit/blob/master/retrofit/src/main/java/retrofit2/Retrofit.java#L490&#34;&gt;source code&lt;/a&gt; the &lt;code&gt;.baseUrl(string)&lt;/code&gt; internally looks like:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; Builder &lt;span style=&#34;color:#a6e22e&#34;&gt;baseUrl&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String baseUrl&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-    checkNotNull&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;baseUrl&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;baseUrl == null&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; baseUrl&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;HttpUrl&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;baseUrl&lt;span style=&#34;color:#f92672&#34;&gt;));&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What we then pass for the base URL:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; Builder &lt;span style=&#34;color:#a6e22e&#34;&gt;baseUrl&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String baseUrl&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    checkNotNull&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;baseUrl&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;baseUrl == null&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; baseUrl&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;HttpUrl&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;baseUrl&lt;span style=&#34;color:#f92672&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What we then pass for the base URL:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Production&lt;/strong&gt;: &lt;code&gt;HttpUrl.get(&amp;quot;https://ourapi.com/&amp;quot;)&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt;: &lt;code&gt;mockWebServer.url(&amp;quot;/&amp;quot;)&lt;/code&gt;&lt;/li&gt;
@@ -935,24 +933,24 @@ As you can see from the graphs and metrics above, the two options have identical
 &lt;p&gt;First, pass the above to your Retrofit builder and then start receiving the mock responses and leveraging the test environment for your benefit.&lt;/p&gt;
 &lt;p&gt;As you can see from the examples below, we should now inject the HttpUrl to allow the MockWebServer to do its magic.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Before&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;OurApi&lt;/span&gt;(
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; baseUrl: String = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://ourapi.com/&amp;#34;&lt;/span&gt;
-) {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; retrofit = Retrofit.Builder()
-        .baseUrl(baseUrl)
-        .addConverterFactory(MoshiConverterFactory.create())
-        .build()
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;After&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;OurApi&lt;/span&gt;(
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; baseUrl: HttpUrl = HttpUrl.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://ourapi.com/&amp;#34;&lt;/span&gt;)
-) {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; retrofit = Retrofit.Builder()
-        .baseUrl(baseUrl)
-        .addConverterFactory(MoshiConverterFactory.create())
-        .build()
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That’s it really, thanks for reading the post!&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;OurApi&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; baseUrl: String = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://ourapi.com/&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; retrofit = &lt;span style=&#34;color:#a6e22e&#34;&gt;Retrofit&lt;/span&gt;.Builder()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        .baseUrl(baseUrl)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        .addConverterFactory(&lt;span style=&#34;color:#a6e22e&#34;&gt;MoshiConverterFactory&lt;/span&gt;.create())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        .build()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;After&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;OurApi&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; baseUrl: HttpUrl = &lt;span style=&#34;color:#a6e22e&#34;&gt;HttpUrl&lt;/span&gt;.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://ourapi.com/&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; retrofit = &lt;span style=&#34;color:#a6e22e&#34;&gt;Retrofit&lt;/span&gt;.Builder()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        .baseUrl(baseUrl)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        .addConverterFactory(&lt;span style=&#34;color:#a6e22e&#34;&gt;MoshiConverterFactory&lt;/span&gt;.create())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        .build()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That’s it really, thanks for reading the post!&lt;/p&gt;
 &lt;p&gt;Happy coding and testing!&lt;/p&gt;
 &lt;p&gt;Feel free to ping me on &lt;a href=&#34;https://twitter.com/neokleoys2005&#34;&gt;twitter&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Till next time! 👋&lt;/p&gt;
@@ -966,18 +964,18 @@ As you can see from the graphs and metrics above, the two options have identical
 &lt;li&gt;From your unit test read the file as a String and pass to the mock web server instance&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;Read json files as Strings&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;object&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;FileUtils&lt;/span&gt; {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;readTestResourceFile&lt;/span&gt;(fileName: String): String {
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; fileInputStream = javaClass.classLoader&lt;span style=&#34;color:#f92672&#34;&gt;?.&lt;/span&gt;getResourceAsStream(fileName)
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; fileInputStream&lt;span style=&#34;color:#f92672&#34;&gt;?.&lt;/span&gt;bufferedReader()&lt;span style=&#34;color:#f92672&#34;&gt;?.&lt;/span&gt;readText() &lt;span style=&#34;color:#f92672&#34;&gt;?:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-    }
-}
-
-&lt;span style=&#34;color:#75715e&#34;&gt;// pass to mock web server
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; response = MockResponse()
-response.setResponseCode(HttpURLConnection.HTTP_OK)
-response.setBody(FileUtils.readTestResourceFile(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;error.json&amp;#34;&lt;/span&gt;))
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;object&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;FileUtils&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;readTestResourceFile&lt;/span&gt;(fileName: String): String {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; fileInputStream = javaClass.classLoader&lt;span style=&#34;color:#f92672&#34;&gt;?.&lt;/span&gt;getResourceAsStream(fileName)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; fileInputStream&lt;span style=&#34;color:#f92672&#34;&gt;?.&lt;/span&gt;bufferedReader()&lt;span style=&#34;color:#f92672&#34;&gt;?.&lt;/span&gt;readText() &lt;span style=&#34;color:#f92672&#34;&gt;?:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// pass to mock web server
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; response = MockResponse()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;response.setResponseCode(&lt;span style=&#34;color:#a6e22e&#34;&gt;HttpURLConnection&lt;/span&gt;.HTTP_OK)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;response.setBody(&lt;span style=&#34;color:#a6e22e&#34;&gt;FileUtils&lt;/span&gt;.readTestResourceFile(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;error.json&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -1000,30 +998,30 @@ response.setBody(FileUtils.readTestResourceFile(&lt;span style=&#34;color:#e6db7
 &lt;li&gt;Assert: Make sure that the output matches the expected output.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Test&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;`example of AAA`&lt;/span&gt;() {
-    &lt;span style=&#34;color:#75715e&#34;&gt;// Arrange
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; input = &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-    &lt;span style=&#34;color:#75715e&#34;&gt;// Act
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; output = toThePowerOfTwo(number = input)
-    &lt;span style=&#34;color:#75715e&#34;&gt;// Assert
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    Assert.assertEquals(&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, output)
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;On this blog post we are going to focused on the &lt;strong&gt;Assertions&lt;/strong&gt; part.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;`example of AAA`&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// Arrange
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; input = &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// Act
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; output = toThePowerOfTwo(number = input)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// Assert
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;Assert&lt;/span&gt;.assertEquals(&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, output)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;On this blog post we are going to focused on the &lt;strong&gt;Assertions&lt;/strong&gt; part.&lt;/p&gt;
 &lt;h2 id=&#34;junit-assertions&#34;&gt;JUnit Assertions&lt;/h2&gt;
 &lt;p&gt;JUnit comes with a set of pretty basic assertions which can be used during testing.&lt;/p&gt;
 &lt;p&gt;The whole set can be found at their &lt;a href=&#34;https://junit.org/junit4/javadoc/latest/org/junit/Assert.html&#34;&gt;JavaDoc&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;JUnit also comes with the &lt;a href=&#34;http://hamcrest.org/JavaHamcrest/index&#34;&gt;Hamcrest&lt;/a&gt; assertions which are very nice!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Hamcrest Example&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Test&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;`example of Hamcrest`&lt;/span&gt;(){
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; input = &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; output = toThePowerOfTwo(input)
-
-    Assert.assertThat(output, CoreMatchers.&lt;span style=&#34;color:#a6e22e&#34;&gt;`is&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;`&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;))
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In my opinion matchers are a much readable form of unit tests as it can be easily expressed, also the unit tests failures are much more readable.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;`example of Hamcrest`&lt;/span&gt;(){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; input = &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; output = toThePowerOfTwo(input)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;Assert&lt;/span&gt;.assertThat(output, &lt;span style=&#34;color:#a6e22e&#34;&gt;CoreMatchers&lt;/span&gt;.`is`(&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In my opinion matchers are a much readable form of unit tests as it can be easily expressed, also the unit tests failures are much more readable.&lt;/p&gt;
 &lt;p&gt;Let’s go one step beyond now and introduce the main star of the post, &lt;a href=&#34;https://truth.dev/&#34;&gt;Truth&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;truth&#34;&gt;Truth&lt;/h2&gt;
 &lt;p&gt;Truth is an assertion library, that comes with assertions and nice failure messages and as a result of that much more readable unit tests ♥️.&lt;/p&gt;
@@ -1032,13 +1030,13 @@ response.setBody(FileUtils.readTestResourceFile(&lt;span style=&#34;color:#e6db7
 &lt;/blockquote&gt;
 &lt;p&gt;Truth’s API enables chained method calls, this is a huge win for me as it’s easier to read.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Example 1&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Test&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;`example one of Truth`&lt;/span&gt;() {
-    Truth.assertThat(getUsers()).containsEntry(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;User 1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;John Doe&amp;#34;&lt;/span&gt;)
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above example can be easily read as: “Assert that getAllUsers() returns a map with an entry with key: User 1 and value John Doe. Truth can also be imported statically so you can no always add Truth.*.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;`example one of Truth`&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;Truth&lt;/span&gt;.assertThat(getUsers()).containsEntry(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;User 1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;John Doe&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above example can be easily read as: “Assert that getAllUsers() returns a map with an entry with key: User 1 and value John Doe. Truth can also be imported statically so you can no always add Truth.*.&lt;/p&gt;
 &lt;p&gt;A failure message of the above would look like:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;value of: map.get(User 2)
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;value of: map.get(User 2)
 expected: John Doe
 but was : John Wick
 map was : {User 1=John Doe, User 2=John Wick, User 3=Steve Rogers}
@@ -1048,52 +1046,51 @@ Actual   :John Wick
 &lt;p&gt;Full JavaDoc for Truth can be found at: &lt;a href=&#34;https://truth.dev/api/1.0/&#34;&gt;https://truth.dev/api/1.0/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Example 2&lt;/strong&gt;
 Check that a list contains the items you expect and in the correct order.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;Test
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;`example two of Truth`&lt;/span&gt;() {
-    Truth.assertThat(getAllUsernames())
-        .containsExactly(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;User 1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;User 2&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;User 3&amp;#34;&lt;/span&gt;)
-        .inOrder()
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A failure message of the above would look like:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;contents match, but order was wrong
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Test
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;`example two of Truth`&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;Truth&lt;/span&gt;.assertThat(getAllUsernames())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        .containsExactly(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;User 1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;User 2&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;User 3&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        .inOrder()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A failure message of the above would look like:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;contents match, but order was wrong
 expected: [User 2, User 1, User 3]
 but was : [User 1, User 2, User 3]
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Example 3&lt;/strong&gt;
 Assertions on String objects.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Test&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;`example three of Truth`&lt;/span&gt;() {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; user = getRandomUser()
-
-    Truth.assertThat(user.name).contains(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;John&amp;#34;&lt;/span&gt;)
-    Truth.assertThat(user.username).startsWith(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;User&amp;#34;&lt;/span&gt;)
-}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A failure message of the above would look like:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;expected to contain: Steve
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;`example three of Truth`&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; user = getRandomUser()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;Truth&lt;/span&gt;.assertThat(user.name).contains(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;John&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;Truth&lt;/span&gt;.assertThat(user.username).startsWith(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;User&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A failure message of the above would look like:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;expected to contain: Steve
 but was            : John Doe
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Example 4&lt;/strong&gt;
 With Kotlin’s extension functions we can power up Truth 🆙💪&lt;/p&gt;
 &lt;p&gt;With the following extension we can chain multiple assertions, Truth allows one at time, except if the method allows it, like &lt;em&gt;Example 2&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;The only downside is that failures will be invoked on the first call and not the subsequent ones.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/**
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; * Invoke multiple calls on [T] objects.
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; */&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &amp;lt;&lt;span style=&#34;color:#a6e22e&#34;&gt;T&lt;/span&gt; : &lt;span style=&#34;color:#a6e22e&#34;&gt;Subject&lt;/span&gt;&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;T&lt;/span&gt;.toTruthSerum(&lt;span style=&#34;color:#66d9ef&#34;&gt;vararg&lt;/span&gt; calls: T.() &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt; Unit) {
-    calls.forEach { &lt;span style=&#34;color:#66d9ef&#34;&gt;it&lt;/span&gt;.invoke(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@toTruthSerum&lt;/span&gt;) }
-}
-
-&lt;span style=&#34;color:#75715e&#34;&gt;// how to use
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Test&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;`example four of Truth - with kotlin extensions`&lt;/span&gt;() {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; user = getJohnWick()
-
-    Truth.assertThat(user.name).toTruthSerum(
-        { startsWith(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;John&amp;#34;&lt;/span&gt;) },
-        { endsWith(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Wick&amp;#34;&lt;/span&gt;) }
-    )
-} 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A failure message of the above would look like:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;expected to start with: Wick
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; * Invoke multiple calls on [T] objects.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &amp;lt;&lt;span style=&#34;color:#a6e22e&#34;&gt;T&lt;/span&gt; : &lt;span style=&#34;color:#a6e22e&#34;&gt;Subject&lt;/span&gt;&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;T&lt;/span&gt;.toTruthSerum(&lt;span style=&#34;color:#66d9ef&#34;&gt;vararg&lt;/span&gt; calls: &lt;span style=&#34;color:#a6e22e&#34;&gt;T&lt;/span&gt;.() &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt; Unit) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    calls.forEach { &lt;span style=&#34;color:#66d9ef&#34;&gt;it&lt;/span&gt;.invoke(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@toTruthSerum&lt;/span&gt;) }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// how to use
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;`example four of Truth - with kotlin extensions`&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; user = getJohnWick()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;Truth&lt;/span&gt;.assertThat(user.name).toTruthSerum(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        { startsWith(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;John&amp;#34;&lt;/span&gt;) },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        { endsWith(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Wick&amp;#34;&lt;/span&gt;) }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A failure message of the above would look like:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;expected to start with: Wick
 but was               : John Wick
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;I really like Truth! It can make testing really really fun 🥳 and easier to debug. Refactoring tests or failing tests can be an easy-peasy task now!&lt;/p&gt;
@@ -1104,6 +1101,55 @@ but was               : John Wick
 &lt;p&gt;To finish off, do and use whatever suits you. Especially for testing, adding new dependencies doesn’t increase app size, nor method count for your shipped product. On the contrary it will help you write better (hopefully 🤞) tests (and don’t overdo it with the dependencies just because you can).&lt;/p&gt;
 &lt;p&gt;Feel free to ping me on &lt;a href=&#34;https://twitter.com/neokleoys2005&#34;&gt;twitter&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Till next time! 👋&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.giorgosneokleous.com/audio-guestbook-privacy-policy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.giorgosneokleous.com/audio-guestbook-privacy-policy/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Privacy Policy&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;GiorgosNeokleous built the Audio Guestbook app as a Commercial app. This SERVICE is provided by GiorgosNeokleous and is intended for use as is.&lt;/p&gt;
+&lt;p&gt;This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.&lt;/p&gt;
+&lt;p&gt;If you choose to use my Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that I collect is used for providing and improving the Service. I will not use or share your information with anyone except as described in this Privacy Policy.&lt;/p&gt;
+&lt;p&gt;The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which are accessible at Audio Guestbook unless otherwise defined in this Privacy Policy.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Information Collection and Use&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information. The information that I request will be retained on your device and is not collected by me in any way.&lt;/p&gt;
+&lt;p&gt;The app does use third-party services that may collect information used to identify you.&lt;/p&gt;
+&lt;p&gt;Link to the privacy policy of third-party service providers used by the app&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.google.com/policies/privacy/&#34;&gt;Google Play Services&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://firebase.google.com/policies/analytics&#34;&gt;Google Analytics for Firebase&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://firebase.google.com/support/privacy/&#34;&gt;Firebase Crashlytics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Log Data&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I want to inform you that whenever you use my Service, in a case of an error in the app I collect data and information (through third-party products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol (“IP”) address, device name, operating system version, the configuration of the app when utilizing my Service, the time and date of your use of the Service, and other statistics.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cookies&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device&amp;rsquo;s internal memory.&lt;/p&gt;
+&lt;p&gt;This Service does not use these “cookies” explicitly. However, the app may use third-party code and libraries that use “cookies” to collect information and improve their services. You have the option to either accept or refuse these cookies and know when a cookie is being sent to your device. If you choose to refuse our cookies, you may not be able to use some portions of this Service.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Service Providers&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I may employ third-party companies and individuals due to the following reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;To facilitate our Service;&lt;/li&gt;
+&lt;li&gt;To provide the Service on our behalf;&lt;/li&gt;
+&lt;li&gt;To perform Service-related services; or&lt;/li&gt;
+&lt;li&gt;To assist us in analyzing how our Service is used.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I want to inform users of this Service that these third parties have access to their Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Security&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and I cannot guarantee its absolute security.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Links to Other Sites&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by me. Therefore, I strongly advise you to review the Privacy Policy of these websites. I have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Children’s Privacy&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;These Services do not address anyone under the age of 13. I do not knowingly collect personally identifiable information from children under 13 years of age. In the case I discover that a child under 13 has provided me with personal information, I immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact me so that I will be able to do the necessary actions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Changes to This Privacy Policy&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on this page.&lt;/p&gt;
+&lt;p&gt;This policy is effective as of 2023-01-15&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Contact Us&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me at &lt;a href=&#34;mailto:giorgos.neokleous93@gmail.com&#34;&gt;giorgos.neokleous93@gmail.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This privacy policy page was created at &lt;a href=&#34;https://privacypolicytemplate.net&#34;&gt;privacypolicytemplate.net&lt;/a&gt; and modified/generated by &lt;a href=&#34;https://app-privacy-policy-generator.nisrulz.com/&#34;&gt;App Privacy Policy Generator&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
