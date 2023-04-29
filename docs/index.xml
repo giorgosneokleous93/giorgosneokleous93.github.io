@@ -205,12 +205,15 @@
       <pubDate>Sat, 12 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.giorgosneokleous.com/about/</guid>
-      <description>&lt;p&gt;Android Engineer @ &lt;a href=&#34;http://curve.com/&#34;&gt;Curve&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;Senior Software Engineer @ &lt;a href=&#34;%5Bhttp://curve.com/%5D(https://www.linkedin.com/company/fanduel-uk/)&#34;&gt;Fanduel UK&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;mailto:giorgos.neokleous93@gmail.com&#34;&gt;giorgos.neokleous93@gmail.com&lt;/a&gt; | &lt;a href=&#34;http://www.giorgosneokleous.com&#34;&gt;www.giorgosneokleous.com&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;experience&#34;&gt;Experience&lt;/h1&gt;
 &lt;hr&gt;
+&lt;h3 id=&#34;senior-software-engineer--fanduel-ukhttpcurvecomhttpswwwlinkedincomcompanyfanduel-uk&#34;&gt;Senior Software Engineer @ &lt;a href=&#34;%5Bhttp://curve.com/%5D(https://www.linkedin.com/company/fanduel-uk/)&#34;&gt;Fanduel UK&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Mar 2023 - Present, Remote UK&lt;/p&gt;
 &lt;h3 id=&#34;mobile-engineer-android--curvehttpcurvecom&#34;&gt;Mobile Engineer (Android) @ &lt;a href=&#34;http://curve.com/&#34;&gt;Curve&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Dec 2020 - Present, London, UK&lt;/p&gt;
+&lt;p&gt;Dec 2020 - Mar 2023, London, UK&lt;/p&gt;
+&lt;p&gt;Technologies used: Kotlin, Coroutines, MVI, MVVM, Koin&lt;/p&gt;
 &lt;h3 id=&#34;android-engineer--peak-brain-traininghttpswwwpeaknet&#34;&gt;Android Engineer @ &lt;a href=&#34;https://www.peak.net/&#34;&gt;Peak Brain Training&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Jan 2019 - Dec 2020, London, UK&lt;/p&gt;
 &lt;p&gt;Maintain and build new features for the flagship product &lt;a href=&#34;https://play.google.com/store/apps/details?id=com.brainbow.peak.app&amp;amp;hl=en&#34;&gt;Peak Brain Training App&lt;/a&gt; on Android and also on Peak Sleep for Android which is decommissioned.&lt;/p&gt;
