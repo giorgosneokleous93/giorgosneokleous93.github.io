@@ -8,7 +8,7 @@ author: "Giorgos Neokleous"
 disableComments: true
 ---
 
-Android Engineer @ [Curve](http://curve.com/)
+Senior Software Engineer @ [Fanduel UK]([http://curve.com/](https://www.linkedin.com/company/fanduel-uk/))
 
 <giorgos.neokleous93@gmail.com> | [www.giorgosneokleous.com](http://www.giorgosneokleous.com)
 
@@ -16,8 +16,13 @@ Android Engineer @ [Curve](http://curve.com/)
 
 ---
 
+### Senior Software Engineer @ [Fanduel UK]([http://curve.com/](https://www.linkedin.com/company/fanduel-uk/))
+Mar 2023 - Present, Remote UK
+
 ### Mobile Engineer (Android) @ [Curve](http://curve.com/)
-Dec 2020 - Present, London, UK
+Dec 2020 - Mar 2023, London, UK
+
+Technologies used: Kotlin, Coroutines, MVI, MVVM, Koin
 
 ### Android Engineer @ [Peak Brain Training](https://www.peak.net/)
 Jan 2019 - Dec 2020, London, UK
