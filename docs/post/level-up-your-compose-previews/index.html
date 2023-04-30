@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-theme="">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>Level up your Compose Previews - Giorgos Neokleous</title>
+<meta name="description" content="Giorgos Neokleous&#39;s stories about Android Development and Programming!">
+
+<link rel="icon" type="image/x-icon" href="https://www.giorgosneokleous.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://www.giorgosneokleous.com/favicon.png">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/light.css?rnd=1682853346" />
+<style>
+
+    [data-theme="dark"] {   
+        --font-color: #eee;
+--bg-color: #212121;
+
+--link-color:#599ada;
+--link-state-color:#ff5858;
+--link-state-border-color: rgba(238, 54, 54, 0.5);
+
+--thead-bg-color: #343a40;
+--table-border-color: lightgrey;
+
+--pre-color: #333;
+--pre-bg-color: #f1f1f1;
+
+--bq-color: #ccc;
+--hr-color: #333;
+
+--pagination-bg-color: #373737;
+--pagination-link-color: #b6b6b6;
+
+--post-info-color: grey;
+
+--switcher-color: #333;
+--switcher-bg-color: #fff;
+
+
+
+    }
+
+</style>
+
+<link rel="stylesheet" href="https://www.giorgosneokleous.com/css/style.css?rnd=1682853346" />
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/cookie-notice.css" />
+
+
+
+<meta property="og:title" content="Level up your Compose Previews" />
+<meta property="og:description" content="Learn how to use @PreviewParameter to provide have re-usable preview data in your composables." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.giorgosneokleous.com/post/level-up-your-compose-previews/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-04-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-04-30T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Level up your Compose Previews"/>
+<meta name="twitter:description" content="Learn how to use @PreviewParameter to provide have re-usable preview data in your composables."/>
+
+
+
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-84803609-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+    
+</head>
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header class="common-header"> 
+            
+                <h1 class="site-title">
+    <a href="/">Giorgos Neokleous</a>
+</h1>
+
+    <nav>
+        
+        
+        <a class="" href="https://www.giorgosneokleous.com/about/" title=""> <span>about</span></a>
+        
+        <a class="" href="https://www.giorgosneokleous.com/posts/" title=""> <span>blog</span></a>
+        
+        <a class="" href="https://twitter.com/neokleoys2005" title=""><i class='fa fa-twitter'></i> <span></span></a>
+        
+        <a class="" href="https://www.linkedin.com/in/giorgos-neokleous/" title=""><i class='fa fa-linkedin'></i> <span></span></a>
+        
+        <a class="" href="https://github.com/giorgosneokleous93/" title=""><i class='fa fa-github-square'></i> <span></span></a>
+        
+        <a class="" href="https://stackoverflow.com/users/3330058/giorgos-neokleous" title=""><i class='fa fa-stack-overflow'></i> <span></span></a>
+        
+    </nav>
+
+
+            
+        </header>
+        <main id="main" tabindex="-1"> 
+            
+    
+    
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">Level up your Compose Previews</h1>
+        </header>
+        <div class="content">
+            <p>This should be a quick blog post about <a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewParameter">@PreviewParameter</a> in Jetpack Compose. This annotation allows us to provide a class called <a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewParameterProvider">PreviewParameterProvider</a>. The <code>PreviewParameterProvider</code> is responsible for providing data to our previews in jetpack compose.</p>
+<p><strong>Setup</strong></p>
+<p>We are going to use the basic hello world from the Android Studio Wizard.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#a6e22e">@Composable</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">Greeting</span>(name: String, modifier: Modifier = Modifier) {
+</span></span><span style="display:flex;"><span>    Text(
+</span></span><span style="display:flex;"><span>        text = <span style="color:#e6db74">&#34;Hello </span><span style="color:#e6db74">$name</span><span style="color:#e6db74">!&#34;</span>,
+</span></span><span style="display:flex;"><span>        modifier = modifier
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If we want to preview this so that we get instant feedback then we will do something like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#a6e22e">@Preview</span>(showBackground = <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Composable</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">GreetingPreview</span>() {
+</span></span><span style="display:flex;"><span>    ComposePreviewsTheme {
+</span></span><span style="display:flex;"><span>        Greeting(<span style="color:#e6db74">&#34;world&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="result">Result</h2>
+<p><img src="/posts/level-up-your-compose-previews-screenshot-1.png" alt="Result of Setup"></p>
+<h1 id="previewparameter">PreviewParameter</h1>
+<h2 id="create-a-previewparameterprovider">Create a PreviewParameterProvider</h2>
+<p>The <code>PreviewParameterProvider</code> returns a collection of <code>values</code>, each value will be its own Preview render.</p>
+<h3 id="provider">Provider</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GreetingPreviewParameter</span> : PreviewParameterProvider&lt;String&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">val</span> values: Sequence&lt;String&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">get</span>() = sequenceOf(<span style="color:#e6db74">&#34;Android&#34;</span>, <span style="color:#e6db74">&#34;Giorgos&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="composable">Composable</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#a6e22e">@Preview</span>(showBackground = <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Composable</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">GreetingPreview</span>(<span style="color:#a6e22e">@PreviewParameter</span>(GreetingPreviewParameter<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>) name: String) {
+</span></span><span style="display:flex;"><span>    ComposePreviewsTheme {
+</span></span><span style="display:flex;"><span>        Greeting(name)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}    
+</span></span></code></pre></div><h3 id="result-1">Result</h3>
+<p><img src="/posts/level-up-your-compose-previews-screenshot-2.png" alt="Result of PreviewParameter"></p>
+<h1 id="previewparameter-with-custom-types">PreviewParameter with Custom Types</h1>
+<h2 id="setup">Setup</h2>
+<p>Imagine that we have our own type called <code>ThemePark</code> with a name and a capacity.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ThemePark</span>(<span style="color:#66d9ef">val</span> name: String, <span style="color:#66d9ef">val</span> capacity: Int)
+</span></span></code></pre></div><p>Our composable for showing the information about a ThemePark.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#a6e22e">@Composable</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">ThemeParkDetails</span>(themePark: ThemePark, modifier: Modifier = Modifier) {
+</span></span><span style="display:flex;"><span>    Column(modifier = modifier) {
+</span></span><span style="display:flex;"><span>        Text(text = <span style="color:#e6db74">&#34;Name: </span><span style="color:#e6db74">${themePark.name}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>        Text(text = <span style="color:#e6db74">&#34;Capacity: </span><span style="color:#e6db74">${themePark.capacity}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="previews">Previews</h2>
+<p>Then our previews with a <code>PreviewParameterProvider</code> will look like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ThemeParkPreviewProvider</span> : PreviewParameterProvider&lt;ThemePark&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">val</span> values: Sequence&lt;ThemePark&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">get</span>() = sequenceOf(
+</span></span><span style="display:flex;"><span>            ThemePark(name = <span style="color:#e6db74">&#34;Fun Theme Park&#34;</span>, capacity = <span style="color:#ae81ff">300</span>),
+</span></span><span style="display:flex;"><span>            ThemePark(name = <span style="color:#e6db74">&#34;Hollywood Theme Park&#34;</span>, capacity = <span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Finally our preview composable will be:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#a6e22e">@Preview</span>(showBackground = <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Composable</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">ThemeParkPreview</span>(<span style="color:#a6e22e">@PreviewParameter</span>(ThemeParkPreviewProvider<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>) themePark: ThemePark) {
+</span></span><span style="display:flex;"><span>    ComposePreviewsTheme {
+</span></span><span style="display:flex;"><span>        ThemeParkDetails(themePark)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="result-2">Result</h2>
+<p><img src="/posts/level-up-your-compose-previews-screenshot-3.png" alt="Result of custom type"></p>
+<h1 id="conclusion">Conclusion</h1>
+<p>I hope you enjoyed this short blog post about <code>PreviewParameter</code>.</p>
+<p>Feel free to ping me on <a href="https://twitter.com/neokleoys2005">twitter</a>.</p>
+<p>Till next time! 👋</p>
+
+        </div>
+        
+
+    
+
+
+<div class="post-info">
+    
+        <div class="post-date">2023-04-30</div>
+    
+    <div class="post-taxonomies">
+        
+            
+    </div>
+</div>
+
+    </article>
+
+    
+        
+    <div class="pagination post-pagination">
+        <div class="left pagination-item disabled">
+            
+        </div>
+        <div class="right pagination-item ">
+            
+                <a href="/post/kotlin-coroutines-testing-tips/">Kotlin&#39;s Coroutines Testing Tips</a>
+            
+        </div>
+    </div>
+
+    
+
+    
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "www-giorgosneokleous-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+
+        </main>
+        
+            <footer class="common-footer">
+    
+    
+
+    <div class="common-footer-bottom">
+        
+            
+            <ul class="footer-menu">
+            
+            <li><a class="" href="https://www.giorgosneokleous.com/privacy-policy/" title=""><i class='fa fa-cookie-bite'></i> <span>Privacy Policy</a></li>
+            
+            <li><a class="" href="https://www.giorgosneokleous.com/terms-and-conditions/" title=""><i class='fa fa-book-open'></i> <span>Terms and Conditions</a></li>
+            
+            </ul>
+        
+        <div class="copyright">
+            <p>© Giorgos Neokleous, 2023<br>
+            Powered by <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
+            </p>  
+        </div> 
+
+        
+
+    
+
+
+
+    <button class="theme-switcher">
+        Dark theme
+    </button>
+
+    <script>
+    const STORAGE_KEY = 'user-color-scheme'
+    const defaultTheme = "dark"
+
+    let currentTheme
+    let switchButton
+    let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+    const autoChangeScheme = e => {
+        currentTheme = e.matches ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', currentTheme)
+        changeButtonText()
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        switchButton = document.querySelector('.theme-switcher')
+        currentTheme = detectCurrentScheme()
+        if (currentTheme == 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark')
+        }
+        if (currentTheme == 'auto') {
+            autoChangeScheme(autoDefinedScheme);
+            autoDefinedScheme.addListener(autoChangeScheme);
+        }
+        changeButtonText()
+        switchButton.addEventListener('click', switchTheme, false)
+    })
+
+    function detectCurrentScheme() {
+        if (localStorage.getItem(STORAGE_KEY)) {
+            return localStorage.getItem(STORAGE_KEY)
+        } 
+        if (defaultTheme) {
+            return defaultTheme
+        } 
+        if (!window.matchMedia) {
+            return 'light'
+        } 
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark'
+        }
+        return 'light'
+    }
+
+    function changeButtonText()
+    {   
+        switchButton.textContent = currentTheme == 'dark' ?  "Light theme" : "Dark theme"
+    }
+
+    function switchTheme(e) {
+        if (currentTheme == 'dark') {
+            localStorage.setItem(STORAGE_KEY, 'light')
+            document.documentElement.setAttribute('data-theme', 'light')
+            currentTheme = 'light'
+        } else {
+            localStorage.setItem(STORAGE_KEY, 'dark')
+            document.documentElement.setAttribute('data-theme', 'dark')
+            currentTheme = 'dark'
+        }
+        changeButtonText()
+    }
+    </script>
+   
+    </div>
+</footer>
+
+        
+    </div>
+</body>
+</html>
