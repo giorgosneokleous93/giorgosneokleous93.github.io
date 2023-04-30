@@ -1,0 +1,45 @@
+---
+title: "Level up your Compose Previews"
+description: "Learn how to use @PreviewParameter to provide have re-usable preview data in your composables."
+date: "2023-04-30"
+aliases:
+  - "/2023/04/30/level-up-your-compose-previews/"
+author: "Giorgos Neokleous"
+---
+
+This should be a quick blog post about [@PreviewParameter](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewParameter) in Jetpack Compose. This annotation allows us to provide a class called [PreviewParameterProvider](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewParameterProvider). The `PreviewParameterProvide` is responsible for providing data to our previews in jetpack compose. 
+
+**Setup**
+
+We are going to use the basic hello world from the Android Studio Wizard. 
+
+```kotlin
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "Hello $name!",
+        modifier = modifier
+    )
+}
+```
+
+If we want to preview this so that we get instant feedback then we will do something like: 
+
+```kotlin
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    ComposePreviewsTheme {
+        Greeting("world")
+    }
+}
+```
+
+### Conclusion
+Documenting XML attributes for your custom views is as simple as attaching an XML comment using the `<!-- comment -->`.
+
+In my opinion, documentation is not always needed. If something is self-describing then you can afford to skip it. On the other hand, if something will be used by many others or does something that is not specified or described from the class, property or method name then it needs documentation.
+
+Feel free to ping me on [twitter](https://twitter.com/neokleoys2005).
+
+Till next time! 👋
