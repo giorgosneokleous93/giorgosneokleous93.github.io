@@ -8,7 +8,7 @@ author: "Giorgos Neokleous"
 disableComments: true
 ---
 
-Senior Software Engineer @ [Fanduel UK]([http://curve.com/](https://www.linkedin.com/company/fanduel-uk/))
+Stagg Software Engineer @ [Fanduel UK](https://www.linkedin.com/company/fanduel-uk/)
 
 <giorgos.neokleous93@gmail.com> | [www.giorgosneokleous.com](http://www.giorgosneokleous.com)
 
@@ -16,8 +16,11 @@ Senior Software Engineer @ [Fanduel UK]([http://curve.com/](https://www.linkedin
 
 ---
 
-### Senior Software Engineer @ [Fanduel UK]([http://curve.com/](https://www.linkedin.com/company/fanduel-uk/))
-Mar 2023 - Present, Remote UK
+### Staff Software Engineer @ [Fanduel UK](https://www.linkedin.com/company/fanduel-uk/)
+Aug 2024 - Present, Remote UK
+
+### Senior Software Engineer @ [Fanduel UK](https://www.linkedin.com/company/fanduel-uk/)
+Mar 2023 - Aug 2024, Remote UK
 
 ### Mobile Engineer (Android) @ [Curve](http://curve.com/)
 Dec 2020 - Mar 2023, London, UK
