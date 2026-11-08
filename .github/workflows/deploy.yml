@@ -17,6 +17,9 @@ jobs:
      
       - name: Hugo setup
         uses: peaceiris/actions-hugo@v3.0.0
+        with:
+          hugo-version: '0.111.3'
+          extended: true
       
       - name: Deploy Website
         run: |
